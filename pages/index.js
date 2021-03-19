@@ -21,7 +21,7 @@ export default function Home() {
           />
           <div className={styles.nameTitleWrapper}>
             <span className={styles.nameTitle}>Noel Torres</span>
-            <h2 className={styles.title}>Font&#8208;end Designer</h2>
+            <h2 className={styles.title}>Front&#8208;end Designer</h2>
           </div>
           <ul className={styles.socialList}>
             <li className={styles.socialListItem}>

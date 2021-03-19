@@ -32,8 +32,8 @@
   display: inline-block;
   font-size: 0.65em;
   font-weight: 300;
-  background-color: rgb(185, 79, 255);
-  color: #222;
+  background-color: rgb(52, 98, 115);
+  color: #fff;
   padding: 1px 5px;
 }
 
@@ -42,8 +42,6 @@
   font-size: 2em;
   text-transform: uppercase;
   z-index: 500;
-  padding-bottom: 8px;
-  border-bottom: #d8d8d8 solid 1px;
 }
 
 .socialList {
@@ -60,8 +58,8 @@
 }
 
 .socialListItem a {
-  color: rgb(185, 79, 255);
+  color: #b6fff4;
 }
 .socialListItem a:hover {
-  color: rgb(140, 32, 212);
+  color: #6ed4c5;
 }
