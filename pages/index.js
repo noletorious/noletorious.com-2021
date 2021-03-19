@@ -28,10 +28,13 @@ export default function Home() {
               <a href="//github.com/noletorious">Github</a>
             </li>
             <li className={styles.socialListItem}>
-              <a href="//linkedin.com/noletorious">Linkedin</a>
+              <a href="//linkedin.com/in/noletorious">Linkedin</a>
             </li>
             <li className={styles.socialListItem}>
               <a href="//dribbble.com/noletorious">Dribbble</a>
+            </li>
+            <li className={styles.socialListItem}>
+              <a href="mailto:hello@noletorious.com">Email</a>
             </li>
           </ul>
         </main>
