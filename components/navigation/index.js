@@ -14,9 +14,12 @@ const NavUnorderedList = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid gray;
 `;
 const NavUnorderedItem = styled.li`
-  margin-left: 1em;
+  margin: 0;
 `;
 
 export default function Navigation() {

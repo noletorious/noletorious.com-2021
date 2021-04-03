@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useDarkMode } from "next-dark-mode";
 import styled from "styled-components";
 
@@ -24,34 +23,13 @@ export default function DarkModeToggle() {
     if (text === "Dark") switchToDarkMode();
     if (text === "Light") switchToLightMode();
   };
-
-  // <>
-  //   <div className="switch">
-  //     {["Auto", "Dark", "Light"].map((text, index) => (
-  //       <Fragment key={index}>
-  //         <input
-  //           checked={findActive(text.toLowerCase())}
-  //           id={`_${index}`}
-  //           name="switch"
-  //           onChange={() => toggleMode(text)}
-  //           type="radio"
-  //         />
-  //         <label className="switch__label" htmlFor={`_${index}`}>
-  //           {text}
-  //         </label>
-  //       </Fragment>
-  //     ))}
-  //   </div>
-  //   <div className="switch__indicator" />
-  // </>
-
   const modesArray = ["Auto", "Dark", "Light"];
 
   return (
     <>
       {modesArray.map((mode, i) => (
-        <ActivateNextMode onClick={() => toggleMode(mode.toLowerCase())}>
-          <Fragment key={i}>{mode}</Fragment>
+        <ActivateNextMode key={i} onClick={() => toggleMode(mode)}>
+          {mode}
         </ActivateNextMode>
       ))}
     </>
