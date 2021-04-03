@@ -1,7 +1,7 @@
 import NextHead from "next/head";
 import { GoogleFonts } from "next-google-fonts";
 
-export default function Head({ title, keywords, description }) {
+export default function Head({ title }) {
   return (
     <>
       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Maven+Pro:wght@400;500;600;700&display=swap" />
