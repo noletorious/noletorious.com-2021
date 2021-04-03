@@ -1,3 +1,12 @@
+:root {
+  --lightBg: ##fff;
+  --darkBg: #10171d;
+  --lightAccent1: #ff657c;
+  --darkAccent1: #b6fff4;
+  --lightText: #333;
+  --darkText: #fff;
+}
+
 html,
 body,
 #__next {
@@ -20,6 +29,25 @@ body,
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Darkmode + Lightmode */
+
+.dark {
+  background-color: var(--darkBg);
+  color: var(--darkText);
+}
+.dark > a {
+  color: var(--darkAccent1);
+}
+
+.light {
+  background-color: var(--lightBg);
+  color: var(--lightText);
+}
+
+.light > a {
+  color: var(--lightAccent1);
 }
 
 /* */

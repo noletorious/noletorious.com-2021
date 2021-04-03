@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Nav = styled.div`
   display: flex;
-  flex: 0 1 50px;
+  flex: 0 1 100px;
   height: 100%;
 `;
 

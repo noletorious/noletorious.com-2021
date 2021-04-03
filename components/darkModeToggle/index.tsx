@@ -49,11 +49,11 @@ export default function DarkModeToggle() {
 
   return (
     <>
-      <ActivateNextMode onClick={() => toggleMode()}>
-        {modesArray.map((mode, i) => (
+      {modesArray.map((mode, i) => (
+        <ActivateNextMode onClick={() => toggleMode(mode.toLowerCase())}>
           <Fragment key={i}>{mode}</Fragment>
-        ))}
-      </ActivateNextMode>
+        </ActivateNextMode>
+      ))}
     </>
   );
 }
