@@ -1,10 +1,9 @@
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .main {
@@ -26,15 +25,6 @@
   display: block;
   z-index: 9;
   margin: 0;
-}
-
-.nameTitle {
-  display: inline-block;
-  font-size: 0.65em;
-  font-weight: 300;
-  background-color: rgb(52, 98, 115);
-  color: #fff;
-  padding: 1px 5px;
 }
 
 .nameTitleWrapper {

@@ -1,26 +1,28 @@
-import Head from "next/head";
 import Image from "next/image";
+import Head from "../components/head";
 import styles from "../styles/Home.module.css";
+import styled from "styled-components";
+import NoelBg from "../components/homePageBackground";
 
-export default function Home() {
+const NameTitle = styled.span`
+  font-family: monospace;
+  display: inline-block;
+  font-size: 0.65em;
+  font-weight: 300;
+  background-color: ${(props) => props.theme.accent1};
+  color: #fff;
+  padding: 1px 5px;
+`;
+
+export default function Home({ props }) {
   return (
     <>
-      <Head>
-        <title>Noel Torres Portfolio - Be right back!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head />
+      <NoelBg />
       <div className={styles.container}>
         <main className={styles.main}>
-          <Image
-            src="/noel-trimet-square.jpg"
-            layout="intrinsic"
-            width={400}
-            height={400}
-            alt="Noel Torres"
-            className={styles.profilepic}
-          />
           <div className={styles.nameTitleWrapper}>
-            <span className={styles.nameTitle}>Noel Torres</span>
+            <NameTitle>Noel Torres</NameTitle>
             <h2 className={styles.title}>Front&#8208;end Designer</h2>
           </div>
           <ul className={styles.socialList}>
