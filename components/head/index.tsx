@@ -9,8 +9,7 @@ export default function Head({ title, keywords, description }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta description={description} name="description" />
-        <meta keywords={keywords} name="keywords" />
+        //TODO: add in dynamic keyword and description meta tags
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </NextHead>
