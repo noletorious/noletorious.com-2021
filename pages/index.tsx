@@ -17,13 +17,13 @@ const NameTitle = styled.span`
 export default function Home({ props }) {
   return (
     <>
-      <Head />
+      <Head title="Fullstack Designer - Noel Torres" />
       <NoelBg />
       <div className={styles.container}>
         <main className={styles.main}>
           <div className={styles.nameTitleWrapper}>
             <NameTitle>Noel Torres</NameTitle>
-            <h2 className={styles.title}>Front&#8208;end Designer</h2>
+            <h2 className={styles.title}>Fullstack Designer</h2>
           </div>
           <ul className={styles.socialList}>
             <li className={styles.socialListItem}>
