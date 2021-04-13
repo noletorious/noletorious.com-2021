@@ -5,8 +5,6 @@ import styled from "styled-components";
 
 const Nav = styled.div`
   display: flex;
-  flex: 0 1 100px;
-  height: 100%;
 `;
 
 const NavUnorderedList = styled.ul`
@@ -17,6 +15,7 @@ const NavUnorderedList = styled.ul`
   justify-content: center;
   text-align: center;
   border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
 `;
 const NavUnorderedItem = styled.li`
   margin: 0;

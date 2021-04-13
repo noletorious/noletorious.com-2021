@@ -1,7 +1,7 @@
 import { useDarkMode } from "next-dark-mode";
 import styled from "styled-components";
 
-const ActivateNextMode = styled.button``;
+const NextModeButton = styled.button``;
 
 export default function DarkModeToggle() {
   const {
@@ -23,15 +23,21 @@ export default function DarkModeToggle() {
     if (text === "Dark") switchToDarkMode();
     if (text === "Light") switchToLightMode();
   };
+
+  const ActivateNextButton = () => {};
+
   const modesArray = ["Auto", "Dark", "Light"];
 
   return (
     <>
-      {modesArray.map((mode, i) => (
-        <ActivateNextMode key={i} onClick={() => toggleMode(mode)}>
-          {mode}
-        </ActivateNextMode>
-      ))}
+      {modesArray.map((mode, i) => {
+        const current = modesArray.indexOf(mode);
+        return (
+          <NextModeButton key={i} onClick={() => toggleMode(mode)}>
+            {mode} <div className="switch__indicator" />
+          </NextModeButton>
+        );
+      })}
     </>
   );
 }
