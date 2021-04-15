@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Nav = styled.div`
   display: flex;
+  position: absolute;
 `;
 
 const NavUnorderedList = styled.ul`

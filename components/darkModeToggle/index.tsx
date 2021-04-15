@@ -12,31 +12,37 @@ export default function DarkModeToggle() {
     switchToLightMode,
   } = useDarkMode();
 
-  const findActive = (text: string): boolean => {
-    if (autoModeActive) return text === "Auto";
-    else if (darkModeActive) return text === "Dark";
-    else return text === "light";
-  };
-
-  const toggleMode = (text: string) => {
-    if (text === "Auto") switchToAutoMode();
-    if (text === "Dark") switchToDarkMode();
-    if (text === "Light") switchToLightMode();
-  };
-
-  const ActivateNextButton = () => {};
-
   const modesArray = ["Auto", "Dark", "Light"];
+
+  const findActive = (text: string) => {
+    if (autoModeActive) text = "Auto";
+    else if (darkModeActive) text = "Dark";
+    else text = "Light";
+    return text;
+  };
+
+  function activateNextButton(currentMode: string) {
+    if (currentMode === "Auto") switchToDarkMode();
+    if (currentMode === "Dark") switchToLightMode();
+    if (currentMode === "Light") switchToAutoMode();
+  }
 
   return (
     <>
       {modesArray.map((mode, i) => {
-        const current = modesArray.indexOf(mode);
-        return (
-          <NextModeButton key={i} onClick={() => toggleMode(mode)}>
-            {mode} <div className="switch__indicator" />
-          </NextModeButton>
-        );
+        const currentMode = findActive(mode);
+        if (mode === currentMode) {
+          return (
+            <NextModeButton
+              key={i}
+              onClick={() => {
+                activateNextButton(currentMode);
+              }}
+            >
+              {currentMode}
+            </NextModeButton>
+          );
+        }
       })}
     </>
   );
