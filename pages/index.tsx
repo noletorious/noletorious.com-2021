@@ -12,10 +12,12 @@ const Container = styled.div`
   }
 `;
 
+const NameTitleWrapper = styled.div`
+  display: flex;
+`;
+
 const NameTitle = styled.span`
   font-family: monospace;
-  display: inline-block;
-  flex: 0 0 10px;
   font-size: 0.65em;
   font-weight: 300;
   background-color: ${(props) => props.theme.accent1};
@@ -28,13 +30,19 @@ const NameColumn = styled.div`
   flex: 1 1 auto;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const ProjectsColumn = styled.div`
   display: flex;
-  flex: 1 1 auto;
+  flex: 2 1 auto;
   background-color: ${(props) => props.theme.bgReverse};
   flex-direction: column;
+  padding: 0 4em;
+  @media (min-width: 768px) {
+    flex: 1 1 auto;
+    padding: 0 2em;
+  }
 `;
 
 const JobTitle = styled.div`
@@ -46,7 +54,9 @@ const JobTitle = styled.div`
 const ProjectSectionTitle = styled.h3`
   color: ${(props) => props.theme.muted};
 `;
+
 const ProjectUnorderList = styled.ul``;
+
 const ProjectItem = styled.li`
   color: ${(props) => props.theme.fontColorReverse};
 `;
@@ -57,7 +67,9 @@ export default function Home({ props }) {
       <Head title="Fullstack Designer - Noel Torres" />
       <Container>
         <NameColumn>
-          <NameTitle>Noel Torres</NameTitle>
+          <NameTitleWrapper>
+            <NameTitle>Noel Torres</NameTitle>
+          </NameTitleWrapper>
           <JobTitle>Fullstack Designer</JobTitle>
         </NameColumn>
         <ProjectsColumn>
