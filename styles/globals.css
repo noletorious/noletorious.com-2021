@@ -5,6 +5,13 @@
   --darkAccent1: #b6fff4;
   --lightText: #333;
   --darkText: #fff;
+  --transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1); /* ease (default) */
+  --transition-timing-function: cubic-bezier(
+    0.25,
+    0.1,
+    0.25,
+    1
+  ); /* ease (default) */
 }
 
 html,
@@ -36,16 +43,24 @@ a {
 .dark {
   background-color: var(--darkBg);
   color: var(--darkText);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }
 .dark > a {
   color: var(--darkAccent1);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .light {
   background-color: var(--lightBg);
   color: var(--lightText);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .light > a {
   color: var(--lightAccent1);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }

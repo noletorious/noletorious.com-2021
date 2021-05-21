@@ -2,25 +2,39 @@ import DarkModeToggle from "../darkModeToggle";
 import { useDarkMode } from "next-dark-mode";
 import Link from "next/link";
 import styled from "styled-components";
+import { faUser, faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { prependOnceListener } from "process";
 
 const Nav = styled.div`
   display: flex;
-  position: absolute;
+  flex: 0 1 auto;
+  height: 50px;
+  align-items: center;
+  @media (min-width: 768px) {
+    position: absolute;
+  }
 `;
 
 const NavUnorderedList = styled.ul`
   flex: 0 1 auto;
   padding: 0;
   margin: 0;
-  list-style: none;
+  list-style-type: none;
   justify-content: center;
   text-align: center;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
 `;
 const NavUnorderedItem = styled.li`
-  margin: 0;
+  margin: 10px;
+  float: left;
+  &:hover {
+    cursor: pointer;
+  }
 `;
+
+const fontAwesomeStyles = {
+  color: `${(props) => props.muted}`,
+};
 
 export default function Navigation() {
   const { darkModeActive } = useDarkMode();
@@ -29,12 +43,16 @@ export default function Navigation() {
       <NavUnorderedList>
         <NavUnorderedItem>
           <Link href="/">
-            <a> Home</a>
+            <FontAwesomeIcon size="lg" icon={faHome} />
           </Link>
         </NavUnorderedItem>
         <NavUnorderedItem>
           <Link href="/about">
-            <a>About</a>
+            <FontAwesomeIcon
+              size="lg"
+              icon={faUser}
+              style={fontAwesomeStyles}
+            />
           </Link>
         </NavUnorderedItem>
         <NavUnorderedItem>

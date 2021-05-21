@@ -1,7 +1,17 @@
 import { useDarkMode } from "next-dark-mode";
 import styled from "styled-components";
 
-const NextModeButton = styled.button``;
+const NextModeButton = styled.div`
+  background-image: url("/${(props) => props.mode}.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 24px;
+  width: 24px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export default function DarkModeToggle() {
   const {
@@ -31,16 +41,16 @@ export default function DarkModeToggle() {
     <>
       {modesArray.map((mode, i) => {
         const currentMode = findActive(mode);
+        console.log(currentMode);
         if (mode === currentMode) {
           return (
             <NextModeButton
+              mode={currentMode.toLowerCase()}
               key={i}
               onClick={() => {
                 activateNextButton(currentMode);
               }}
-            >
-              {currentMode}
-            </NextModeButton>
+            />
           );
         }
       })}

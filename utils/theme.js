@@ -1,6 +1,6 @@
 const dark = {
-  bg: "#10171d",
-  bgReverse: "#fff",
+  bg1: "#10171d",
+  bg2: "#def4ef",
   fontColor: "#fff",
   fontColorReverse: "#222",
   accent1: "#ff8497",
@@ -9,13 +9,12 @@ const dark = {
 };
 
 const light = {
-  bg: "#fff",
-  bgReverse: "#10171d",
+  bg1: "#def4ef",
+  bg2: "#ffe1e6",
   fontColor: "#222",
-  fontColorReverse: "#fff",
-  accent1: "#ff8497",
+  fontColorReverse: "#222",
   accent1: "rgb(52, 98, 115)",
-  muted: "#e3e3e3",
+  muted: "#222",
   accent1reverse: "#ff8497",
 };
 
