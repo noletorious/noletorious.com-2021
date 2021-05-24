@@ -4,7 +4,7 @@ const dark = {
   fontColor: "#fff",
   fontColorReverse: "#222",
   accent1: "#ff8497",
-  muted: "#868a8a",
+  muted: "rgba(0,0,0,.3)",
   accent1reverse: "rgb(52, 98, 115)",
 };
 
@@ -14,7 +14,7 @@ const light = {
   fontColor: "#222",
   fontColorReverse: "#222",
   accent1: "rgb(52, 98, 115)",
-  muted: "#222",
+  muted: "rgba(0,0,0,.3)",
   accent1reverse: "#ff8497",
 };
 

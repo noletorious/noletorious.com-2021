@@ -5,8 +5,8 @@ const NextModeButton = styled.div`
   background-image: url("/${(props) => props.mode}.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 24px;
-  width: 24px;
+  height: 22px;
+  width: 22px;
   border: none;
   &:hover {
     cursor: pointer;
@@ -41,7 +41,6 @@ export default function DarkModeToggle() {
     <>
       {modesArray.map((mode, i) => {
         const currentMode = findActive(mode);
-        console.log(currentMode);
         if (mode === currentMode) {
           return (
             <NextModeButton

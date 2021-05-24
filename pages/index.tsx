@@ -86,6 +86,7 @@ const ProjectUnorderList = styled.ul`
 const ProjectItem = styled.li`
   color: ${(props) => props.theme.fontColorReverse};
   margin-bottom: 0.3em;
+  font-size: 1em;
 `;
 
 const ProjBlogButton = styled.span`
@@ -135,7 +136,7 @@ export default function Home({ props }) {
                 projectDisplayHandler();
               }}
             >
-              Project
+              Projects
             </ProjBlogButton>
             |
             <ProjBlogButton
