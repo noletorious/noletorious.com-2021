@@ -5,8 +5,8 @@ const NextModeButton = styled.div`
   background-image: url("/${(props) => props.mode}.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 22px;
-  width: 22px;
+  height: 32px;
+  width: 32px;
   border: none;
   &:hover {
     cursor: pointer;
