@@ -178,7 +178,7 @@ export default function Loader({ setLoading }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 300);
+    }, 3500);
     return () => clearTimeout(timer);
   }, []);
   return (

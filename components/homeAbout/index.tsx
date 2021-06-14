@@ -123,7 +123,6 @@ export default function HomeAbout({ current }) {
                       src={`/noel-trimet-square.jpg`}
                       width={200}
                       height={200}
-                      layoutId="noel"
                     />
                   </ImageWrapper>
                   <JobTitle>UI Designer</JobTitle>
@@ -135,7 +134,6 @@ export default function HomeAbout({ current }) {
                       src={`/noel-trimet-square.jpg`}
                       width={200}
                       height={200}
-                      layoutId="noel"
                     />
                   </ImageWrapper>
                 </About>
