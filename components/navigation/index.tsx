@@ -1,101 +1,165 @@
-import DarkModeToggle from "../darkModeToggle";
-import { useDarkMode } from "next-dark-mode";
-import Link from "next/link";
+import { useState } from "react";
 import styled from "styled-components";
-import { faUser, faHome } from "@fortawesome/free-solid-svg-icons";
+import { useDarkMode } from "next-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { prependOnceListener } from "process";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import DarkModeToggle from "../darkModeToggle";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Nlogo from "../nLogo";
+import Sparkles from "../sparkles";
 
-const Nav = styled.div`
+const Nav = styled.nav`
   display: flex;
-  flex: 0 1 auto;
-  height: 50px;
-  align-items: center;
-  @media (min-width: 768px) {
-    position: absolute;
-  }
 `;
 
-const NavUnorderedList = styled.ul`
-  flex: 0 1 auto;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  justify-content: center;
-  text-align: center;
+const InnerWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  flex-directtion: row;
+  padding-left: 10px;
 `;
-const NavUnorderedItem = styled.li`
-  margin: 10px;
-  float: left;
+
+const DarkModeWrapper = styled.a`
   &:hover {
     cursor: pointer;
   }
 `;
 
-const LabelPopup = styled.div`
-  opacity: 0;
-  position: absolute;
-  font-family: monospace;
-  font-size: 1em;
-  background: #fff;
-  color: #222;
-  border-radius: 0.2em;
-  padding: 0px 4px;
-  box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.1);
-  transition: transform 250ms;
-  &:before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 6px;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid #fff;
-    display: block;
-  }
-`;
-const LinkWrapper = styled.div`
-  &:hover + #${(props) => props.page} {
-    opacity: 1;
-    transform: translateY(10px);
+const chevronInitialVariants = {
+  initial: { rotate: 0, y: "0" },
+  animate: { rotate: 180 },
+  ontap: { y: "2px" },
+};
+
+const ChevronWrapper = styled(motion.div).attrs(({ listOpened, current }) => ({
+  variants: chevronInitialVariants,
+  initial: current === "/" ? "initial" : "animate",
+  animate: listOpened ? "animate" : "initial",
+  whileTap: "ontap",
+}))`
+  &:hover {
+    cursor: pointer;
   }
 `;
 
-export default function Navigation() {
-  const { darkModeActive, autoModeActive } = useDarkMode();
-  const findActive = () => {
-    if (autoModeActive) return "System";
-    else if (darkModeActive) return "Dark";
-    else return "Light";
-  };
+const homeButtonVariants = {
+  initial: { opacity: 1 },
+  hover: { scale: 1.1 },
+};
+
+const HomeButton = styled(motion.div).attrs({
+  initial: "initial",
+
+  variants: homeButtonVariants,
+})`
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const NavItem = styled.div`
+  margin: 1em;
+`;
+
+const bubbleVisibleVariants = {
+  initial: { y: "-10px", opacity: 0 },
+  animate: { y: "0", opacity: 1 },
+};
+const bubbleHiddenVariants = {
+  initial: { y: "0px", opacity: 1 },
+  animate: { y: "-10px", opacity: 0 },
+};
+
+const BubbleLinks = styled(motion.div).attrs((props) => ({
+  variants: props.listOpened ? bubbleVisibleVariants : bubbleHiddenVariants,
+  initial: "initial",
+  animate: "animate",
+  exit: "initial",
+}))`
+  display: flex;
+  flex: 1;
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  color: ${(props) => props.theme.black};
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+`;
+
+const BubbleUl = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+`;
+const BlogLi = styled.li`
+  color: #999;
+  text-decoration: ${(props) =>
+    props.currentPage === "/" ? "underline" : "none"};
+  margin: 10px 0;
+  &:hover {
+    cursor: default;
+  }
+`;
+const AboutLi = styled.li`
+  text-decoration: ${(props) =>
+    props.currentPage === "/about" ? "underline" : "none"};
+  margin: 10px 0;
+`;
+
+export default function Navigation({ currentPage }) {
+  const [pageList, setPageList] = useState(false);
+  const [hoverHomeButton, isHoveringHomeButton] = useState(false);
+  const { darkModeActive } = useDarkMode();
+
   return (
     <Nav>
-      <NavUnorderedList>
-        <NavUnorderedItem>
-          <LinkWrapper page="home">
-            <Link href="/">
-              <FontAwesomeIcon size="lg" icon={faHome} />
-            </Link>
-          </LinkWrapper>
-          <LabelPopup id="home">Home</LabelPopup>
-        </NavUnorderedItem>
-        <NavUnorderedItem>
-          <LinkWrapper page="about">
-            <Link href="/about">
-              <FontAwesomeIcon size="lg" icon={faUser} />
-            </Link>
-          </LinkWrapper>
-          <LabelPopup id="about">About</LabelPopup>
-        </NavUnorderedItem>
-        <NavUnorderedItem>
-          <LinkWrapper page={findActive()}>
+      <InnerWrapper>
+        <NavItem>
+          <Link href="/">
+            <HomeButton
+              onHoverStart={(e) => {
+                isHoveringHomeButton(true);
+              }}
+              onHoverEnd={(e) => isHoveringHomeButton(false)}
+            >
+              {hoverHomeButton ? (
+                <Sparkles>
+                  <Nlogo size={14} mode={darkModeActive} />
+                </Sparkles>
+              ) : (
+                <Nlogo size={14} mode={darkModeActive} />
+              )}
+            </HomeButton>
+          </Link>
+        </NavItem>
+        <NavItem>
+          <ChevronWrapper
+            onClick={() => {
+              setPageList(!pageList);
+            }}
+            listOpened={pageList}
+            current={currentPage}
+          >
+            <FontAwesomeIcon icon={faChevronDown} />
+          </ChevronWrapper>
+          {pageList && (
+            <BubbleLinks listOpened={pageList}>
+              <BubbleUl>
+                <AboutLi current={currentPage}>
+                  <Link href="/about">About</Link>
+                </AboutLi>
+                <BlogLi current={currentPage}>Blog</BlogLi>
+              </BubbleUl>
+            </BubbleLinks>
+          )}
+        </NavItem>
+        <NavItem>
+          <DarkModeWrapper>
             <DarkModeToggle />
-          </LinkWrapper>
-          <LabelPopup id={findActive()}>{findActive()}</LabelPopup>
-        </NavUnorderedItem>
-      </NavUnorderedList>
+          </DarkModeWrapper>
+        </NavItem>
+      </InnerWrapper>
     </Nav>
   );
 }

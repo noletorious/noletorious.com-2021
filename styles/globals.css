@@ -5,13 +5,13 @@
   --darkAccent1: #b6fff4;
   --lightText: #333;
   --darkText: #fff;
-  --transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1); /* ease (default) */
+  --transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1); /* ease-in-out **/
   --transition-timing-function: cubic-bezier(
-    0.25,
-    0.1,
-    0.25,
+    0.42,
+    0,
+    0.58,
     1
-  ); /* ease (default) */
+  ); /* ease-in-out */
 }
 
 html,

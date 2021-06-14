@@ -1,58 +1,78 @@
 import { useDarkMode } from "next-dark-mode";
 import styled from "styled-components";
-
-const NextModeButton = styled.div`
-  background-image: url("/${(props) => props.mode}.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 32px;
-  width: 32px;
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AnimateSharedLayout, motion } from "framer-motion";
 
 export default function DarkModeToggle() {
-  const {
-    autoModeActive,
-    darkModeActive,
-    switchToAutoMode,
-    switchToDarkMode,
-    switchToLightMode,
-  } = useDarkMode();
+  const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
 
-  const modesArray = ["Auto", "Dark", "Light"];
+  const modesArray = ["Dark", "Light"];
 
   const findActive = (text: string) => {
-    if (autoModeActive) text = "Auto";
-    else if (darkModeActive) text = "Dark";
+    if (darkModeActive) text = "Dark";
     else text = "Light";
     return text;
   };
 
   function activateNextButton(currentMode: string) {
-    if (currentMode === "Auto") switchToDarkMode();
     if (currentMode === "Dark") switchToLightMode();
-    if (currentMode === "Light") switchToAutoMode();
+    if (currentMode === "Light") switchToDarkMode();
   }
 
-  return (
-    <>
-      {modesArray.map((mode, i) => {
-        const currentMode = findActive(mode);
-        if (mode === currentMode) {
-          return (
-            <NextModeButton
-              mode={currentMode.toLowerCase()}
-              key={i}
+  const lightVariant = {
+    intial: { y: "50px", opacity: 0 },
+    animate: { y: "0", opacity: 1 },
+  };
+  const darkVariant = {
+    intial: { y: "-50px", opacity: 0 },
+    animate: { y: "0", opacity: 1 },
+  };
+
+  const ModeIcon = ({ mode }) => {
+    return (
+      <>
+        {mode === "Dark" ? (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={darkVariant}
+          >
+            <FontAwesomeIcon
+              icon={faMoon}
               onClick={() => {
-                activateNextButton(currentMode);
+                activateNextButton(mode);
               }}
             />
-          );
+          </motion.div>
+        ) : (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={lightVariant}
+          >
+            <FontAwesomeIcon
+              icon={faSun}
+              onClick={() => {
+                activateNextButton(mode);
+              }}
+            />
+          </motion.div>
+        )}
+      </>
+    );
+  };
+
+  return (
+    <nav>
+      {modesArray.map((mode) => {
+        const currentMode = findActive(mode);
+        if (mode === currentMode) {
+          return <ModeIcon mode={currentMode} key={currentMode} />;
         }
       })}
-    </>
+    </nav>
   );
 }

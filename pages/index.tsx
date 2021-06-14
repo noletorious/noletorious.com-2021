@@ -1,48 +1,37 @@
-import React from "react";
 import { Container } from "../components/scaffold";
-import DarkModeToggle from "../components/darkModeToggle";
-import { faLinkedin, faDribbble } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const SocialLinksWrapper = styled.div`
+const comingSoonVariants = {
+  initial: {
+    opacity: 0,
+    y: 10,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const CenterContent = styled.div`
   display: flex;
-  flex: 0 1 auto;
-  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
-const SocialLink = styled.a.attrs((props) => ({
-  href: props.link,
-}))`
-  color: ${(props) => props.theme.accent1};
-  margin-right: 0.4em;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export default function Homepage() {
+export default function ComingSoon() {
   return (
     <Container>
-      <DarkModeToggle />
-      <p>Making a better, stronger, faster portfolio.</p>
-      <span
-        style={{
-          opacity: 0.5,
-          fontSize: ".75em",
-          marginBottom: "1em",
-        }}
-      >
-        Come back 06•05•2021
-      </span>
-      <SocialLinksWrapper>
-        <SocialLink link="https://linkedin.com/in/noletorious">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SocialLink>
-        <SocialLink link="https://dribbble.com/noletorious">
-          <FontAwesomeIcon icon={faDribbble} />
-        </SocialLink>
-      </SocialLinksWrapper>
+      <CenterContent>
+        <motion.p
+          variants={comingSoonVariants}
+          initial="initial"
+          animate="animate"
+        >
+          Portfolio coming soon...
+        </motion.p>
+      </CenterContent>
     </Container>
   );
 }
