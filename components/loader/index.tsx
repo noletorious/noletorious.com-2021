@@ -3,6 +3,7 @@ import { Container } from "../scaffold";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { EASE, EASEIN } from ".././constants";
+import Sparkles from "../sparkles";
 
 const CenterContent = styled(motion.div)`
   background-color: ${(props) => props.theme.bg1};
@@ -178,7 +179,7 @@ export default function Loader({ setLoading }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3500);
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
   return (
@@ -188,7 +189,9 @@ export default function Loader({ setLoading }) {
         <RightBorder />
         <BottomBorder />
         <LeftBorder />
-        <AnimatedLetters title={`loading...`} />
+        <Sparkles>
+          <AnimatedLetters title={`loading...`} />
+        </Sparkles>
       </CenterContent>
     </Container>
   );

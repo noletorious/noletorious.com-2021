@@ -19,50 +19,23 @@ const ColumnRightDown = styled(motion.div)`
   width: 100%;
   padding: 0 2em;
   overflow: scroll;
-  background-color: ${(props) => props.theme.bg1};
+  background-color: ${(props) => props.theme.bg};
 `;
 
 const HomeAboutWrapper = styled.div`
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
+  flex-direction: column;
 `;
 
-const leftColumnAtHome = {
-  initial: {
-    width: "30vw",
-  },
-  animate: {
-    width: "50vw",
-    transition: {
-      ease: EASE,
-    },
-  },
-  exit: {
-    width: "30vw",
-  },
-};
-
-const leftColumnAtAbout = {
-  initial: {
-    width: "50vw",
-  },
-  animate: {
-    width: "30vw",
-    transition: {
-      ease: EASE,
-    },
-  },
-  exit: {
-    width: "50vw",
-  },
-};
-
 const LeftHelper = styled(motion.div).attrs((props) => ({
-  initial: "initial",
-  animate: "animate",
-  exit: "initial",
-  variants: props.currentPage === "/" ? leftColumnAtHome : leftColumnAtAbout,
+  initial: {
+    width: props.currentPage == "/" ? "50vw" : "30vw",
+  },
+  animate: {
+    width: props.currentPage == "/" ? "50vw" : "30vw",
+  },
 }))`
   display: none;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
@@ -84,16 +57,13 @@ const LeftHelperMobile = styled(motion.div).attrs((props) => ({
   }
 `;
 
-const Content = styled.div`
-  width: 100%;
-`;
-
-const ImageWrapper = styled.div`
-  margin: 0 2em;
-`;
-
-const FancyImage = styled(Image)`
+const ImageWrapper = styled(motion.div).attrs({
+  $layoutId: "noel",
+})`
   border-radius: 50%;
+  overflow: hidden;
+  width: 50%;
+  margin-left: 5em;
 `;
 
 const Home = styled(motion.div).attrs({})`
@@ -101,11 +71,18 @@ const Home = styled(motion.div).attrs({})`
   flex: 1;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const About = styled(motion.div).attrs({})``;
-const JobTitle = styled(motion.h1)`
+const JobTitle = styled(motion.h1).attrs({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 1 } },
+  exit: { opacity: 0 },
+})`
   font-size: 4em;
+  margin: -2em 0 0 0;
+  z-index: 1;
 `;
 
 export default function HomeAbout({ current }) {
@@ -115,30 +92,21 @@ export default function HomeAbout({ current }) {
         <Navigation currentPage={current} />
         <LeftHelper currentPage={current}>
           <HomeAboutWrapper>
-            <Content>
-              {current == "/" ? (
-                <Home>
-                  <ImageWrapper>
-                    <FancyImage
-                      src={`/noel-trimet-square.jpg`}
-                      width={200}
-                      height={200}
-                    />
-                  </ImageWrapper>
-                  <JobTitle>UI Designer</JobTitle>
-                </Home>
-              ) : current == "/about" ? (
-                <About>
-                  <ImageWrapper>
-                    <FancyImage
-                      src={`/noel-trimet-square.jpg`}
-                      width={200}
-                      height={200}
-                    />
-                  </ImageWrapper>
-                </About>
-              ) : null}
-            </Content>
+            <ImageWrapper>
+              <Image
+                src={`/noel-trimet-square.jpg`}
+                layout="responsive"
+                height="100%"
+                width="100%"
+              />
+            </ImageWrapper>
+            {current == "/" ? (
+              <Home>
+                <JobTitle>UI Designer</JobTitle>
+              </Home>
+            ) : current == "/about" ? (
+              <About></About>
+            ) : null}
           </HomeAboutWrapper>
         </LeftHelper>
 
@@ -147,7 +115,11 @@ export default function HomeAbout({ current }) {
         </LeftHelperMobile>
       </ColumnLeftUp>
       <ColumnRightDown>
-        <ListProjects />
+        {current == "/" ? (
+          <ListProjects />
+        ) : current == "/about" ? (
+          <p>about</p>
+        ) : null}
       </ColumnRightDown>
     </>
   );

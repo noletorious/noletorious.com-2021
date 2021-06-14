@@ -90,13 +90,14 @@ const BubbleLinks = styled(motion.div).attrs((props) => ({
 const BubbleUl = styled.ul`
   list-style: none;
   margin: 0;
-  padding: 0 20px;
+  padding: 0;
 `;
 const BlogLi = styled.li`
   color: #999;
   text-decoration: ${(props) =>
     props.currentPage === "/" ? "underline" : "none"};
   margin: 10px 0;
+  padding: 0 15px;
   &:hover {
     cursor: default;
   }
@@ -105,6 +106,7 @@ const AboutLi = styled.li`
   text-decoration: ${(props) =>
     props.currentPage === "/about" ? "underline" : "none"};
   margin: 10px 0;
+  padding: 0 15px;
 `;
 
 export default function Navigation({ currentPage }) {
