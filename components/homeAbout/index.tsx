@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
-import Navigation from "../navigation";
+import Navigation from "../navigation/";
 import { MOBILE_MIN_WIDTH, EASE } from "../constants";
 import { motion } from "framer-motion";
 import ListProjects from "../projects/listProjects";
@@ -45,25 +45,11 @@ const LeftHelper = styled(motion.div).attrs((props) => ({
   }
 `;
 
-const LeftHelperMobile = styled(motion.div).attrs((props) => ({
-  initial: "initial",
-  animate: "animate",
-  exit: "initial",
-  variants: null,
-}))`
+const LeftHelperMobile = styled(motion.div)`
   display: initial;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     display: none;
   }
-`;
-
-const ImageWrapper = styled(motion.div).attrs({
-  $layoutId: "noel",
-})`
-  border-radius: 50%;
-  overflow: hidden;
-  width: 50%;
-  margin-left: 5em;
 `;
 
 const Home = styled(motion.div).attrs({})`
@@ -74,15 +60,44 @@ const Home = styled(motion.div).attrs({})`
   flex-direction: column;
 `;
 
-const About = styled(motion.div).attrs({})``;
+const About = styled(motion.div).attrs({})`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+const ImageWrapper = styled(motion.div).attrs({
+  layoutId: "noel",
+})`
+  position: relative;
+  border-radius: 100%;
+  overflow: hidden;
+`;
 const JobTitle = styled(motion.h1).attrs({
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 1 } },
+  animate: { opacity: 1, y: 0, transition: { delay: 0.3 } },
   exit: { opacity: 0 },
 })`
   font-size: 4em;
   margin: -2em 0 0 0;
   z-index: 1;
+`;
+
+const social = [
+  { channel: "LinkedIn", link: "https://linkedin.com/in/noletorious" },
+  { channel: "Github", link: "https://github.com/noletorious" },
+  { channel: "Dribbble", link: "https://dribbble.com/noletorious" },
+];
+
+const SocialList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+const SocialItem = styled.li`
+  float: left;
+  margin: 0 0.5em;
 `;
 
 export default function HomeAbout({ current }) {
@@ -92,20 +107,34 @@ export default function HomeAbout({ current }) {
         <Navigation currentPage={current} />
         <LeftHelper currentPage={current}>
           <HomeAboutWrapper>
-            <ImageWrapper>
-              <Image
-                src={`/noel-trimet-square.jpg`}
-                layout="responsive"
-                height="100%"
-                width="100%"
-              />
-            </ImageWrapper>
             {current == "/" ? (
               <Home>
+                <ImageWrapper>
+                  <Image
+                    src={`/noel-trimet-square.jpg`}
+                    layout="intrinsic"
+                    height={300}
+                    width={300}
+                  />
+                </ImageWrapper>
                 <JobTitle>UI Designer</JobTitle>
               </Home>
             ) : current == "/about" ? (
-              <About></About>
+              <About>
+                <ImageWrapper>
+                  <Image
+                    src={`/noel-trimet-square.jpg`}
+                    layout="intrinsic"
+                    height={100}
+                    width={100}
+                  />
+                </ImageWrapper>
+                <SocialList>
+                  {social.map((s, idx) => {
+                    return <SocialItem key={idx}>{s.channel}</SocialItem>;
+                  })}
+                </SocialList>
+              </About>
             ) : null}
           </HomeAboutWrapper>
         </LeftHelper>

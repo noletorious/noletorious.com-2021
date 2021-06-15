@@ -13,6 +13,7 @@ const CenterContent = styled(motion.div)`
   justify-content: center;
   font-size: 2em;
   overflow: hidden;
+  position: relative;
 `;
 const bannerVariants = {
   initial: {},
@@ -76,7 +77,7 @@ const topBorderVariants = {
     scaleY: 1,
     transition: { duration: 0.5, ease: EASE },
   },
-  exit: { scaleY: 0, y: -20, transition: { duration: 1, ease: EASE } },
+  exit: { scaleY: 0, y: -10, transition: { duration: 1, ease: EASE } },
 };
 
 const TopBorder = styled(motion.div).attrs({
@@ -100,7 +101,7 @@ const rightBorderVariants = {
     scaleX: 1,
     transition: { delay: 0.5, duration: 1, ease: EASE },
   },
-  exit: { scaleX: 0, x: 20, transition: { duration: 1, ease: EASE } },
+  exit: { scaleX: 0, x: 10, transition: { duration: 1, ease: EASE } },
 };
 
 const RightBorder = styled(motion.div).attrs({
@@ -128,7 +129,7 @@ const bottomBorderVariants = {
     scaleY: 1,
     transition: { delay: 1, duration: 0.5, ease: EASE },
   },
-  exit: { scaleY: 0, y: 20, transition: { duration: 1, ease: EASE } },
+  exit: { scaleY: 0, y: 10, transition: { duration: 1, ease: EASE } },
 };
 const BottomBorder = styled(motion.div).attrs({
   variants: bottomBorderVariants,
@@ -151,7 +152,7 @@ const leftBorderVariants = {
     scaleX: 1,
     transition: { delay: 1.5, duration: 1, ease: EASE },
   },
-  exit: { scaleX: 0, x: -20, transition: { duration: 1, ease: EASE } },
+  exit: { scaleX: 0, x: -10, transition: { duration: 1, ease: EASE } },
 };
 const LeftBorder = styled(motion.div).attrs({
   variants: leftBorderVariants,
@@ -189,9 +190,7 @@ export default function Loader({ setLoading }) {
         <RightBorder />
         <BottomBorder />
         <LeftBorder />
-        <Sparkles>
-          <AnimatedLetters title={`loading...`} />
-        </Sparkles>
+        <AnimatedLetters title={`loading...`} />
       </CenterContent>
     </Container>
   );

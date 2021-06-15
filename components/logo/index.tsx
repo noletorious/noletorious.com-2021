@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export default function Nlogo({ size, mode }) {
+export default function Logo({ size, mode }) {
   const Path = styled(motion.path).attrs((props) => ({
     fill: props.theme.fontColor,
+    d: "M23.58,9.72h15.85l27.36,62.25L84.63,9.72H99L75.8,90.73H59.78L32.64,28.37l-17.9,62.37H0.38L23.58,9.72z",
   }))``;
 
   return (
@@ -19,7 +20,7 @@ export default function Nlogo({ size, mode }) {
       xmlSpace="preserve"
     >
       <g>
-        <Path d="M23.58,9.72h15.85l27.36,62.25L84.63,9.72H99L75.8,90.73H59.78L32.64,28.37l-17.9,62.37H0.38L23.58,9.72z" />
+        <Path />
       </g>
     </svg>
   );
