@@ -177,21 +177,21 @@ const AnimatedLetters = ({ title }) => (
 );
 
 export default function Loader({ setLoading }) {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, []);
   return (
-    <Container direction="column">
-      <CenterContent>
-        <TopBorder />
-        <RightBorder />
-        <BottomBorder />
-        <LeftBorder />
-        <AnimatedLetters title={`loading...`} />
-      </CenterContent>
-    </Container>
+    <motion.div>
+      <Container direction="column">
+        <CenterContent>
+          <TopBorder />
+          <RightBorder />
+          <BottomBorder />
+          <LeftBorder
+            onAnimationComplete={() => {
+              setLoading(false);
+            }}
+          />
+          <AnimatedLetters title={`loading...`} />
+        </CenterContent>
+      </Container>
+    </motion.div>
   );
 }

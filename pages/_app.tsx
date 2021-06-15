@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import withDarkMode, { useDarkMode, MODE } from "next-dark-mode";
 import Layout from "../components/layout";
 import { lightTheme, darkTheme } from "../utils/theme";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import Loader from "../components/loader/";
 import "../styles/globals.css";
 

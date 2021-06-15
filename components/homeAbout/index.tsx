@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,13 +6,12 @@ import Navigation from "../navigation/";
 import { MOBILE_MIN_WIDTH, EASE } from "../constants";
 import { motion } from "framer-motion";
 import ListProjects from "../projects/listProjects";
+import AboutNoelSection from "../aboutNoelSection";
 
 const ColumnLeftUp = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.theme.bg1};
-  @media (min-width: ${MOBILE_MIN_WIDTH}) {
-  }
+  background-color: ${(props) => props.theme.bg2};
 `;
 const ColumnRightDown = styled(motion.div)`
   display: flex;
@@ -45,12 +45,12 @@ const LeftHelper = styled(motion.div).attrs((props) => ({
   }
 `;
 
-const LeftHelperMobile = styled(motion.div)`
-  display: initial;
-  @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    display: none;
-  }
-`;
+// const LeftHelperMobile = styled(motion.div)`
+//   display: initial;
+//   @media (min-width: ${MOBILE_MIN_WIDTH}) {
+//     display: none;
+//   }
+// `;
 
 const Home = styled(motion.div).attrs({})`
   display: flex;
@@ -67,16 +67,14 @@ const About = styled(motion.div).attrs({})`
   justify-content: center;
   flex-direction: column;
 `;
-const ImageWrapper = styled(motion.div).attrs({
-  layoutId: "noel",
-})`
+const ImageWrapper = styled(motion.div).attrs({ layoutId: "noel" })`
   position: relative;
   border-radius: 100%;
   overflow: hidden;
 `;
 const JobTitle = styled(motion.h1).attrs({
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { delay: 0.3 } },
+  animate: { opacity: 1, y: 0, transition: { duration: 1 } },
   exit: { opacity: 0 },
 })`
   font-size: 4em;
@@ -101,13 +99,15 @@ const SocialItem = styled.li`
 `;
 
 export default function HomeAbout({ current }) {
+  const [aboutOrHome, setAboutOrHome] = useState(current);
+  console.log(aboutOrHome);
   return (
     <>
       <ColumnLeftUp>
-        <Navigation currentPage={current} />
+        <Navigation currentPage={current} navigateTo={setAboutOrHome} />
         <LeftHelper currentPage={current}>
           <HomeAboutWrapper>
-            {current == "/" ? (
+            {aboutOrHome == "/" ? (
               <Home>
                 <ImageWrapper>
                   <Image
@@ -119,16 +119,17 @@ export default function HomeAbout({ current }) {
                 </ImageWrapper>
                 <JobTitle>UI Designer</JobTitle>
               </Home>
-            ) : current == "/about" ? (
+            ) : aboutOrHome == "/about" ? (
               <About>
                 <ImageWrapper>
                   <Image
-                    src={`/noel-trimet-square.jpg`}
+                    src={`/noel.jpg`}
                     layout="intrinsic"
                     height={100}
                     width={100}
                   />
                 </ImageWrapper>
+                <p>Front-end / UI Design / Motion</p>
                 <SocialList>
                   {social.map((s, idx) => {
                     return <SocialItem key={idx}>{s.channel}</SocialItem>;
@@ -138,16 +139,16 @@ export default function HomeAbout({ current }) {
             ) : null}
           </HomeAboutWrapper>
         </LeftHelper>
-
+        {/* 
         <LeftHelperMobile currentPage={current}>
           <HomeAboutWrapper></HomeAboutWrapper>
-        </LeftHelperMobile>
+        </LeftHelperMobile> */}
       </ColumnLeftUp>
       <ColumnRightDown>
-        {current == "/" ? (
+        {aboutOrHome == "/" ? (
           <ListProjects />
-        ) : current == "/about" ? (
-          <p>about</p>
+        ) : aboutOrHome == "/about" ? (
+          <AboutNoelSection />
         ) : null}
       </ColumnRightDown>
     </>

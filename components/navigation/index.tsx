@@ -37,7 +37,7 @@ const HomeButton = styled(motion.div).attrs({
   }
 `;
 
-export default function Navigation({ currentPage }) {
+export default function Navigation({ currentPage, navigateTo }) {
   const darkModeActive = useDarkMode();
   const [hoverHomeButton, isHoveringHomeButton] = useState(false);
   const [homeClick, homeClicked] = useState(1);
@@ -55,6 +55,7 @@ export default function Navigation({ currentPage }) {
             }}
             onClick={() => {
               homeClicked(homeClick + 1);
+              navigateTo("/");
             }}
           >
             {hoverHomeButton ? (
@@ -68,7 +69,7 @@ export default function Navigation({ currentPage }) {
         </Link>
       </NavItem>
       <NavItem>
-        <ChevronDropDown homeClicked={homeClick} />
+        <ChevronDropDown homeClicked={homeClick} navigateTo={navigateTo} />
       </NavItem>
       <NavItem>
         <DarkModeWrapper>

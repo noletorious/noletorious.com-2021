@@ -12,12 +12,20 @@ const projectListWrapperVariants = {
       staggerChildren: 0.1,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.4,
+    },
+  },
 };
 
 const ProjectListWrapper = styled(motion.div).attrs({
   variants: projectListWrapperVariants,
   initial: "initial",
   animate: "animate",
+  exit: "exit",
 })`
   display: flex;
   flex: 1;
