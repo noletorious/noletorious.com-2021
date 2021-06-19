@@ -9,7 +9,7 @@ export default function About() {
     <>
       <Head title="About Noel Torres" />
       <Container>
-        <HomeAbout current={router.pathname} />
+        <HomeAbout />
       </Container>
     </>
   );

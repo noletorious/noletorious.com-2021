@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-import { Container } from "../scaffold";
+import { Container } from "./scaffold";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { EASE, EASEIN } from ".././constants";
-import Sparkles from "../sparkles";
+import { EASE, EASEIN } from "../utils/constants";
+import Sparkles from "./sparkles";
 
 const CenterContent = styled(motion.div)`
   background-color: ${(props) => props.theme.bg1};
@@ -150,7 +149,7 @@ const leftBorderVariants = {
     x: 0,
     height: "100%",
     scaleX: 1,
-    transition: { delay: 1.5, duration: 1, ease: EASE },
+    transition: { delay: 1.25, duration: 1, ease: EASE },
   },
   exit: { scaleX: 0, x: -10, transition: { duration: 1, ease: EASE } },
 };
@@ -171,7 +170,9 @@ const LeftBorder = styled(motion.div).attrs({
 const AnimatedLetters = ({ title }) => (
   <AnimatedLettersWrap>
     {[...title].map((letter, idx) => (
-      <AnimatedLetter key={idx}>{letter}</AnimatedLetter>
+      <AnimatedLetter key={idx}>
+        <Sparkles>{letter}</Sparkles>
+      </AnimatedLetter>
     ))}
   </AnimatedLettersWrap>
 );

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useDarkMode } from "next-dark-mode";
-import DarkModeToggle from "../darkModeToggle";
-import Logo from "../logo";
+import DarkModeToggle from "./darkModeToggle";
+import Logo from "./logo";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Sparkles from "../sparkles";
-import ChevronDropDown from "../chevronDropDown";
+import Sparkles from "./sparkles";
+import ChevronDropDown from "./chevronDropDown";
 
 const Nav = styled.nav`
   display: flex;
@@ -37,7 +37,7 @@ const HomeButton = styled(motion.div).attrs({
   }
 `;
 
-export default function Navigation({ currentPage, navigateTo }) {
+export default function Navigation() {
   const darkModeActive = useDarkMode();
   const [hoverHomeButton, isHoveringHomeButton] = useState(false);
   const [homeClick, homeClicked] = useState(1);
@@ -55,7 +55,6 @@ export default function Navigation({ currentPage, navigateTo }) {
             }}
             onClick={() => {
               homeClicked(homeClick + 1);
-              navigateTo("/");
             }}
           >
             {hoverHomeButton ? (
@@ -69,7 +68,10 @@ export default function Navigation({ currentPage, navigateTo }) {
         </Link>
       </NavItem>
       <NavItem>
-        <ChevronDropDown homeClicked={homeClick} navigateTo={navigateTo} />
+        <ChevronDropDown
+          homeClicked={homeClick}
+          // navigateTo={navigateTo}
+        />
       </NavItem>
       <NavItem>
         <DarkModeWrapper>

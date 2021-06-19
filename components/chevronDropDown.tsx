@@ -50,7 +50,10 @@ const AboutLi = styled(baseLi)`
   }
 `;
 
-export default function ChevronDropDown({ homeClicked, navigateTo }) {
+export default function ChevronDropDown({
+  homeClicked,
+  // navigateTo
+}) {
   let currHomeClick = 1;
   function homeWasClicked(homeClicked) {
     if (currHomeClick < homeClicked) {
@@ -83,7 +86,7 @@ export default function ChevronDropDown({ homeClicked, navigateTo }) {
             <AboutLi
               onClick={() => {
                 setPageList(false);
-                navigateTo("/about");
+                // navigateTo("/about");
               }}
             >
               <Link href="/about">About</Link>
