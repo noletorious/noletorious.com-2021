@@ -35,4 +35,4 @@ function MyApp({ Component, pageProps, router }) {
   );
 }
 
-export default withDarkMode(MyApp, { defaultMode: MODE.LIGHT });
+export default withDarkMode(MyApp, { defaultMode: MODE.DARK });

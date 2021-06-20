@@ -8,6 +8,7 @@ import Navigation from "../components/navigation";
 import HomeContent from "../components/homeContent";
 import AboutContent from "../components/aboutContent";
 import HomeProjectList from "./projects/homeProjectList";
+import AboutDetails from "./aboutDetails";
 
 const LeftUpColumn = styled(motion.div).attrs((props) => ({
   initial: {
@@ -16,11 +17,11 @@ const LeftUpColumn = styled(motion.div).attrs((props) => ({
   },
   animate: {
     flexGrow: props.currentPage == "/" ? 1 : 0.5,
-    transition: { ease: EASE, duration: 1, delay: 0.5 },
+    transition: { ease: EASE, duration: 1 },
   },
   exit: {
     flexGrow: props.currentPage == "/" ? 1 : 0.5,
-    transition: { ease: EASE, duration: 1, delay: 0.5 },
+    transition: { ease: EASE, duration: 1 },
   },
 }))`
   display: flex;
@@ -31,15 +32,15 @@ const LeftUpColumn = styled(motion.div).attrs((props) => ({
 const RightBottomColumn = styled.div`
   display: flex;
   flex: 1;
-  background-color: ${(props) => props.theme.accent1};
+  background-color: ${(props) => props.theme.bg1};
   overflow: scroll;
 `;
 
 const ContentWrap = styled(motion.div)`
   display: flex;
   flex: 1;
-  align-items: center;
   justify-content: center;
+  align-self: center;
   flex-direction: column;
 `;
 
@@ -58,7 +59,8 @@ export default function HomeAbout() {
         </ContentWrap>
       </LeftUpColumn>
       <RightBottomColumn>
-        <HomeProjectList />
+        {aboutOrHome == "/" && <HomeProjectList />}
+        {aboutOrHome == "/about" && <AboutDetails />}
       </RightBottomColumn>
     </>
   );

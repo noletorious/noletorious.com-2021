@@ -22,8 +22,10 @@ const Card = styled(motion.div).attrs({ variants: singleHomeProjectVariants })`
   color: ${(props) => props.theme.black};
   display: inline-flex;
   flex: 1 1 auto;
-  margin: 10px 0;
+  margin: 1em auto;
   position: relative;
+  border-radius: 1em;
+  overflow: hidden;
 `;
 
 export default function SingleHomeProject({ name, image, link }) {

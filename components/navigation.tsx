@@ -37,6 +37,10 @@ const HomeButton = styled(motion.div).attrs({
   }
 `;
 
+const CurrentModeBubble = styled.div`
+  position: absolute;
+`;
+
 export default function Navigation() {
   const darkModeActive = useDarkMode();
   const [hoverHomeButton, isHoveringHomeButton] = useState(false);
@@ -68,10 +72,7 @@ export default function Navigation() {
         </Link>
       </NavItem>
       <NavItem>
-        <ChevronDropDown
-          homeClicked={homeClick}
-          // navigateTo={navigateTo}
-        />
+        <ChevronDropDown homeClicked={homeClick} />
       </NavItem>
       <NavItem>
         <DarkModeWrapper>

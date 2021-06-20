@@ -28,7 +28,17 @@ const BubbleLinks = styled.div`
   background: #fff;
   border-radius: 0.5em;
   position: absolute;
+  left: -18px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  &::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 13px;
+    border-bottom: 11px solid #fff;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+  }
 `;
 
 const BubbleUl = styled.ul`
@@ -50,10 +60,7 @@ const AboutLi = styled(baseLi)`
   }
 `;
 
-export default function ChevronDropDown({
-  homeClicked,
-  // navigateTo
-}) {
+export default function ChevronDropDown({ homeClicked }) {
   let currHomeClick = 1;
   function homeWasClicked(homeClicked) {
     if (currHomeClick < homeClicked) {
