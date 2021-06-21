@@ -4,18 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { EASE } from "../utils/constants";
 
 const chevronWrapperVariants = {
   initial: { rotate: 0 },
   animate: { rotate: 180, y: 0 },
-
   ontap: { y: 2 },
 };
 
-const ChevronWrapper = styled(motion.div).attrs(({ pageList }) => ({
+const ChevronWrapper = styled(motion.div).attrs(({ listOpened }) => ({
   variants: chevronWrapperVariants,
   initial: "initial",
-  animate: pageList ? "animate" : "initial",
+  animate: listOpened ? "animate" : "initial",
   whileTap: "ontap",
 }))`
   &:hover {
@@ -23,13 +23,16 @@ const ChevronWrapper = styled(motion.div).attrs(({ pageList }) => ({
   }
 `;
 
-const BubbleLinks = styled.div`
+const BubbleLinks = styled(motion.div).attrs({
+  initial: { opacity: 0, y: -10, transition: { ease: EASE }, x: -17 },
+  animate: { opacity: 1, y: 0, x: -17 },
+  exit: { opacity: 0, y: 10 },
+})`
   margin: 10px 0;
   background: #fff;
   border-radius: 0.5em;
   position: absolute;
-  left: -18px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
   &::after {
     content: "";
     position: absolute;
@@ -49,6 +52,8 @@ const BubbleUl = styled.ul`
 
 const baseLi = styled.li`
   color: ${(props) => props.theme.black};
+  font-family: monospace;
+  font-size: 1.5em;
 `;
 const BlogLi = styled(baseLi)`
   margin-top: 0.5em;
@@ -83,17 +88,12 @@ export default function ChevronDropDown({ homeClicked }) {
       >
         <FontAwesomeIcon icon={faChevronDown} />
       </ChevronWrapper>
-
-      <motion.div
-        initial={{ opacity: 0, y: -5 }}
-        animate={{ opacity: pageList ? 1 : 0 }}
-      >
-        <BubbleLinks listOpened={pageList}>
+      {pageList && (
+        <BubbleLinks>
           <BubbleUl>
             <AboutLi
               onClick={() => {
                 setPageList(false);
-                // navigateTo("/about");
               }}
             >
               <Link href="/about">About</Link>
@@ -101,7 +101,7 @@ export default function ChevronDropDown({ homeClicked }) {
             <BlogLi>Blog</BlogLi>
           </BubbleUl>
         </BubbleLinks>
-      </motion.div>
+      )}
     </>
   );
 }

@@ -13,7 +13,7 @@ const singleHomeProjectVariants = {
   },
   exit: {
     opacity: 0,
-    x: 10,
+    x: -10,
   },
 };
 
@@ -31,7 +31,13 @@ const Card = styled(motion.div).attrs({ variants: singleHomeProjectVariants })`
 export default function SingleHomeProject({ name, image, link }) {
   return (
     <Card>
-      <Image src={image} layout="intrinsic" width={500} height={500} />
+      <Image
+        placeholder="blur"
+        src={image}
+        layout="intrinsic"
+        width={500}
+        height={500}
+      />
     </Card>
   );
 }

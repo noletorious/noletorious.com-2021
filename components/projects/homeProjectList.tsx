@@ -31,7 +31,7 @@ const listWrapperVariants = {
       duration: 0.5,
       when: "beforeChildren",
       staggerChildren: 0.2,
-      staggerDirection: -1,
+      // staggerDirection: -1,
     },
   },
 };
@@ -47,6 +47,7 @@ const ListWrapper = styled(motion.div).attrs({
   flex: 1;
   flex-direction: column;
   align-items: center;
+  margin: 0 2em;
 `;
 export default function homeProjectList() {
   return (
