@@ -18,9 +18,6 @@ const Content = styled.div`
 const Icons = styled.div`
   display: flex;
   flex-direction: row;
-  &:hover {
-    pointer: cursor;
-  }
 `;
 
 const ImageWrap = styled.div`
@@ -31,7 +28,11 @@ const FancyImage = styled.img`
   width: 100%;
   height: 100%;
 `;
-const IconWrap = styled.div``;
+const IconWrap = styled.div`
+  &:hover {
+    pointer: cursor;
+  }
+`;
 
 export default function MaintenancePage() {
   return (
