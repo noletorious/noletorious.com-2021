@@ -82,7 +82,6 @@ export default function ChevronDropDown({ homeClicked }) {
       <ChevronWrapper
         onClick={() => {
           setPageList(!pageList);
-          console.log(pageList);
         }}
         listOpened={pageList}
       >

@@ -1,6 +1,6 @@
 import Head from "../components/head";
 import { Container } from "../components/scaffold";
-import HomeAbout from "../components/homeAbout";
+import Columns from "../components/columns";
 import styled from "styled-components";
 
 export default function About() {
@@ -8,7 +8,7 @@ export default function About() {
     <>
       <Head title="Noel Torres - Front-end Designer" />
       <Container>
-        <HomeAbout />
+        <Columns />
       </Container>
     </>
   );

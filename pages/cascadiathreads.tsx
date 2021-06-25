@@ -8,7 +8,7 @@ import Columns from "../components/columns";
 export default function trimetPage() {
   return (
     <>
-      <Head title="TriMet - Noel Torres" />
+      <Head title="Cascadia Threads - Noel Torres" />
       <Container>
         <Columns />
       </Container>

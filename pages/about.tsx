@@ -1,6 +1,6 @@
 import Head from "../components/head";
 import { Container } from "../components/scaffold";
-import HomeAbout from "../components/homeAbout";
+import Columns from "../components/columns";
 import { useRouter } from "next/router";
 
 export default function About() {
@@ -9,7 +9,7 @@ export default function About() {
     <>
       <Head title="About Noel Torres" />
       <Container>
-        <HomeAbout />
+        <Columns />
       </Container>
     </>
   );

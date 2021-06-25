@@ -15,5 +15,9 @@ const Title = styled(motion.h2).attrs({
 })``;
 
 export default function AboutDetails() {
-  return <Title>About details</Title>;
+  return (
+    <Title>
+      About ddasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfetails
+    </Title>
+  );
 }
