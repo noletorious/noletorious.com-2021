@@ -5,7 +5,6 @@ import Layout from "../components/layout";
 import { lightTheme, darkTheme } from "../utils/theme";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import Loader from "../components/loader";
-import MaintenancePage from "../components/content/maintenance";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }) {
@@ -27,8 +26,7 @@ function MyApp({ Component, pageProps, router }) {
             {loading ? (
               <Loader setLoading={setLoading} />
             ) : (
-              <MaintenancePage />
-              // <Component {...pageProps} key={router.route} />
+              <Component {...pageProps} key={router.route} />
             )}
           </AnimatePresence>
         </AnimateSharedLayout>

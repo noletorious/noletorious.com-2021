@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex: 1 1 auto;
   height: 100vh;
-  background-color: ${(props) => props.theme.bg1};
   flex-direction: ${(props) =>
     props.direction === "column" ? "row" : "column"};
   overflow: auto;
@@ -14,9 +13,3 @@ export const Container = styled.div`
     flex-direction: row;
   }
 `;
-
-export const MotionExitHelper = styled(motion.div).attrs({
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-})``;

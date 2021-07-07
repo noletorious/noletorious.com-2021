@@ -87,7 +87,7 @@ const spin = keyframes`
   }
 `;
 const Wrapper = styled.span`
-  display: inline-block;
+  display: inline;
   position: relative;
 `;
 const SparkleWrapper = styled.span`

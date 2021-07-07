@@ -3,23 +3,23 @@ const black = "#222";
 const dark = {
   black: black,
   bg1: "#10171d",
-  bg2: "#141c23",
+  bg1reverse: "#fff3e8",
   fontColor: "#fff",
   fontColorReverse: "#222",
-  accent1: "#ff8497",
+  accent1: "#65d8ff",
   muted: "rgba(0,0,0,.3)",
-  accent1reverse: "rgb(52, 98, 115)",
+  accent1reverse: "#d4374f",
 };
 
 const light = {
   black: black,
-  bg1: "#d9fdf4",
-  bg2: "#ddfff7",
+  bg1: "#fff3e8",
+  bg1reverse: "#10171d",
   fontColor: "#222",
-  fontColorReverse: "#222",
-  accent1: "rgb(52, 98, 115)",
+  fontColorReverse: "#fff",
+  accent1: "#d4374f",
   muted: "rgba(0,0,0,.3)",
-  accent1reverse: "#ff8497",
+  accent1reverse: "#65d8ff",
 };
 
 export const darkTheme = { ...dark };

@@ -10,12 +10,15 @@ import ChevronDropDown from "./chevronDropDown";
 
 const Nav = styled.nav`
   display: flex;
+  z-index: 100;
+  width: 100%;
+  background-color: ${(props) => props.theme.bg1};
 `;
 const NavItem = styled.div`
   margin: 1em;
 `;
 
-const DarkModeWrapper = styled.a`
+const DarkModeWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }
