@@ -11,7 +11,9 @@ import NoelImage from "../noelImage";
 
 const Wrapper = styled(motion.div)`
   display: flex;
-  flex: 1;flex-direction:column
+  flex: 1;
+  flex-direction:column;
+  background-color:${(props) => props.theme.bg1}
 }
 `;
 
@@ -45,7 +47,7 @@ const JobTitle2 = styled(JobTitleBase).attrs({
   exit: "exit",
 })`
   z-index: 3;
-  margin-top: -1em;
+  margin-top: 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
   }
 `;

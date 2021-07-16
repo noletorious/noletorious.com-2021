@@ -116,7 +116,7 @@ const ProjectImage = styled(motion.div)`
   }
 `;
 
-const FancyLink = styled(Link)`
+const LinkInner = styled.div`
   &:hover {
     cursor: pointer;
   }
@@ -127,13 +127,15 @@ export default function HomeRightBottomContent() {
     <>
       <ListWrapper>
         {jobs.map((j, i) => (
-          <FancyLink key={i} href={j.link}>
-            <ProjectMotionImage>
-              <ProjectImageWrap>
-                <ProjectImage image={j.image} />
-              </ProjectImageWrap>
-            </ProjectMotionImage>
-          </FancyLink>
+          <Link key={i} href={j.link}>
+            <LinkInner>
+              <ProjectMotionImage>
+                <ProjectImageWrap>
+                  <ProjectImage image={j.image} />
+                </ProjectImageWrap>
+              </ProjectMotionImage>
+            </LinkInner>
+          </Link>
         ))}
       </ListWrapper>
     </>

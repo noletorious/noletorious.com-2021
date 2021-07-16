@@ -12,6 +12,7 @@ import FancyImage from "../fancyImage";
 import CloseIcon from "../close";
 import InfoIcon from "../info";
 import Link from "next/link";
+
 const ImageHeader = styled(motion.div).attrs((props) => ({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
@@ -32,23 +33,28 @@ const ImageHeader = styled(motion.div).attrs((props) => ({
   }
 `;
 
+const ImageFooter = styled(motion.div)`
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  border-radius: 1em 0 0 0;
+  background-image: url(${(props) => props.image});
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  margin: 0;
+  @media (min-width: ${MOBILE_MIN_WIDTH}) {
+  }
+`;
+
 const ContentWrap = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
 `;
 
-const StyleGuideImgWrap = styled(motion.div)`
-  position: relative;
-  max-width: 500px;
-  display: flex;
-  margin: 0 auto;
-  @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0;
-  }
-`;
-
-const GoogleFlythroughImgWrap = styled(motion.div)`
+const ImgWrap = styled(motion.div)`
   position: relative;
   max-width: 500px;
   display: flex;
@@ -65,7 +71,7 @@ const Section = styled.div`
   flex: 1;
   position: relative;
   overflow: hidden;
-  margin: 0 0 2em 0;
+  margin: 0 1em 2em 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     margin: 0 0 1em 0;
   }
@@ -89,61 +95,35 @@ const TextsAndLinksLeft = styled(motion.div).attrs({
   animate: "animate",
   exit: "exit",
 })`
-  font-weight: 300;
+  line-height: 1.5;
   margin: 0 1em;
   display: inline;
   align-items: center;
   justify-content: center;
   order: 1;
+  max-width: 500px;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     order: -1;
   }
 `;
 
-const TextsAndLinksRight = styled(motion.p).attrs({
+const TextsAndLinksRight = styled(motion.div).attrs({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
   animate: "animate",
   exit: "exit",
 })`
+  line-height: 1.5;
   display: inline;
   margin: 0 1em;
   align-items: center;
   justify-content: center;
   order: 1;
+  max-width: 500px;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     order: 1;
   }
 `;
-
-function FadeInWhenVisible({ children }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-    if (!inView) {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.div
-      ref={ref}
-      animate={controls}
-      initial="hidden"
-      transition={{ duration: 0.5, delay: 0.1 }}
-      variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 30 },
-      }}
-    >
-      <SectionColumns>{children}</SectionColumns>
-    </motion.div>
-  );
-}
 
 const jobDescVariants = {
   initial: { opacity: 0 },
@@ -165,6 +145,7 @@ const jobDescVariants = {
     },
   },
 };
+
 const JobDescContainer = styled(motion.div).attrs({
   variants: jobDescVariants,
   initial: "initial",
@@ -260,6 +241,35 @@ const CloseWrap = styled.div`
   position: relative;
 `;
 
+function FadeInWhenVisible({ children }) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+    // if (!inView) {
+    //   controls.start("hidden");
+    // }
+  }, [controls, inView]);
+
+  return (
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      transition={{ duration: 0.5, delay: 0.1 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 30 },
+      }}
+    >
+      <SectionColumns>{children}</SectionColumns>
+    </motion.div>
+  );
+}
+
 export default function TrimetContent({ image }) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
@@ -284,9 +294,8 @@ export default function TrimetContent({ image }) {
                 </ColorBoxWrap>
                 <JobTitle>Web Designer/Developer</JobTitle>
                 <JobDescription>
-                  UX Design, Visual Design, Motion Graphics, Video/Content
-                  Production, Animation Storytelling, React Front-end
-                  Development, Photography
+                  UX/I Design, Motion Graphics, React Front-end Development,
+                  Video Production, Photography
                 </JobDescription>
               </JobDescContainer>
             </>
@@ -323,176 +332,165 @@ export default function TrimetContent({ image }) {
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            In 2019, I organized and refined{" "}
+            In 2019, I organized and defined{" "}
             <Link
               href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
               passHref
             >
-              <a target="_blank">TriMet's user interace elements</a>
+              <a target="_blank">TriMet's web user interace elements</a>
             </Link>
             .
           </TextsAndLinksLeft>
-          <StyleGuideImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </StyleGuideImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Google Earth Flythrough */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I create Google Earth flythroughs for new routes added to the
-            system.
+            I create{" "}
+            <Link
+              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
+              passHref
+            >
+              <a target="_blank">Google Earth flythroughs</a>
+            </Link>{" "}
+            for the new routes added to the system.
           </TextsAndLinksRight>
-          <GoogleFlythroughImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </GoogleFlythroughImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Port of Portland Arrival screens */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            In 2019, I organized and refined{" "}
+            Collaborated with the{" "}
             <Link
               href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
               passHref
             >
-              <a target="_blank">TriMet's user interace elements</a>
-            </Link>
-            .
+              <a target="_blank">Port of Portland</a>
+            </Link>{" "}
+            and designed/developed the MAX Arrival Screens at PDX.
           </TextsAndLinksLeft>
-          <StyleGuideImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </StyleGuideImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* On-site Transit Tracker screen */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I create Google Earth flythroughs for new routes added to the
-            system.
+            I have yet to build this but I've redesigned the{" "}
+            <Link href="#" passHref>
+              <a target="_blank">on-site Transit Tracker signage</a>
+            </Link>
+            .
           </TextsAndLinksRight>
-          <GoogleFlythroughImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </GoogleFlythroughImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Video advertisements  */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            In 2019, I organized and refined{" "}
-            <Link
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
-              passHref
-            >
-              <a target="_blank">TriMet's user interace elements</a>
-            </Link>
-            .
+            I manage rider facing motion graphics that are usually used in press
+            releases, live events, larger marketing campagins or on social.
+            Follow{" "}
+            <Link href="https://twitter.com/trimet" passHref>
+              <a target="_blank">@trimet</a>
+            </Link>{" "}
+            for more.
           </TextsAndLinksLeft>
-          <StyleGuideImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </StyleGuideImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Micro-interaction proof of concept videos */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I create Google Earth flythroughs for new routes added to the
-            system.
+            Sometimes we need design references for a concept of a service yet
+            to be built. Low to high fidelity, in most cases internal buy-in in
+            the first step to adoption.
           </TextsAndLinksRight>
-          <GoogleFlythroughImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </GoogleFlythroughImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Front-end Developer for TriMet Rearchitecture Project */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            In 2019, I organized and refined{" "}
-            <Link
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
-              passHref
-            >
-              <a target="_blank">TriMet's user interace elements</a>
+            Currently a designer and front-end developer for
+            <Link href="https://trimet.org/newplanner/" passHref>
+              <a target="_blank"> TriMet.org Re-architecture</a>
             </Link>
             .
           </TextsAndLinksLeft>
-          <StyleGuideImgWrap>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </StyleGuideImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
       {/* TriMet Arrivals */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I create Google Earth flythroughs for new routes added to the
-            system.
-          </TextsAndLinksRight>
-          <GoogleFlythroughImgWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
-            />
-          </GoogleFlythroughImgWrap>
-        </FadeInWhenVisible>
-      </Section>
-      {/* Case Study - Logo + Next page link */}
-      <Section>
-        <FadeInWhenVisible>
-          <TextsAndLinksLeft>
-            In 2019, I organized and refined{" "}
-            <Link
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
-              passHref
-            >
-              <a target="_blank">TriMet's user interace elements</a>
+            Enjoy a case-study on designing the ideal Transit Tracker app:{" "}
+            <Link href="https://trimet.org/newplanner/" passHref>
+              <a target="_blank">Arrivals</a>
             </Link>
             .
-          </TextsAndLinksLeft>
-          <StyleGuideImgWrap>
+          </TextsAndLinksRight>
+          <ImgWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </StyleGuideImgWrap>
+          </ImgWrap>
         </FadeInWhenVisible>
       </Section>
+      {/*Logo + Next page link */}
+      <ImageFooter image={"/trimet/trimet-logo.gif"} />
     </ContentWrap>
   );
 }

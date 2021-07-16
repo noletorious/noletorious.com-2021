@@ -17,6 +17,8 @@ const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${(props) => props.theme.bg1};
+  padding-bottom: 2em;
 `;
 
 const ImageWrap = styled.div`

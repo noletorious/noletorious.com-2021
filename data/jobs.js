@@ -1,14 +1,14 @@
 export const jobs = [
-  { name: "TriMet", image: "/images/trimet-front.jpg", link: "/trimet" },
+  { name: "TriMet", image: "/front/trimet-front.jpg", link: "/trimet" },
   {
     name: "Hop Fastpass",
-    image: "/images/hopreader-front.jpg",
+    image: "/front/hopreader-front.jpg",
     link: "/hop-fastpass",
   },
-  { name: "Attensa", image: "/images/attensa-front.png", link: "/attensa" },
+  { name: "Attensa", image: "/front/attensa-front.png", link: "/attensa" },
   {
     name: "Cascadia Threads",
-    image: "/images/ct-front.png",
+    image: "/front/ct-front.png",
     link: "/cascadiathreads",
   },
 ];

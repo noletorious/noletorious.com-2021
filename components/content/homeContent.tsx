@@ -77,11 +77,11 @@ const JobTitle2 = styled(JobTitleBase).attrs({
 const ImageWrap = styled.div`
   z-index: 2;
   position: absolute;
-  margin-left: 4.5em;
-  margin-top: -3em;
+  margin-left: 4em;
+  margin-top: -4.5em;
   @media (min-width: ${DESKTOP_MIN_WIDTH}) {
     margin-left: 7em;
-    margin-top: -2em;
+    margin-top: -3em;
   } ;
 `;
 

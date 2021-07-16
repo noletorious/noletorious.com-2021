@@ -53,10 +53,14 @@ p {
 .dark a {
   color: var(--darkAccent1);
   border-bottom: 1px dotted var(--darkAccent1);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }
 .dark a:hover {
   border-bottom: none;
   color: var(--darkAccent1);
+  transition: var(--transition);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .light {

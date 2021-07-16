@@ -83,7 +83,7 @@ const MobileContentWrap = styled(motion.div)`
   flex: 1;
   flex-direction: column;
   text-align: center;
-  margin-top: 55px;
+  margin: 51px 0 0 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     display: none;
   }
