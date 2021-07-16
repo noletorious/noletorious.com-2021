@@ -111,6 +111,7 @@ const ProjectImage = styled(motion.div)`
   background-size: cover;
   transition: all 0.5s;
   &:hover {
+    cursor: pointer;
     transform: scale(1.1);
     transition: all 0.5s;
   }
