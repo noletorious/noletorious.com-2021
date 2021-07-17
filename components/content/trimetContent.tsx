@@ -399,7 +399,7 @@ export default function TrimetContent({ image }) {
         <FadeInWhenVisible>
           <TextsAndLinksRight>
             I have yet to build this but I've redesigned the{" "}
-            <Link href="#" passHref>
+            <Link href="/" passHref>
               <a target="_blank">on-site Transit Tracker signage</a>
             </Link>
             .

@@ -83,22 +83,28 @@ export default function AboutContent() {
       <Icons>
         <IconWrap>
           <LinkWrap>
-            <Link href="https://dribbble.com/noletorious">
-              <FontAwesomeIcon icon={faDribbble} size="1x" />
+            <Link href="https://dribbble.com/noletorious" passHref>
+              <a>
+                <FontAwesomeIcon icon={faDribbble} size="1x" />
+              </a>
             </Link>
           </LinkWrap>
         </IconWrap>
         <IconWrap style={{ margin: "0 .75em" }}>
           <LinkWrap>
-            <Link href="https://linkedin.com/in/noletorious">
-              <FontAwesomeIcon icon={faLinkedin} size="1x" />
+            <Link href="https://linkedin.com/in/noletorious" passHref>
+              <a>
+                <FontAwesomeIcon icon={faLinkedin} size="1x" />
+              </a>
             </Link>
           </LinkWrap>
         </IconWrap>
         <IconWrap>
           <LinkWrap>
-            <Link href="https://github.com/noletorious">
-              <FontAwesomeIcon icon={faGithub} size="1x" />
+            <Link href="https://github.com/noletorious" passHref>
+              <a>
+                <FontAwesomeIcon icon={faGithub} size="1x" />
+              </a>
             </Link>
           </LinkWrap>
         </IconWrap>

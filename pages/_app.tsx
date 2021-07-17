@@ -1,41 +1,39 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { ThemeProvider } from "styled-components";
 import withDarkMode, { useDarkMode, MODE } from "next-dark-mode";
 import Layout from "../components/layout";
 import { lightTheme, darkTheme } from "../utils/theme";
-import Sparkles from "../components/sparkles";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import Loader from "../components/loader";
 import "../styles/globals.css";
-// import Cursor from "../components/cursor";
 import styled from "styled-components";
+import { EASE } from "../utils/constants";
 
 const Cursor = styled(motion.div).attrs((props) => ({
-  initial: { scale: 5 },
+  initial: { scale: 1, opacity: 0, x: -25 },
   animate: {
-    scale: props.mouseStyle === "pointer" ? 0.5 : 1,
+    scale: props.mouseClick ? 0.5 : props.mouseStyle === "pointer" ? 1.25 : 1,
     x: props.posX,
     y: props.posY,
-    transition: { type: "spring", damping: 20 },
+    rotate: props.mouseClick ? 360 : 0,
+    borderRadius: props.mouseClick ? "10px" : "20px",
+    transition: {
+      type: "spring",
+      damping: 50,
+      stiffness: 500,
+      ease: EASE,
+    },
+    opacity: 1,
   },
 }))`
   width: 2em;
   height: 2em;
   border: 2px solid ${(props) => props.theme.accent1};
-  border-radius: 50%;
   display: flex;
   margin: -1em 0 0 -1em;
   position: absolute;
-  z-index: 500;
+  z-index: 1000;
   pointer-events: none;
-`;
-
-const SparklesWrap = styled.div`
-  z-index: 500;
-`;
-
-const SparkleInner = styled.div`
-  z-index: 500;
 `;
 
 function MyApp({ Component, pageProps, router }) {
@@ -45,6 +43,7 @@ function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
   const [mouseStyle, setMouseStyle] = useState("");
+  const [mouseClick, setMouseClick] = useState(false);
 
   useEffect(() => {
     loading
@@ -88,12 +87,26 @@ function MyApp({ Component, pageProps, router }) {
   const handleMouseMove = (e) => {
     setMousePosition(getRelativeCoordinates(e, boxRef.current));
   };
+
   const handleMouseHover = (e) => {
     const mouseStyle = e.target;
     const computed = window.getComputedStyle(mouseStyle)["cursor"];
     setMouseStyle(computed);
   };
-
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", () => {
+  //     console.log("Mouse - down");
+  //     setMouseClick(true);
+  //   });
+  //   document.addEventListener("mouseup", () => {
+  //     console.log("Mouse - up");
+  //     setMouseClick(false);
+  //     return () => {
+  //       document.removeEventListener("mousedown", () => {});
+  //       document.removeEventListener("mouseup", () => {});
+  //     };
+  //   });
+  // }, [mouseClick]);
   return (
     <ThemeProvider theme={theme}>
       <Layout>
@@ -101,17 +114,26 @@ function MyApp({ Component, pageProps, router }) {
           <AnimatePresence exitBeforeEnter>
             <motion.div
               ref={boxRef}
+              onMouseDown={(e) => {
+                setMouseClick(true);
+              }}
+              onMouseUp={(e) => {
+                setMouseClick(false);
+              }}
               onMouseMove={(e) => {
                 handleMouseMove(e);
                 handleMouseHover(e);
               }}
             >
               <Cursor
+                mouseClick={mouseClick}
                 theme={theme}
                 mouseStyle={mouseStyle}
                 posY={mousePosition.y}
                 posX={mousePosition.x}
-              ></Cursor>
+              >
+                {mouseClick}
+              </Cursor>
               {loading ? (
                 <Loader setLoading={setLoading} />
               ) : (

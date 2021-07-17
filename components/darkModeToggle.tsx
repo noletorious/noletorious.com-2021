@@ -41,7 +41,7 @@ export default function DarkModeToggle() {
           >
             <FontAwesomeIcon
               icon={faMoon}
-              onClick={() => {
+              onMouseDown={() => {
                 activateNextButton(mode);
               }}
             />
@@ -55,7 +55,7 @@ export default function DarkModeToggle() {
           >
             <FontAwesomeIcon
               icon={faSun}
-              onClick={() => {
+              onMouseDown={() => {
                 activateNextButton(mode);
               }}
             />

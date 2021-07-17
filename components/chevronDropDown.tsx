@@ -70,6 +70,9 @@ const AboutLi = styled(baseLi)`
 const AboutLink = styled.a`
   color: ${(props) => props.theme.accent1reverse} !important;
   border-bottom: 1px dotted ${(props) => props.theme.accent1reverse} !important;
+  &:hover {
+    font-weight: 300 !important;
+  }
 `;
 
 export default function ChevronDropDown({ homeClicked }) {

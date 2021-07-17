@@ -34,15 +34,15 @@ const HomeButton = styled(motion.div).attrs({
   variants: homeButtonVariants,
 })`
   margin-left: 0.5em;
-  font-weight: bold;
+  z-index: 200;
   &:hover {
     cursor: pointer;
   }
 `;
 
-const CurrentModeBubble = styled.div`
-  position: absolute;
-`;
+// const CurrentModeBubble = styled.div`
+//   position: absolute;
+// `;
 
 export default function Navigation() {
   const darkModeActive = useDarkMode();
@@ -54,10 +54,10 @@ export default function Navigation() {
       <NavItem>
         <Link href="/">
           <HomeButton
-            onHoverStart={(e) => {
+            onHoverStart={() => {
               isHoveringHomeButton(true);
             }}
-            onHoverEnd={(e) => {
+            onHoverEnd={() => {
               isHoveringHomeButton(false);
             }}
             onClick={() => {
