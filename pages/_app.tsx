@@ -3,24 +3,39 @@ import { ThemeProvider } from "styled-components";
 import withDarkMode, { useDarkMode, MODE } from "next-dark-mode";
 import Layout from "../components/layout";
 import { lightTheme, darkTheme } from "../utils/theme";
+import Sparkles from "../components/sparkles";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import Loader from "../components/loader";
 import "../styles/globals.css";
 // import Cursor from "../components/cursor";
 import styled from "styled-components";
 
-const Cursor = styled(motion.div).attrs((props) => {
+const Cursor = styled(motion.div).attrs((props) => ({
+  initial: { scale: 5 },
   animate: {
-    x: props.posX;
-    y: props.posY;
-  }
-})`
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  margin: -10px;
-  background-color: red;
+    scale: props.mouseStyle === "pointer" ? 0.5 : 1,
+    x: props.posX,
+    y: props.posY,
+    transition: { type: "spring", damping: 20 },
+  },
+}))`
+  width: 2em;
+  height: 2em;
+  border: 2px solid ${(props) => props.theme.accent1};
   border-radius: 50%;
+  display: flex;
+  margin: -1em 0 0 -1em;
+  position: absolute;
+  z-index: 500;
+  pointer-events: none;
+`;
+
+const SparklesWrap = styled.div`
+  z-index: 500;
+`;
+
+const SparkleInner = styled.div`
+  z-index: 500;
 `;
 
 function MyApp({ Component, pageProps, router }) {
@@ -29,6 +44,7 @@ function MyApp({ Component, pageProps, router }) {
   const boxRef = useRef();
   const [loading, setLoading] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [mouseStyle, setMouseStyle] = useState("");
 
   useEffect(() => {
     loading
@@ -36,7 +52,7 @@ function MyApp({ Component, pageProps, router }) {
       : document.querySelector("body").classList.remove("loading");
   }, [loading]);
 
-  function getRelativeCoordinates(event, referenceElement) {
+  const getRelativeCoordinates = (event, referenceElement) => {
     const position = {
       x: event.pageX,
       y: event.pageY,
@@ -67,10 +83,15 @@ function MyApp({ Component, pageProps, router }) {
       centerY:
         (position.y - offset.top - offset.height / 2) / (offset.height / 2),
     };
-  }
+  };
 
   const handleMouseMove = (e) => {
     setMousePosition(getRelativeCoordinates(e, boxRef.current));
+  };
+  const handleMouseHover = (e) => {
+    const mouseStyle = e.target;
+    const computed = window.getComputedStyle(mouseStyle)["cursor"];
+    setMouseStyle(computed);
   };
 
   return (
@@ -78,20 +99,19 @@ function MyApp({ Component, pageProps, router }) {
       <Layout>
         <AnimateSharedLayout type="crossfade">
           <AnimatePresence exitBeforeEnter>
-            <motion.div ref={boxRef} onMouseMove={(e) => handleMouseMove(e)}>
-              <motion.div
-                animate={{ x: mousePosition.x, y: mousePosition.y }}
-                style={{
-                  width: "10px",
-                  height: "10px",
-                  backgroundColor: "red",
-                  borderRadius: "50%",
-                  display: "flex",
-                  margin: "-1em 0 0 -.5em",
-                  position: "absolute",
-                  zIndex: 500,
-                }}
-              />
+            <motion.div
+              ref={boxRef}
+              onMouseMove={(e) => {
+                handleMouseMove(e);
+                handleMouseHover(e);
+              }}
+            >
+              <Cursor
+                theme={theme}
+                mouseStyle={mouseStyle}
+                posY={mousePosition.y}
+                posX={mousePosition.x}
+              ></Cursor>
               {loading ? (
                 <Loader setLoading={setLoading} />
               ) : (

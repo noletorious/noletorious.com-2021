@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import {
-  FADEINUPFADEEXIT,
   XS_MOBILE_MIN_WIDTH,
   S_MOBILE_MIN_WIDTH,
   MOBILE_MIN_WIDTH,
   DESKTOP_MIN_WIDTH,
   XLDESKTOP_MIN_WIDTH,
-  CARDSHADOW,
   EASE,
 } from "../../utils/constants";
 import { jobs } from "../../data/jobs";
