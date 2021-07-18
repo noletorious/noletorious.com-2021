@@ -40,7 +40,7 @@ const ImageFooter = styled(motion.div)`
   border-radius: 1em 0 0 0;
   background-image: url(${(props) => props.image});
   background-position: center center;
-  background-size: cover;
+  background-size: 75%;
   background-repeat: no-repeat;
   background-color: #fff;
   margin: 0;
@@ -334,7 +334,7 @@ export default function TrimetContent({ image }) {
           <TextsAndLinksLeft>
             In 2019, I organized and defined{" "}
             <Link
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
+              href="https://www.figma.com/file/1iJMXIImPKdX816avfYbHe/TriMet-UI-Design-System?node-id=0%3A1"
               passHref
             >
               <a target="_blank">TriMet's web user interace elements</a>

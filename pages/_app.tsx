@@ -93,53 +93,40 @@ function MyApp({ Component, pageProps, router }) {
     const computed = window.getComputedStyle(mouseStyle)["cursor"];
     setMouseStyle(computed);
   };
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", () => {
-  //     console.log("Mouse - down");
-  //     setMouseClick(true);
-  //   });
-  //   document.addEventListener("mouseup", () => {
-  //     console.log("Mouse - up");
-  //     setMouseClick(false);
-  //     return () => {
-  //       document.removeEventListener("mousedown", () => {});
-  //       document.removeEventListener("mouseup", () => {});
-  //     };
-  //   });
-  // }, [mouseClick]);
+
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
+      <Layout loading={loading}>
         <AnimateSharedLayout type="crossfade">
           <AnimatePresence exitBeforeEnter>
-            <motion.div
-              ref={boxRef}
-              onMouseDown={(e) => {
-                setMouseClick(true);
-              }}
-              onMouseUp={(e) => {
-                setMouseClick(false);
-              }}
-              onMouseMove={(e) => {
-                handleMouseMove(e);
-                handleMouseHover(e);
-              }}
-            >
-              <Cursor
-                mouseClick={mouseClick}
-                theme={theme}
-                mouseStyle={mouseStyle}
-                posY={mousePosition.y}
-                posX={mousePosition.x}
+            {loading ? (
+              <Loader setLoading={setLoading} />
+            ) : (
+              <motion.div
+                ref={boxRef}
+                onMouseDown={(e) => {
+                  setMouseClick(true);
+                }}
+                onMouseUp={(e) => {
+                  setMouseClick(false);
+                }}
+                onMouseMove={(e) => {
+                  handleMouseMove(e);
+                  handleMouseHover(e);
+                }}
               >
-                {mouseClick}
-              </Cursor>
-              {loading ? (
-                <Loader setLoading={setLoading} />
-              ) : (
+                <Cursor
+                  mouseClick={mouseClick}
+                  theme={theme}
+                  mouseStyle={mouseStyle}
+                  posY={mousePosition.y}
+                  posX={mousePosition.x}
+                >
+                  {mouseClick}
+                </Cursor>
                 <Component {...pageProps} key={router.route} />
-              )}
-            </motion.div>
+              </motion.div>
+            )}
           </AnimatePresence>
         </AnimateSharedLayout>
       </Layout>

@@ -31,21 +31,22 @@ const bannerVariants = {
 const letterAni = {
   initial: { y: 50, opacity: 0 },
   animate: {
-    y: 0,
-    opacity: 1,
+    y: [50, 0],
+    opacity: [1, 0],
     transition: {
       ease: EASE,
       duration: 1,
+      opacity: { delay: 2 },
     },
   },
-  exit: {
-    y: -50,
-    opacity: 0,
-    transition: {
-      ease: EASE,
-      duration: 0.5,
-    },
-  },
+  // exit: {
+  //   y: -50,
+  //   opacity: 0,
+  //   transition: {
+  //     ease: EASE,
+  //     duration: 0.5,
+  //   },
+  // },
 };
 
 const AnimatedLettersWrap = styled(motion.div).attrs({
@@ -71,19 +72,17 @@ const topBorderVariants = {
     height: "15px",
   },
   animate: {
-    y: 0,
+    y: [0, -30],
     width: "100%",
-    scaleY: 1,
-    transition: { duration: 0.5, ease: EASE },
+    scaleY: [0, 1],
+    transition: { duration: 0.5, ease: EASE, y: { delay: 2 } },
   },
-  exit: { scaleY: 0, y: -10, transition: { duration: 1, ease: EASE } },
 };
 
 const TopBorder = styled(motion.div).attrs({
   variants: topBorderVariants,
   initial: "initial",
   animate: "animate",
-  exit: "exit",
 })`
   background-color: ${(props) => props.theme.accent1};
   display: flex;
@@ -95,12 +94,11 @@ const TopBorder = styled(motion.div).attrs({
 const rightBorderVariants = {
   initial: { width: "15px", height: "0%" },
   animate: {
-    x: 0,
+    x: [0, 30],
     height: "100%",
-    scaleX: 1,
-    transition: { delay: 0.5, duration: 1, ease: EASE },
+    scaleX: [0, 1],
+    transition: { delay: 0.5, duration: 1, ease: EASE, x: { delay: 2 } },
   },
-  exit: { scaleX: 0, x: 10, transition: { duration: 1, ease: EASE } },
 };
 
 const RightBorder = styled(motion.div).attrs({
@@ -123,18 +121,16 @@ const bottomBorderVariants = {
     height: "15px",
   },
   animate: {
-    y: 0,
+    y: [0, 30],
     width: "100%",
-    scaleY: 1,
-    transition: { delay: 1, duration: 0.5, ease: EASE },
+    scaleY: [0, 1],
+    transition: { delay: 1, duration: 0.5, ease: EASE, y: { delay: 2 } },
   },
-  exit: { scaleY: 0, y: 10, transition: { duration: 1, ease: EASE } },
 };
 const BottomBorder = styled(motion.div).attrs({
   variants: bottomBorderVariants,
   initial: "initial",
   animate: "animate",
-  exit: "exit",
 })`
   background-color: ${(props) => props.theme.accent1};
   display: flex;
@@ -146,18 +142,16 @@ const BottomBorder = styled(motion.div).attrs({
 const leftBorderVariants = {
   initial: { width: "15px", height: "0%" },
   animate: {
-    x: 0,
+    x: [0, -30],
     height: "100%",
-    scaleX: 1,
-    transition: { delay: 1.25, duration: 1, ease: EASE },
+    scaleX: [0, 1],
+    transition: { delay: 1.25, duration: 1, ease: EASE, x: { delay: 2 } },
   },
-  exit: { scaleX: 0, x: -10, transition: { duration: 1, ease: EASE } },
 };
 const LeftBorder = styled(motion.div).attrs({
   variants: leftBorderVariants,
   initial: "initial",
   animate: "animate",
-  exit: "exit",
 })`
   background-color: ${(props) => props.theme.accent1};
   display: flex;
