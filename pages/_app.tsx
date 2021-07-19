@@ -12,7 +12,11 @@ import { EASE } from "../utils/constants";
 const Cursor = styled(motion.div).attrs((props) => ({
   initial: { scale: 1, opacity: 0, x: -25 },
   animate: {
-    scale: props.mouseClick ? 0.5 : props.mouseStyle === "pointer" ? 1.25 : 1,
+    scale: props.mouseClick
+      ? 0.5
+      : props.mouseStyle === "pointer"
+      ? [1, 1.15, 1]
+      : 1,
     x: props.posX,
     y: props.posY,
     rotate: props.mouseClick ? 360 : 0,
@@ -22,6 +26,18 @@ const Cursor = styled(motion.div).attrs((props) => ({
       damping: 50,
       stiffness: 500,
       ease: EASE,
+      scale: {
+        repeat: props.mouseClick
+          ? null
+          : props.mouseStyle === "pointer"
+          ? Infinity
+          : null,
+        repeatType: props.mouseClick
+          ? null
+          : props.mouseStyle === "pointer"
+          ? "loop"
+          : null,
+      },
     },
     opacity: 1,
   },

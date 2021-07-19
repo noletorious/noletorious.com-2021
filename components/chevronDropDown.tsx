@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { EASE } from "../utils/constants";
 import Sparkles from "./sparkles";
@@ -62,14 +62,14 @@ const BlogLi = styled(baseLi)`
   opacity: 0.2;
 `;
 const AboutLi = styled(baseLi)`
+  color: ${(props) => props.theme.accent1reverse} !important;
+  border-bottom: 1px dotted ${(props) => props.theme.accent1reverse} !important;
   &:hover {
     cursor: pointer;
   }
 `;
 
-const AboutLink = styled.a`
-  color: ${(props) => props.theme.accent1reverse} !important;
-  border-bottom: 1px dotted ${(props) => props.theme.accent1reverse} !important;
+const AboutLink = styled.div`
   &:hover {
     font-weight: 300 !important;
   }
@@ -115,15 +115,13 @@ export default function ChevronDropDown({ homeClicked }) {
             >
               <Link href="/about" passHref>
                 {aboutHovered ? (
-                  <AboutLink>
-                    <Sparkles>
-                      <span>About</span>
-                    </Sparkles>
-                  </AboutLink>
-                ) : (
-                  <AboutLink>
+                  <Sparkles>
                     <span>About</span>
-                  </AboutLink>
+                  </Sparkles>
+                ) : (
+                  <>
+                    <span>About</span>
+                  </>
                 )}
               </Link>
             </AboutLi>

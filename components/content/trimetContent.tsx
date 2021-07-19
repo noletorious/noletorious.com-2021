@@ -89,10 +89,9 @@ const SectionColumns = styled.div`
     margin: 0;
   }
 `;
-const SectionLink = styled(Link)`
-  display: block;
-  margin-bottom: 2em;
-`;
+
+const SectionLink = styled(Link)``;
+
 const TextsAndLinksLeft = styled(motion.div).attrs({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
@@ -248,6 +247,7 @@ const CloseWrap = styled.div`
 const TextAndLinksInner = styled.span`
   display: flex;
   margin-bottom: 1em;
+  opacity: 0.5;
 `;
 
 function FadeInWhenVisible({ children }) {

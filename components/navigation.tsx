@@ -40,10 +40,6 @@ const HomeButton = styled(motion.div).attrs({
   }
 `;
 
-// const CurrentModeBubble = styled.div`
-//   position: absolute;
-// `;
-
 export default function Navigation() {
   const darkModeActive = useDarkMode();
   const [hoverHomeButton, isHoveringHomeButton] = useState(false);
