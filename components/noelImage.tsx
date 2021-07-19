@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -5,7 +6,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const HomeAboutPagesVariants = {
-  initial: { opacity: 1 },
+  initial: {
+    opacity: 1,
+    background: "linear-gradient(orange, violet)",
+    padding: "2px",
+  },
   animate: { opacity: 1 },
   exit: { opacity: 1 },
 };
@@ -22,35 +27,57 @@ const NoelImageWrap = styled(motion.div).attrs((props) => ({
     props.currentPage == "/" || props.currentPage == "/about"
       ? HomeAboutPagesVariants
       : notHomeAboutPagesVariants,
-  initial: "initial",
+  initial:
+    props.currentPage == "/" || props.currentPage == "/about"
+      ? HomeAboutPagesVariants.initial
+      : notHomeAboutPagesVariants.initial,
   animate: "animate",
   exit: "exit",
+  whileHover: {
+    background: props.imageHovering
+      ? props.theme.accent1
+      : HomeAboutPagesVariants.initial.background,
+  },
 }))`
   position: relative;
-  display: block;
+  display: inline-block;
   max-width: 100%;
   max-height: 100%;
   margin: 0 auto;
   overflow: hidden;
+  border-radius: 50%;
+  background-clip: padding-box;
+  &:hover {
+    cursor: pointer;
+  }
+  & > div {
+    display: block !important;
   }
 `;
-
 export default function NoelImage() {
   const router = useRouter();
+  const [imageHovering, setImageHover] = useState(false);
 
   return (
-    <NoelImageWrap currentPage={router.pathname}>
-      <Link href={router.pathname == "/" ? "/about" : "/"} passHref>
-        <a>
-          <Image
-            src={`/noel-trimet-square.jpg`}
-            layout="intrinsic"
-            width={200}
-            height={200}
-            priority={true}
-            className="img-rounded"
-          />
-        </a>
+    <NoelImageWrap
+      onMouseOver={() => {
+        setImageHover(true);
+      }}
+      onMouseLeave={() => {
+        setImageHover(false);
+      }}
+      currentPage={router.pathname}
+      imageHovering={imageHovering}
+    >
+      <Link href={router.pathname == "/" ? "/about" : "/"}>
+        <Image
+          src={`/noel-trimet-square.jpg`}
+          layout="intrinsic"
+          width={200}
+          height={200}
+          priority={true}
+          className="img-rounded"
+        />
       </Link>
     </NoelImageWrap>
   );

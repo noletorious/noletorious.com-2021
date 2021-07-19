@@ -54,11 +54,13 @@ const ContentWrap = styled.div`
   flex-direction: column;
 `;
 
-const ImgWrap = styled(motion.div)`
+const MediaWrap = styled(motion.div)`
   position: relative;
-  max-width: 500px;
+  max-width: 800px;
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 1em;
+  padding: 0 1em;
+  border-radius: 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     margin: 0;
   }
@@ -70,10 +72,9 @@ const Section = styled.div`
   justify-content: start;
   flex: 1;
   position: relative;
-  overflow: hidden;
-  margin: 0 1em 2em 1em;
+  margin: 0 1em 4em 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0 0 1em 0;
+    margin: 0 0 5em 0;
   }
 `;
 
@@ -88,7 +89,10 @@ const SectionColumns = styled.div`
     margin: 0;
   }
 `;
-
+const SectionLink = styled(Link)`
+  display: block;
+  margin-bottom: 2em;
+`;
 const TextsAndLinksLeft = styled(motion.div).attrs({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
@@ -241,6 +245,11 @@ const CloseWrap = styled.div`
   position: relative;
 `;
 
+const TextAndLinksInner = styled.span`
+  display: flex;
+  margin-bottom: 1em;
+`;
+
 function FadeInWhenVisible({ children }) {
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -332,66 +341,76 @@ export default function TrimetContent({ image }) {
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            In 2019, I organized and defined{" "}
-            <Link
-              href="https://www.figma.com/file/1iJMXIImPKdX816avfYbHe/TriMet-UI-Design-System?node-id=0%3A1"
+            <TextAndLinksInner>
+              In 2019, I worked together with our senior designer on formally
+              standardizing TriMet's digital assets.
+            </TextAndLinksInner>
+            <SectionLink
+              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/"
               passHref
             >
-              <a target="_blank">TriMet's web user interace elements</a>
-            </Link>
-            .
+              <a target="_blank">TriMet's digital interace elements</a>
+            </SectionLink>
           </TextsAndLinksLeft>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
+              width={1000}
+              height={563}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Google Earth Flythrough */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I create{" "}
-            <Link
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
+            <TextAndLinksInner>
+              I create Google Earth Fly-throughs of the new routes added to the
+              system so riders can familiarize themselves with the route and
+              landmarks.{" "}
+            </TextAndLinksInner>
+            <SectionLink
+              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/"
               passHref
             >
-              <a target="_blank">Google Earth flythroughs</a>
-            </Link>{" "}
-            for the new routes added to the system.
+              <a target="_blank">TriMet's Google Earth Playlist</a>
+            </SectionLink>
           </TextsAndLinksRight>
-          <ImgWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
-            />
-          </ImgWrap>
+          <MediaWrap>
+            <video
+              autoPlay
+              loop
+              muted
+              style={{ width: "100%", borderRadius: "1em" }}
+            >
+              <source src="/trimet/trimet-flythrough.mp4" />
+            </video>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Port of Portland Arrival screens */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            Collaborated with the{" "}
-            <Link
+            <TextAndLinksInner>
+              Collaborated with the and designed/developed the MAX Arrival
+              Screens at PDX.
+            </TextAndLinksInner>
+            <SectionLink
               href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
               passHref
             >
               <a target="_blank">Port of Portland</a>
-            </Link>{" "}
-            and designed/developed the MAX Arrival Screens at PDX.
+            </SectionLink>
           </TextsAndLinksLeft>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
+              width={1000}
+              height={563}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* On-site Transit Tracker screen */}
@@ -404,34 +423,40 @@ export default function TrimetContent({ image }) {
             </Link>
             .
           </TextsAndLinksRight>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Video advertisements  */}
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            I manage rider facing motion graphics that are usually used in press
-            releases, live events, larger marketing campagins or on social.
-            Follow{" "}
-            <Link href="https://twitter.com/trimet" passHref>
-              <a target="_blank">@trimet</a>
-            </Link>{" "}
-            for more.
+            <TextAndLinksInner>
+              {" "}
+              I manage rider facing motion graphics that are usually used in
+              press releases, live events, larger marketing campagins or on
+              social. Follow{" "}
+              <Link href="https://twitter.com/trimet" passHref>
+                <a target="_blank">@trimet</a>
+              </Link>{" "}
+              for more.
+            </TextAndLinksInner>
           </TextsAndLinksLeft>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
+              width={1000}
+              height={563}
             />
-          </ImgWrap>
+            <video autoPlay loop style={{ width: "500px", height: "500px" }}>
+              <source src="/blue.mp4" />
+            </video>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Micro-interaction proof of concept videos */}
@@ -442,13 +467,13 @@ export default function TrimetContent({ image }) {
             to be built. Low to high fidelity, in most cases internal buy-in in
             the first step to adoption.
           </TextsAndLinksRight>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* Front-end Developer for TriMet Rearchitecture Project */}
@@ -461,13 +486,13 @@ export default function TrimetContent({ image }) {
             </Link>
             .
           </TextsAndLinksLeft>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* TriMet Arrivals */}
@@ -480,13 +505,13 @@ export default function TrimetContent({ image }) {
             </Link>
             .
           </TextsAndLinksRight>
-          <ImgWrap>
+          <MediaWrap>
             <FancyImage
               image={"/trimet/trimet-styleguide.png"}
               width={1920}
               height={1292}
             />
-          </ImgWrap>
+          </MediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/*Logo + Next page link */}

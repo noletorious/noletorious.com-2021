@@ -96,7 +96,7 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout loading={loading}>
+      <Layout loading={loading.toString()}>
         <AnimateSharedLayout type="crossfade">
           <AnimatePresence exitBeforeEnter>
             {loading ? (
