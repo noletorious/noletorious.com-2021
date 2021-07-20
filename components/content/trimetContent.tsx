@@ -74,9 +74,9 @@ const Section = styled.div`
   justify-content: start;
   flex: 1;
   position: relative;
-  margin: 0 1em 4em 1em;
+  margin: ${(props) => (props.first ? "-4em" : 0)} 1em 4em 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0 0 5em 0;
+    margin: ${(props) => (props.first ? "-4em" : 0)} 0 5em 0;
   }
 `;
 
@@ -186,7 +186,7 @@ const JobDescToggle = styled.button`
   background: none;
   border: none;
   position: absolute;
-  bottom: 1em;
+  top: 1em;
   right: 1em;
   display: inline-flex;
   padding: 1em;
@@ -286,6 +286,10 @@ const CarouselImageWrap = styled.div`
   overflow: hidden;
 `;
 
+const CarouselItem = styled.div`
+  margin: 0 1em;
+`;
+
 export default function TrimetContent({ image }) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
@@ -345,7 +349,7 @@ export default function TrimetContent({ image }) {
         </JobDescToggle>
       </ImageHeader>
       {/* Styled guide */}
-      <Section>
+      <Section first>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
             <TextAndLinksInner>
@@ -412,47 +416,50 @@ export default function TrimetContent({ image }) {
           </TextsAndLinksLeft>
           <MediaWrap>
             <Carousel
-              autoPlay
+              // autoPlay
               interval={4000}
               infiniteLoop
               stopOnHover
               dynamicHeight={true}
               showThumbs={false}
               showStatus={false}
+              showArrows={false}
               transitionTime={1000}
+              centerMode
+              centerSlidePercentage={90}
             >
-              <div>
+              <CarouselItem>
                 <CarouselImageWrap>
                   <img src="/trimet/trimet-pdx-scenarios.jpg" />
                 </CarouselImageWrap>
-                <p className="legend">Scenarios</p>
-              </div>
-              <div>
+                <p className="carousel-context">Scenarios</p>
+              </CarouselItem>
+              <CarouselItem>
                 <CarouselImageWrap>
                   <img src="/trimet/trimet-pdx-v1.jpg" />
                 </CarouselImageWrap>
-                <p className="legend">Version 1</p>
-              </div>
-              <div>
+                <p className="carousel-context">Version 1</p>
+              </CarouselItem>
+              <CarouselItem>
                 <CarouselImageWrap>
                   {" "}
                   <img src="/trimet/trimet-pdx-v2.jpg" />
                 </CarouselImageWrap>
-                <p className="legend">Version 2</p>
-              </div>
-              <div>
+                <p className="carousel-context">Version 2</p>
+              </CarouselItem>
+              <CarouselItem>
                 <CarouselImageWrap>
                   {" "}
                   <img src="/trimet/trimet-pdx-v3.jpg" />
                 </CarouselImageWrap>
-                <p className="legend">Version 3</p>
-              </div>
-              <div>
+                <p className="carousel-context">Version 3</p>
+              </CarouselItem>
+              <CarouselItem>
                 <CarouselImageWrap>
                   <img src="/trimet/trimet-pdx-result.jpg" />
                 </CarouselImageWrap>
-                <p className="legend">Result</p>
-              </div>
+                <p className="carousel-context">Result</p>
+              </CarouselItem>
             </Carousel>
           </MediaWrap>
         </FadeInWhenVisible>
@@ -477,7 +484,7 @@ export default function TrimetContent({ image }) {
         </FadeInWhenVisible>
       </Section>
       {/* Video advertisements  */}
-      <Section>
+      {/* <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
             <TextAndLinksInner>
@@ -502,9 +509,9 @@ export default function TrimetContent({ image }) {
             </video>
           </MediaWrap>
         </FadeInWhenVisible>
-      </Section>
+      </Section> */}
       {/* Micro-interaction proof of concept videos */}
-      <Section>
+      {/* <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
             Sometimes we need design references for a concept of a service yet
@@ -519,9 +526,9 @@ export default function TrimetContent({ image }) {
             />
           </MediaWrap>
         </FadeInWhenVisible>
-      </Section>
+      </Section> */}
       {/* Front-end Developer for TriMet Rearchitecture Project */}
-      <Section>
+      {/* <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
             Currently a designer and front-end developer for
@@ -538,9 +545,9 @@ export default function TrimetContent({ image }) {
             />
           </MediaWrap>
         </FadeInWhenVisible>
-      </Section>
+      </Section> */}
       {/* TriMet Arrivals */}
-      <Section>
+      {/* <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
             Enjoy a case-study on designing the ideal Transit Tracker app:{" "}
@@ -557,7 +564,7 @@ export default function TrimetContent({ image }) {
             />
           </MediaWrap>
         </FadeInWhenVisible>
-      </Section>
+      </Section> */}
       {/*Logo + Next page link */}
       <ImageFooter image={"/trimet/trimet-logo.gif"} />
     </ContentWrap>

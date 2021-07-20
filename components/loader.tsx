@@ -39,14 +39,6 @@ const letterAni = {
       opacity: { delay: 2 },
     },
   },
-  // exit: {
-  //   y: -50,
-  //   opacity: 0,
-  //   transition: {
-  //     ease: EASE,
-  //     duration: 0.5,
-  //   },
-  // },
 };
 
 const AnimatedLettersWrap = styled(motion.div).attrs({
@@ -184,7 +176,7 @@ export default function Loader({ setLoading }) {
               setLoading(false);
             }}
           />
-          <AnimatedLetters title={`loading...`} />
+          <AnimatedLetters title={`welcome`} />
         </CenterContent>
       </Container>
     </motion.div>
