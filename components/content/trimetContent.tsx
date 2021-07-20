@@ -12,6 +12,8 @@ import FancyImage from "../fancyImage";
 import CloseIcon from "../close";
 import InfoIcon from "../info";
 import Link from "next/link";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const ImageHeader = styled(motion.div).attrs((props) => ({
   variants: FADEINUPFADEEXIT,
@@ -279,6 +281,11 @@ function FadeInWhenVisible({ children }) {
   );
 }
 
+const CarouselImageWrap = styled.div`
+  border-radius: 1em;
+  overflow: hidden;
+`;
+
 export default function TrimetContent({ image }) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
@@ -371,7 +378,7 @@ export default function TrimetContent({ image }) {
               landmarks.{" "}
             </TextAndLinksInner>
             <SectionLink
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/"
+              href={`https://www.youtube.com/watch?v=BO72XAPARzM&list=PLtJW_Q-z9fw8Q2b5tdBReibFKAVfOJEy6`}
               passHref
             >
               <a target="_blank">TriMet's Google Earth Playlist</a>
@@ -394,22 +401,59 @@ export default function TrimetContent({ image }) {
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
             <TextAndLinksInner>
-              Collaborated with the and designed/developed the MAX Arrival
-              Screens at PDX.
+              Designed and developed the Red Line arrival screens at PDX.
             </TextAndLinksInner>
             <SectionLink
-              href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/grid"
+              href="https://xd.adobe.com/spec/62aea832-a8b0-4905-69b9-d0c37f2c6044-149f/grid"
               passHref
             >
-              <a target="_blank">Port of Portland</a>
+              <a target="_blank">Next MAX Arrival mockup</a>
             </SectionLink>
           </TextsAndLinksLeft>
           <MediaWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1000}
-              height={563}
-            />
+            <Carousel
+              autoPlay
+              interval={4000}
+              infiniteLoop
+              stopOnHover
+              dynamicHeight={true}
+              showThumbs={false}
+              showStatus={false}
+              transitionTime={1000}
+            >
+              <div>
+                <CarouselImageWrap>
+                  <img src="/trimet/trimet-pdx-scenarios.jpg" />
+                </CarouselImageWrap>
+                <p className="legend">Scenarios</p>
+              </div>
+              <div>
+                <CarouselImageWrap>
+                  <img src="/trimet/trimet-pdx-v1.jpg" />
+                </CarouselImageWrap>
+                <p className="legend">Version 1</p>
+              </div>
+              <div>
+                <CarouselImageWrap>
+                  {" "}
+                  <img src="/trimet/trimet-pdx-v2.jpg" />
+                </CarouselImageWrap>
+                <p className="legend">Version 2</p>
+              </div>
+              <div>
+                <CarouselImageWrap>
+                  {" "}
+                  <img src="/trimet/trimet-pdx-v3.jpg" />
+                </CarouselImageWrap>
+                <p className="legend">Version 3</p>
+              </div>
+              <div>
+                <CarouselImageWrap>
+                  <img src="/trimet/trimet-pdx-result.jpg" />
+                </CarouselImageWrap>
+                <p className="legend">Result</p>
+              </div>
+            </Carousel>
           </MediaWrap>
         </FadeInWhenVisible>
       </Section>

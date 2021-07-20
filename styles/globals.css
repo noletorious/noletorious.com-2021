@@ -87,3 +87,12 @@ p {
   border-radius: 50%;
   border: solid 1px red;
 }
+
+/* Carousel Overrides */
+
+.carousel.carousel-slider {
+  overflow: visible !important;
+}
+.control-dots {
+  bottom: -2.5em !important;
+}

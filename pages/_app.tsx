@@ -10,17 +10,17 @@ import styled from "styled-components";
 import { EASE } from "../utils/constants";
 
 const Cursor = styled(motion.div).attrs((props) => ({
-  initial: { scale: 1, opacity: 0, x: -25 },
+  initial: { scale: 0.8, opacity: 0, x: -25 },
   animate: {
     scale: props.mouseClick
-      ? 0.5
+      ? 0.8
       : props.mouseStyle === "pointer"
-      ? [1, 1.15, 1]
-      : 1,
+      ? [0.8, 1.15, 0.8]
+      : 0.8,
     x: props.posX,
     y: props.posY,
-    rotate: props.mouseClick ? 360 : 0,
-    borderRadius: props.mouseClick ? "10px" : "20px",
+    // rotate: props.mouseClick ? 180 : 0,
+    borderRadius: "50%",
     transition: {
       type: "spring",
       damping: 50,
@@ -125,6 +125,7 @@ function MyApp({ Component, pageProps, router }) {
                 }}
                 onMouseUp={(e) => {
                   setMouseClick(false);
+                  handleMouseHover(e);
                 }}
                 onMouseMove={(e) => {
                   handleMouseMove(e);
