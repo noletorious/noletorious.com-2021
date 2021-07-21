@@ -13,7 +13,7 @@ import CloseIcon from "../close";
 import InfoIcon from "../info";
 import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import ResponsivePlayer from "../responsivePlayer";
 
 const ImageHeader = styled(motion.div).attrs((props) => ({
   variants: FADEINUPFADEEXIT,
@@ -65,6 +65,18 @@ const MediaWrap = styled(motion.div)`
   border-radius: 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     margin: 0;
+  }
+`;
+const CarouselMediaWrap = styled(motion.div)`
+  position: relative;
+  max-width: 800px;
+  min-width: 500px;
+  display: flex;
+  margin: 0 auto 3em;
+  padding: 0 1em;
+  border-radius: 1em;
+  @media (min-width: ${MOBILE_MIN_WIDTH}) {
+    margin: 0 auto 1em;
   }
 `;
 
@@ -281,7 +293,16 @@ function FadeInWhenVisible({ children }) {
   );
 }
 
-const CarouselImageWrap = styled.div`
+const BoxRadius = styled.div`
+  border-radius: 1em;
+  overflow: hidden;
+`;
+
+const CarouselImageWrap = styled(BoxRadius)`
+  border-radius: 1em;
+  overflow: hidden;
+`;
+const ReactPlayerWrap = styled(BoxRadius)`
   border-radius: 1em;
   overflow: hidden;
 `;
@@ -414,9 +435,9 @@ export default function TrimetContent({ image }) {
               <a target="_blank">Next MAX Arrival mockup</a>
             </SectionLink>
           </TextsAndLinksLeft>
-          <MediaWrap>
+          <CarouselMediaWrap>
             <Carousel
-              // autoPlay
+              autoPlay
               interval={4000}
               infiniteLoop
               stopOnHover
@@ -442,7 +463,6 @@ export default function TrimetContent({ image }) {
               </CarouselItem>
               <CarouselItem>
                 <CarouselImageWrap>
-                  {" "}
                   <img src="/trimet/trimet-pdx-v2.jpg" />
                 </CarouselImageWrap>
                 <p className="carousel-context">Version 2</p>
@@ -461,55 +481,29 @@ export default function TrimetContent({ image }) {
                 <p className="carousel-context">Result</p>
               </CarouselItem>
             </Carousel>
-          </MediaWrap>
+          </CarouselMediaWrap>
         </FadeInWhenVisible>
       </Section>
-      {/* On-site Transit Tracker screen */}
+
       <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            I have yet to build this but I've redesigned the{" "}
-            <Link href="/" passHref>
-              <a target="_blank">on-site Transit Tracker signage</a>
+            <TextAndLinksInner>
+              I manage rider facing motion graphics that are usually used in
+              press releases, live events, larger marketing campagins or on
+              social.
+            </TextAndLinksInner>
+            <Link href="https://twitter.com/trimet" passHref>
+              <a target="_blank">Follow @trimet</a>
             </Link>
-            .
           </TextsAndLinksRight>
           <MediaWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
-            />
+            <ReactPlayerWrap>
+              <ResponsivePlayer url="/trimet/continue-to-wear-masks.mp4" />
+            </ReactPlayerWrap>
           </MediaWrap>
         </FadeInWhenVisible>
       </Section>
-      {/* Video advertisements  */}
-      {/* <Section>
-        <FadeInWhenVisible>
-          <TextsAndLinksLeft>
-            <TextAndLinksInner>
-              {" "}
-              I manage rider facing motion graphics that are usually used in
-              press releases, live events, larger marketing campagins or on
-              social. Follow{" "}
-              <Link href="https://twitter.com/trimet" passHref>
-                <a target="_blank">@trimet</a>
-              </Link>{" "}
-              for more.
-            </TextAndLinksInner>
-          </TextsAndLinksLeft>
-          <MediaWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1000}
-              height={563}
-            />
-            <video autoPlay loop style={{ width: "500px", height: "500px" }}>
-              <source src="/blue.mp4" />
-            </video>
-          </MediaWrap>
-        </FadeInWhenVisible>
-      </Section> */}
       {/* Micro-interaction proof of concept videos */}
       {/* <Section>
         <FadeInWhenVisible>

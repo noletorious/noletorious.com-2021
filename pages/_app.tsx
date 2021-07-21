@@ -13,9 +13,9 @@ const Cursor = styled(motion.div).attrs((props) => ({
   initial: { scale: 0.8, opacity: 0, x: -25 },
   animate: {
     scale: props.mouseClick
-      ? 0.8
+      ? 0.7
       : props.mouseStyle === "pointer"
-      ? [0.8, 1.15, 0.8]
+      ? [0.8, 0.9, 0.8]
       : 0.8,
     x: props.posX,
     y: props.posY,
