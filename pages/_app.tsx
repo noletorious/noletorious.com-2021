@@ -114,37 +114,37 @@ function MyApp({ Component, pageProps, router }) {
     <ThemeProvider theme={theme}>
       <Layout loading={loading.toString()}>
         <AnimateSharedLayout type="crossfade">
-          <AnimatePresence exitBeforeEnter>
-            {loading ? (
-              <Loader setLoading={setLoading} />
-            ) : (
-              <motion.div
-                ref={boxRef}
-                onMouseDown={(e) => {
-                  setMouseClick(true);
-                }}
-                onMouseUp={(e) => {
-                  setMouseClick(false);
-                  handleMouseHover(e);
-                }}
-                onMouseMove={(e) => {
-                  handleMouseMove(e);
-                  handleMouseHover(e);
-                }}
-              >
-                <Cursor
-                  mouseClick={mouseClick}
-                  theme={theme}
-                  mouseStyle={mouseStyle}
-                  posY={mousePosition.y}
-                  posX={mousePosition.x}
-                >
-                  {mouseClick}
-                </Cursor>
+          <motion.div
+            ref={boxRef}
+            onMouseDown={(e) => {
+              setMouseClick(true);
+            }}
+            onMouseUp={(e) => {
+              setMouseClick(false);
+              handleMouseHover(e);
+            }}
+            onMouseMove={(e) => {
+              handleMouseMove(e);
+              handleMouseHover(e);
+            }}
+          >
+            <Cursor
+              mouseClick={mouseClick}
+              theme={theme}
+              mouseStyle={mouseStyle}
+              posY={mousePosition.y}
+              posX={mousePosition.x}
+            >
+              {mouseClick}
+            </Cursor>
+            <AnimatePresence exitBeforeEnter>
+              {loading ? (
+                <Loader setLoading={setLoading} />
+              ) : (
                 <Component {...pageProps} key={router.route} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </AnimateSharedLayout>
       </Layout>
     </ThemeProvider>

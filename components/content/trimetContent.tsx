@@ -14,6 +14,7 @@ import InfoIcon from "../info";
 import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
 import ResponsivePlayer from "../responsivePlayer";
+import ProjectFooterLinks from "../projectFooterLinks";
 
 const ImageHeader = styled(motion.div).attrs((props) => ({
   variants: FADEINUPFADEEXIT,
@@ -60,12 +61,15 @@ const MediaWrap = styled(motion.div)`
   position: relative;
   max-width: 800px;
   display: flex;
-  margin: 0 auto 1em;
   padding: 0 1em;
   border-radius: 1em;
-  @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0;
-  }
+`;
+const PortraitMediaWrap = styled(motion.div)`
+  position: relative;
+  max-width: 400px;
+  display: flex;
+  padding: 0 1em;
+  border-radius: 1em;
 `;
 const CarouselMediaWrap = styled(motion.div)`
   position: relative;
@@ -73,10 +77,10 @@ const CarouselMediaWrap = styled(motion.div)`
   min-width: 500px;
   display: flex;
   margin: 0 auto 3em;
-  padding: 0 1em;
+  padding: 0;
   border-radius: 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0 auto 1em;
+    margin: 0;
   }
 `;
 
@@ -88,7 +92,7 @@ const Section = styled.div`
   position: relative;
   margin: ${(props) => (props.first ? "-4em" : 0)} 1em 4em 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-4em" : 0)} 0 5em 0;
+    margin: ${(props) => (props.first ? "-4em" : 0)} 0 7em 0;
   }
 `;
 
@@ -410,14 +414,9 @@ export default function TrimetContent({ image }) {
             </SectionLink>
           </TextsAndLinksRight>
           <MediaWrap>
-            <video
-              autoPlay
-              loop
-              muted
-              style={{ width: "100%", borderRadius: "1em" }}
-            >
-              <source src="/trimet/trimet-flythrough.mp4" />
-            </video>
+            <ReactPlayerWrap>
+              <ResponsivePlayer url="/trimet/trimet-flythrough.mp4" />
+            </ReactPlayerWrap>
           </MediaWrap>
         </FadeInWhenVisible>
       </Section>
@@ -489,9 +488,8 @@ export default function TrimetContent({ image }) {
         <FadeInWhenVisible>
           <TextsAndLinksRight>
             <TextAndLinksInner>
-              I manage rider facing motion graphics that are usually used in
-              press releases, live events, larger marketing campagins or on
-              social.
+              Working closely with our in-house videographer and senior social
+              strategist, I produce motion graphics for all video content.
             </TextAndLinksInner>
             <Link href="https://twitter.com/trimet" passHref>
               <a target="_blank">Follow @trimet</a>
@@ -522,24 +520,26 @@ export default function TrimetContent({ image }) {
         </FadeInWhenVisible>
       </Section> */}
       {/* Front-end Developer for TriMet Rearchitecture Project */}
-      {/* <Section>
+      <Section>
         <FadeInWhenVisible>
           <TextsAndLinksLeft>
-            Currently a designer and front-end developer for
-            <Link href="https://trimet.org/newplanner/" passHref>
-              <a target="_blank"> TriMet.org Re-architecture</a>
+            <TextAndLinksInner>
+              Currently a UI designer and front-end developer for our TriMet
+              Re-Architecture Project.
+            </TextAndLinksInner>
+            <Link href="https://beta.trimet.org" passHref>
+              <a target="_blank">Check out beta</a>
             </Link>
-            .
           </TextsAndLinksLeft>
-          <MediaWrap>
+          <PortraitMediaWrap>
             <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
+              image={"/trimet/tora-home.png"}
+              width={1250}
+              height={2000}
             />
-          </MediaWrap>
+          </PortraitMediaWrap>
         </FadeInWhenVisible>
-      </Section> */}
+      </Section>
       {/* TriMet Arrivals */}
       {/* <Section>
         <FadeInWhenVisible>
@@ -560,6 +560,7 @@ export default function TrimetContent({ image }) {
         </FadeInWhenVisible>
       </Section> */}
       {/*Logo + Next page link */}
+      <ProjectFooterLinks next={"/attensa"} />
       <ImageFooter image={"/trimet/trimet-logo.gif"} />
     </ContentWrap>
   );
