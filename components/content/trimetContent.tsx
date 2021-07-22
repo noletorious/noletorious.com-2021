@@ -66,7 +66,7 @@ const MediaWrap = styled(motion.div)`
 `;
 const PortraitMediaWrap = styled(motion.div)`
   position: relative;
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
   padding: 0 1em;
   border-radius: 1em;
@@ -92,7 +92,7 @@ const Section = styled.div`
   position: relative;
   margin: ${(props) => (props.first ? "-4em" : 0)} 1em 4em 1em;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-4em" : 0)} 0 7em 0;
+    margin: ${(props) => (props.first ? "-4em" : 0)} 0 6em 0;
   }
 `;
 
@@ -534,31 +534,32 @@ export default function TrimetContent({ image }) {
           <PortraitMediaWrap>
             <FancyImage
               image={"/trimet/tora-home.png"}
-              width={1250}
-              height={2000}
+              width={800}
+              height={1157}
             />
           </PortraitMediaWrap>
         </FadeInWhenVisible>
       </Section>
       {/* TriMet Arrivals */}
-      {/* <Section>
+      <Section>
         <FadeInWhenVisible>
           <TextsAndLinksRight>
-            Enjoy a case-study on designing the ideal Transit Tracker app:{" "}
-            <Link href="https://trimet.org/newplanner/" passHref>
+            <TextAndLinksInner>
+              Enjoy my case-study on designing the ideal Transit Tracker app:
+            </TextAndLinksInner>
+            <Link href="/trimet/arrivals" passHref>
               <a target="_blank">Arrivals</a>
             </Link>
-            .
           </TextsAndLinksRight>
-          <MediaWrap>
+          <PortraitMediaWrap>
             <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1920}
-              height={1292}
+              image={"/trimet/arrivals/trimet-arrivals.png"}
+              width={1000}
+              height={1305}
             />
-          </MediaWrap>
+          </PortraitMediaWrap>
         </FadeInWhenVisible>
-      </Section> */}
+      </Section>
       {/*Logo + Next page link */}
       <ProjectFooterLinks next={"/attensa"} />
       <ImageFooter image={"/trimet/trimet-logo.gif"} />
