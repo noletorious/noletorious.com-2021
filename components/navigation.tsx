@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useDarkMode } from "next-dark-mode";
 import DarkModeToggle from "./darkModeToggle";
-import Logo from "./logo";
+import Logo from "./icons/logo";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Sparkles from "./sparkles";

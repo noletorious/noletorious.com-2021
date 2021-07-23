@@ -234,12 +234,14 @@ export default function AboutRightBottomContent({ image }) {
               <SkillList>
                 <SkillItem>Adobe: AE, AI, XD, PS</SkillItem>
                 <SkillItem>Storybookjs</SkillItem>
+                <SkillItem>Framerjs</SkillItem>
               </SkillList>
               <Divider />
               <SkillHeader>Developement</SkillHeader>
               <SkillList>
                 <SkillItem>Reactjs: Nextjs, Gatsbyjs</SkillItem>
                 <SkillItem>Visual Studio Code</SkillItem>
+                <SkillItem>Browserstack</SkillItem>
                 <SkillItem>Agile/Scrum experienced</SkillItem>
               </SkillList>
               <Divider />

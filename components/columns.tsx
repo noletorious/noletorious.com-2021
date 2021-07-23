@@ -16,6 +16,7 @@ import TrimetContent from "./content/trimetContent";
 import HopContent from "./content/hopContent";
 import AttensaContent from "./content/attensaContent";
 import CascadiaContent from "./content/cascadiaContent";
+import ArrivalsContent from "./content/arrivalsContent";
 
 const Content = styled.div`
   display: flex;
@@ -173,6 +174,9 @@ export default function HomeAbout() {
           )}
           {currentPage == "/cascadiathreads" && (
             <CascadiaContent image={jobs[3].image} />
+          )}
+          {currentPage == "/trimet/arrivals" && (
+            <ArrivalsContent image={jobs[3].image} />
           )}
         </RightBottomColumn>
       </Content>

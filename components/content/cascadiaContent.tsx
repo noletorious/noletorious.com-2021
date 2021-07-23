@@ -1,35 +1,70 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { Container } from "../scaffold";
-import { FADEINUPFADEEXIT } from "../../utils/constants";
+import { AnimatePresence } from "framer-motion";
+import * as Styled from "../scaffold";
+import FadeInWhenVisible from "../fadeInWhenVisible";
+import CloseIcon from "../icons/close";
+import InfoIcon from "../icons/info";
 
-const ImageHeader = styled(motion.div).attrs((props) => ({
-  variants: FADEINUPFADEEXIT,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
-}))`
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  border-radius: 0 0 0 1em;
-  background-image: url(${(props) => props.image});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-`;
-
-const ContentWrap = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-`;
 export default function CascadiaContent({ image }) {
+  const [jobDescDisplay, setJobDescDisplay] = useState(true);
+  const [jobDescHover, setJobDescHover] = useState(false);
+
+  function JobDescToggle() {
+    setJobDescDisplay(!jobDescDisplay);
+  }
   return (
-    <Container>
-      <ContentWrap>
-        <ImageHeader image={image} />
-      </ContentWrap>
-    </Container>
+    <Styled.ContentWrap>
+      <Styled.ImageHeader image={image}>
+        <AnimatePresence>
+          {jobDescDisplay && (
+            <>
+              <Styled.JobDescContainer
+                color="rgb(34,34,34)"
+                transColor="rgba(34,34,34,.95)"
+              >
+                <Styled.ColorBoxWrap>
+                  <Styled.ColorBox color="rgb(5,5,5)" transparent />
+                  <Styled.ColorBox color="rgb(209, 68, 30)" />
+                  <Styled.ColorBox color="rgb(247, 232, 134)" />
+                  <Styled.ColorBox color="rgb(109, 179, 63)" />
+                  <Styled.ColorBox color="rgb(211, 233, 255)" />
+                </Styled.ColorBoxWrap>
+                <Styled.JobTitle>Design Lead</Styled.JobTitle>
+                <Styled.JobDescription>
+                  Animation, Apparel Design, Photography
+                </Styled.JobDescription>
+              </Styled.JobDescContainer>
+            </>
+          )}
+        </AnimatePresence>
+        <Styled.JobDescToggle onClick={JobDescToggle}>
+          {jobDescDisplay ? (
+            <Styled.CloseWrap>
+              <CloseIcon size={24} />
+            </Styled.CloseWrap>
+          ) : (
+            <Styled.ToggleWrapper
+              onHoverStart={(e) => {
+                setJobDescHover(true);
+              }}
+              onHoverEnd={(e) => {
+                setJobDescHover(false);
+              }}
+            >
+              {jobDescHover ? (
+                <Styled.CloseWrap>
+                  <InfoIcon size={24} />
+                </Styled.CloseWrap>
+              ) : (
+                <Styled.CloseWrap>
+                  <InfoIcon size={24} />
+                </Styled.CloseWrap>
+              )}
+            </Styled.ToggleWrapper>
+          )}
+        </Styled.JobDescToggle>
+      </Styled.ImageHeader>
+    </Styled.ContentWrap>
   );
 }
