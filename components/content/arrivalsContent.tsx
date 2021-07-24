@@ -108,7 +108,7 @@ const Connector = styled.div`
   margin-right: 4em;
 `;
 
-const ArrivalsParagraphSmall = styled(Paragraph)`
+const ArrivalsParagraphSmall = styled(ParagraphSmall)`
   margin-top: 2em;
 `;
 const ArrivalsContent = () => {
@@ -298,6 +298,7 @@ const ArrivalsContent = () => {
           </SectionContent>
         </FadeInWhenVisible>
       </Styled.TextSection>
+      {/* Flows */}
       <Styled.TextSection noBottomMargin>
         <FadeInWhenVisible>
           <TitleConnectorRow>
@@ -382,6 +383,19 @@ const ArrivalsContent = () => {
           </SectionContent>
         </FadeInWhenVisible>
       </Styled.TextSection>
+      <Styled.TextSection>
+        <FadeInWhenVisible>
+          <TitleConnectorRow>
+            <SectionTitle>Arrivals</SectionTitle>
+            <Connector />
+          </TitleConnectorRow>
+        </FadeInWhenVisible>
+      </Styled.TextSection>
+      <FancyImage
+        image="/arrivals/arrivals-xd-screenshot.jpg"
+        width={"2997"}
+        height={"2116"}
+      />
     </Styled.ContentWrap>
   );
 };
