@@ -78,10 +78,7 @@ export const Badge = styled.span`
   font-size: 0.5em;
   padding: 0.5em 1em;
   background: ${(props) => props.theme.accent1};
-  color: ${(props) =>
-    props.darkModeActive
-      ? props.theme.fontColorReverse
-      : props.theme.fontColor};
+  color: ${(props) => props.theme.fontColorReverse};
 `;
 
 export const TextSection = styled(motion.div).attrs({

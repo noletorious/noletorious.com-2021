@@ -13,7 +13,8 @@ import { useDarkMode } from "next-dark-mode";
 export default function TrimetContent({ image }) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
-  const mode = useDarkMode();
+
+  const { darkModeActive } = useDarkMode();
 
   function JobDescToggle() {
     setJobDescDisplay(!jobDescDisplay);
@@ -257,7 +258,7 @@ export default function TrimetContent({ image }) {
           <Styled.SectionColumns>
             <Styled.TextsAndLinksLeft>
               <Styled.BadgeWrap>
-                <Styled.Badge darkModeActive={mode.darkModeActive}>
+                <Styled.Badge darkModeActive={darkModeActive}>
                   High impact
                 </Styled.Badge>
               </Styled.BadgeWrap>
