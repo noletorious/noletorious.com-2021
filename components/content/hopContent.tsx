@@ -1,11 +1,11 @@
-import { Container } from "../scaffold";
+import * as Styled from "../scaffold";
 
 export default function HopContent({ image }) {
   return (
-    <Container>
-      <ContentWrap>
-        <ImageHeader image={image} />
-      </ContentWrap>
-    </Container>
+    <Styled.Container>
+      <Styled.ContentWrap>
+        <Styled.ImageHeader image={image} />
+      </Styled.ContentWrap>
+    </Styled.Container>
   );
 }

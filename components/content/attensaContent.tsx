@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Container } from "../scaffold";
+import * as Styled from "../scaffold";
 import { FADEINUPFADEEXIT } from "../../utils/constants";
 
 const ImageHeader = styled(motion.div).attrs((props) => ({
@@ -26,10 +26,10 @@ const ContentWrap = styled.div`
 `;
 export default function AttensaContent({ image }) {
   return (
-    <Container>
-      <ContentWrap>
-        <ImageHeader image={image} />
-      </ContentWrap>
-    </Container>
+    <Styled.Container>
+      <Styled.ContentWrap>
+        <Styled.ImageHeader image={image} />
+      </Styled.ContentWrap>
+    </Styled.Container>
   );
 }
