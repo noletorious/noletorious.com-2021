@@ -85,6 +85,8 @@ const GridItem = styled.div`
 
 const ParagraphSmall = styled(Paragraph)`
   font-size: 0.75em;
+  line-height: 0;
+  margin-bottom: 1em;
 `;
 
 const ArrivalsTitleSection = styled.div`
@@ -104,6 +106,10 @@ const TitleConnectorRow = styled.div`
 const Connector = styled.div`
   border-left: 1px rgba(50, 50, 50, 0.25) solid;
   margin-right: 4em;
+`;
+
+const ArrivalsParagraphSmall = styled(Paragraph)`
+  margin-top: 2em;
 `;
 const ArrivalsContent = () => {
   //   const [jobDescDisplay, setJobDescDisplay] = useState(true);
@@ -317,19 +323,62 @@ const ArrivalsContent = () => {
               After a few large iterations, we landed on a flow that found a
               balance between complexity and efficiency.
             </Paragraph>
-            <ParagraphSmall>
-              Generalized audit of trimet.org trip tool features.
+            <ArrivalsParagraphSmall>
+              Generalized audit of trimet.org trip tool features{" "}
               <Link href="/arrivals/trimetorg-audit.jpg" passHref>
                 <a target="_blank">
                   <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
                 </a>
               </Link>
-            </ParagraphSmall>
+            </ArrivalsParagraphSmall>
             <FancyImage
               image={"/arrivals/trimetorg-audit.jpg"}
               height={1080}
               width={1659}
             />
+            <ArrivalsParagraphSmall>
+              V1: Low fidelity mockups{" "}
+              <Link href="/arrivals/TT-iteration-1.jpg" passHref>
+                <a target="_blank">
+                  <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+                </a>
+              </Link>
+            </ArrivalsParagraphSmall>
+            <FancyImage
+              image={"/arrivals/TT-iteration-1.jpg"}
+              height={1683}
+              width={2601}
+            />
+            <ArrivalsParagraphSmall>
+              V4: Higher fidelity mockups:{" "}
+              <Link href="/arrivals/TT-iteration-2.0.jpg" passHref>
+                <a target="_blank">
+                  By Stop ID{" "}
+                  <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+                </a>
+              </Link>
+              {" / "}
+              <Link href="/arrivals/TT-iteration-2.1.jpg" passHref>
+                <a target="_blank">
+                  By Omni-box{" "}
+                  <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+                </a>
+              </Link>
+            </ArrivalsParagraphSmall>
+            <FancyImage
+              image={"/arrivals/TT-iteration-2.0.jpg"}
+              height={1500}
+              width={1595}
+            />
+            <FancyImage
+              image={"/arrivals/TT-iteration-2.1.jpg"}
+              height={1294}
+              width={1532}
+            />
+            <Paragraph last>
+              After V4 the flow did not change. The entire design process went
+              to V9.
+            </Paragraph>
           </SectionContent>
         </FadeInWhenVisible>
       </Styled.TextSection>
