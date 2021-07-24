@@ -78,26 +78,43 @@ export const Badge = styled.span`
   font-size: 0.5em;
   padding: 0.5em 1em;
   background: ${(props) => props.theme.accent1};
-  color: #fff;
+  color: ${(props) =>
+    props.darkModeActive
+      ? props.theme.fontColorReverse
+      : props.theme.fontColor};
 `;
 
-export const TextSection = styled.div`
+export const TextSection = styled(motion.div).attrs({
+  variants: FADEINUPFADEEXIT,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+})`
   display: flex;
   flex-direction: column;
   flex: 1;
   max-width: 600px;
   margin: ${(props) => (props.first ? "0" : 0)} auto 4em auto;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-4em" : 0)} auto 6em auto;
+    margin: ${(props) => (props.first ? "-5em" : 0)} auto 6em auto;
   } ;
 `;
 
-export const Section = styled.div`
+export const Section = styled(motion.div).attrs({
+  variants: FADEINUPFADEEXIT,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+})`
   display: flex;
   flex-direction: column;
   justify-content: start;
   flex: 1;
   position: relative;
+  margin: ${(props) => (props.first ? "-3em" : 0)} auto 4em auto;
+  @media (min-width: ${MOBILE_MIN_WIDTH}) {
+    margin: ${(props) => (props.first ? "-5em" : 0)} auto 6em auto;
+  } ;
 `;
 
 export const SectionColumns = styled.div`
@@ -132,13 +149,13 @@ export const TextsAndLinksLeft = styled(motion.div).attrs({
 })`
   line-height: 1.5;
   margin: 0 1em;
-  display: inline;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  order: ${(props) => (props.reverse ? "-1" : 0)};
+  order: ${(props) => (props.mobileReverse ? 0 : 1)};
   max-width: 500px;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    order: ${(props) => (props.reverse ? "0" : -1)};
+    order: ${(props) => (props.mobileReverse ? 1 : -1)};
   }
 `;
 export const ContentWrap = styled.div`

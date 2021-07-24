@@ -13,6 +13,8 @@ import {
   faUserShield,
   faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { MOBILE_MIN_WIDTH } from "../../utils/constants";
+
 const Title = styled.h1`
   margin: 0;
 `;
@@ -51,6 +53,9 @@ const LargeListItem = styled.li`
   padding-bottom: 1em;
   margin-bottom: 1em;
   border-bottom: 1px rgba(50, 50, 50, 0.25) solid;
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 const ListItemHighlight = styled.span`
   font-weight: bold;
@@ -80,6 +85,15 @@ const ParagraphSmall = styled(Paragraph)`
   font-size: 0.75em;
 `;
 
+const ArrivalsTitleSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: ${MOBILE_MIN_WIDTH}) {
+    flex-direction: row;
+  }
+`;
 const ArrivalsContent = () => {
   //   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   //   const [jobDescHover, setJobDescHover] = useState(false);
@@ -89,97 +103,108 @@ const ArrivalsContent = () => {
   //   }
   return (
     <Styled.ContentWrap>
-      <Styled.Section reverse>
+      <Styled.Section>
         <FadeInWhenVisible>
-          <Styled.TextsAndLinksLeft>
-            <RosetteIcon size={"100px"} />
-            <Title>Arrivals</Title>
-            <Subtitle>App concept based on TriMet's Transit Tracker</Subtitle>
-          </Styled.TextsAndLinksLeft>
-          <Styled.PortraitMediaWrap>
-            <FancyImage
-              image={"/trimet/arrivals/trimet-arrivals.png"}
-              width={800}
-              height={1157}
-            />
-          </Styled.PortraitMediaWrap>
+          <Styled.SectionColumns>
+            <ArrivalsTitleSection>
+              <Styled.TextsAndLinksLeft mobileReverse>
+                <RosetteIcon size={"100px"} />
+                <Title>Arrivals</Title>
+                <Subtitle>
+                  App concept based on TriMet's Transit Tracker
+                </Subtitle>
+              </Styled.TextsAndLinksLeft>
+              <Styled.PortraitMediaWrap>
+                <FancyImage
+                  image={"/trimet/arrivals/trimet-arrivals.png"}
+                  width={800}
+                  height={1157}
+                />
+              </Styled.PortraitMediaWrap>
+            </ArrivalsTitleSection>{" "}
+          </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
       {/* Overview */}
-      <Styled.TextSection>
-        <SectionTitle>Overview</SectionTitle>
-        <SectionContent>
-          <SmallCaps>Context</SmallCaps>
-          <Paragraph>
-            The transit tracker tool on{" "}
-            <Link href="https://trimet.org/" passHref>
-              <a>trimet.org</a>
-            </Link>{" "}
-            is the most used feature on the website. As a rider myself, I wanted
-            to create a feature-focused app that would leverage TriMet's public
-            transit tracker API.
-          </Paragraph>
-          <SmallCaps>problem</SmallCaps>
-          <Paragraph>
-            Many people rely on transit tracker information and having it
-            accessible via a mobile app would allow TriMet to extend their
-            services and utilitize more of their capabilities beyond the
-            browser.
-          </Paragraph>
-          <SmallCaps>metrics</SmallCaps>
-          <LargeList>
-            <LargeListItem>
-              <ListItemHighlight>8 million</ListItemHighlight> pageviews per
-              month
-            </LargeListItem>
-            <LargeListItem>
-              <ListItemHighlight> %95</ListItemHighlight> come for transit
-              tracker, trip planner, and alerts
-            </LargeListItem>
-            <LargeListItem>
-              {" "}
-              <ListItemHighlight>%70</ListItemHighlight> access trimet.org on
-              their phone
-            </LargeListItem>
-          </LargeList>
-        </SectionContent>
+      <Styled.TextSection first>
+        <FadeInWhenVisible>
+          <SectionTitle>Overview</SectionTitle>
+          <SectionContent>
+            <SmallCaps>Context</SmallCaps>
+            <Paragraph>
+              The transit tracker tool on{" "}
+              <Link href="https://trimet.org/" passHref>
+                <a>trimet.org</a>
+              </Link>{" "}
+              is the most used feature on the website. As a rider myself, I
+              wanted to create a feature-focused app that would leverage
+              TriMet's public transit tracker API.
+            </Paragraph>
+            <SmallCaps>problem</SmallCaps>
+            <Paragraph>
+              Many people rely on transit tracker information and having it
+              accessible via a mobile app would allow TriMet to extend their
+              services and utilitize more of their capabilities beyond the
+              browser.
+            </Paragraph>
+            <SmallCaps>metrics</SmallCaps>
+            <LargeList>
+              <LargeListItem>
+                <ListItemHighlight>8 million</ListItemHighlight> pageviews per
+                month
+              </LargeListItem>
+              <LargeListItem>
+                <ListItemHighlight> %95</ListItemHighlight> come for transit
+                tracker, trip planner, and alerts
+              </LargeListItem>
+              <LargeListItem>
+                {" "}
+                <ListItemHighlight>%70</ListItemHighlight> access trimet.org on
+                their phone
+              </LargeListItem>
+            </LargeList>
+          </SectionContent>
+        </FadeInWhenVisible>
       </Styled.TextSection>
       {/* Research */}
       <Styled.TextSection>
-        <SectionTitle>Research</SectionTitle>
-        <SectionContent>
-          <SmallCaps>Surveys</SmallCaps>
-          <Styled.UnorderedList>
-            <Styled.ListItem>2019 web surveys</Styled.ListItem>
-          </Styled.UnorderedList>
-          <Paragraph>
-            Each survey shared the underlying goal which was to help TriMet
-            understand the user's experience and perception around the
-            reliability of our information/service.
-          </Paragraph>
-          <Paragraph>
-            Consolidating user feedback, the list below describes the top 10
-            user wants from current users of our trip tools. Number one being
-            the most asked for feature and ten the least:
-          </Paragraph>
-          <SmallCaps>What riders want</SmallCaps>
-          <Styled.OrderedList>
-            <Styled.ListItem>
-              Real-time vehicle locations on map
-            </Styled.ListItem>
-          </Styled.OrderedList>
-          <Paragraph>
-            The most important/common feature people wanted was to see where
-            their upcoming bus was on a map relative to their current location.
-            Back to the initial ideas of this concept app, I've also marked
-            which wants I thought were out of scope as they would be better
-            suited under trip planning features.
-          </Paragraph>
-          <Paragraph>
-            My goal was to create an app that did a few things really well,
-            however this concept app could scale considering the available data.
-          </Paragraph>
-        </SectionContent>
+        <FadeInWhenVisible>
+          <SectionTitle>Research</SectionTitle>
+          <SectionContent>
+            <SmallCaps>Surveys</SmallCaps>
+            <Styled.UnorderedList>
+              <Styled.ListItem>2019 web surveys</Styled.ListItem>
+            </Styled.UnorderedList>
+            <Paragraph>
+              Each survey shared the underlying goal which was to help TriMet
+              understand the user's experience and perception around the
+              reliability of our information/service.
+            </Paragraph>
+            <Paragraph>
+              Consolidating user feedback, the list below describes the top 10
+              user wants from current users of our trip tools. Number one being
+              the most asked for feature and ten the least:
+            </Paragraph>
+            <SmallCaps>What riders want</SmallCaps>
+            <Styled.OrderedList>
+              <Styled.ListItem>
+                Real-time vehicle locations on map
+              </Styled.ListItem>
+            </Styled.OrderedList>
+            <Paragraph>
+              The most important/common feature people wanted was to see where
+              their upcoming bus was on a map relative to their current
+              location. Back to the initial ideas of this concept app, I've also
+              marked which wants I thought were out of scope as they would be
+              better suited under trip planning features.
+            </Paragraph>
+            <Paragraph>
+              My goal was to create an app that did a few things really well,
+              however this concept app could scale considering the available
+              data.
+            </Paragraph>
+          </SectionContent>
+        </FadeInWhenVisible>
       </Styled.TextSection>
       {/* Personas */}
       <Styled.TextSection>

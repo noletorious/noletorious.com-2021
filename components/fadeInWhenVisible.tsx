@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import * as Styled from "./scaffold";
 
 function FadeInWhenVisible({ children }) {
   const controls = useAnimation();
@@ -27,7 +26,7 @@ function FadeInWhenVisible({ children }) {
         hidden: { opacity: 0, y: 30 },
       }}
     >
-      <Styled.SectionColumns>{children}</Styled.SectionColumns>
+      {children}
     </motion.div>
   );
 }
