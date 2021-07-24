@@ -175,9 +175,7 @@ export default function HomeAbout() {
           {currentPage == "/cascadiathreads" && (
             <CascadiaContent image={jobs[3].image} />
           )}
-          {currentPage == "/trimet/arrivals" && (
-            <ArrivalsContent image={jobs[3].image} />
-          )}
+          {currentPage == "/trimet/arrivals" && <ArrivalsContent />}
         </RightBottomColumn>
       </Content>
     </>
