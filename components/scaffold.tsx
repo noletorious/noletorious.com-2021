@@ -110,9 +110,9 @@ export const Section = styled(motion.div).attrs({
   justify-content: start;
   flex: 1;
   position: relative;
-  margin: ${(props) => (props.first ? "-3em" : 0)} auto 4em auto;
+  margin: ${(props) => (props.first ? "-3em" : 0)} 0 4em 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-5em" : 0)} auto 6em auto;
+    margin: ${(props) => (props.first ? "-5em" : 0)} 0 6em 0;
   } ;
 `;
 
