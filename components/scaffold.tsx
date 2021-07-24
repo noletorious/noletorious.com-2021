@@ -91,9 +91,11 @@ export const TextSection = styled(motion.div).attrs({
   flex-direction: column;
   flex: 1;
   max-width: 600px;
-  margin: ${(props) => (props.first ? "0" : 0)} auto 4em auto;
+  margin: ${(props) => (props.first ? "0" : "0")} auto
+    ${(props) => (props.noBottomMargin ? "0" : "4em")} auto;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-5em" : 0)} auto 6em auto;
+    margin: ${(props) => (props.first ? "-5em" : "0")} auto
+      ${(props) => (props.noBottomMargin ? "0" : "6em")} auto;
   } ;
 `;
 
@@ -341,4 +343,6 @@ export const ImageFooter = styled(motion.div).attrs({
 
 export const UnorderedList = styled.ul``;
 export const OrderedList = styled.ol``;
-export const ListItem = styled.li``;
+export const ListItem = styled.li`
+  line-height: 2;
+`;
