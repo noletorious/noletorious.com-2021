@@ -15,7 +15,7 @@ export default function CascadiaContent({ image }) {
   }
   return (
     <Styled.ContentWrap>
-      <Styled.ImageHeader image={image}>
+      <Styled.ImageHeader image={"ct/ct-apparelTable.jpg"}>
         <AnimatePresence>
           {jobDescDisplay && (
             <>

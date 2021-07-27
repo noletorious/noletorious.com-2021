@@ -8,10 +8,9 @@ import {
   faDribbble,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
-
 import NoelImage from "../noelImage";
 import { FADEINUPFADEEXIT } from "../../utils/constants";
-import Sparkles from "../sparkles";
+import SparkleButton from "../sparkleButton";
 
 const ContentWrap = styled.div`
   display: flex;
@@ -19,6 +18,7 @@ const ContentWrap = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.bg1};
   padding-bottom: 2em;
+  padding-top: 1em;
 `;
 
 const ImageWrap = styled.div`
@@ -42,6 +42,7 @@ const Icons = styled(motion.div).attrs({
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-bottom: 1em;
 `;
 
 const Name = styled.span`
@@ -103,23 +104,9 @@ export default function AboutContent() {
           </LinkWrap>
         </IconWrap>
       </Icons>
-
-      <ResumeButtonWrap
-        onHoverStart={(e) => {
-          setEmailHovered(true);
-        }}
-        onHoverEnd={(e) => {
-          setEmailHovered(false);
-        }}
-      >
-        {emailHovered ? (
-          <Sparkles>
-            <ResumeButton>Email me</ResumeButton>
-          </Sparkles>
-        ) : (
-          <ResumeButton>Email me</ResumeButton>
-        )}
-      </ResumeButtonWrap>
+      <SparkleButton url={"mailto:hello@noletorious.com"}>
+        Email me
+      </SparkleButton>
     </ContentWrap>
   );
 }

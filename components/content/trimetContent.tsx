@@ -1,78 +1,33 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import FancyImage from "../fancyImage";
-import CloseIcon from "../icons/close";
-import InfoIcon from "../icons/info";
+
 import { Carousel } from "react-responsive-carousel";
 import ResponsivePlayer from "../responsivePlayer";
 import ProjectFooterLinks from "../projectFooterLinks";
 import FadeInWhenVisible from "../fadeInWhenVisible";
 import * as Styled from "../scaffold";
 import { useDarkMode } from "next-dark-mode";
+import ProjectHeader from "../projectHeader";
 
 export default function TrimetContent({ image }) {
-  const [jobDescDisplay, setJobDescDisplay] = useState(true);
-  const [jobDescHover, setJobDescHover] = useState(false);
-
   const { darkModeActive } = useDarkMode();
-
-  function JobDescToggle() {
-    setJobDescDisplay(!jobDescDisplay);
-  }
 
   return (
     <Styled.ContentWrap>
-      <Styled.ImageHeader image={image}>
-        <AnimatePresence>
-          {jobDescDisplay && (
-            <>
-              <Styled.JobDescContainer
-                color="rgb(8, 76, 141)"
-                transColor="rgb(8, 76, 141,.95)"
-              >
-                <Styled.ColorBoxWrap>
-                  <Styled.ColorBox color="rgb(8, 76, 141)" transparent />
-                  <Styled.ColorBox color="rgb(209, 68, 30)" />
-                  <Styled.ColorBox color="rgb(247, 232, 134)" />
-                  <Styled.ColorBox color="rgb(109, 179, 63)" />
-                  <Styled.ColorBox color="rgb(211, 233, 255)" />
-                </Styled.ColorBoxWrap>
-                <Styled.JobTitle>Web Designer/Developer</Styled.JobTitle>
-                <Styled.JobDescription>
-                  UX/I Design, Motion Graphics, React Front-end Development,
-                  Video Production, Photography
-                </Styled.JobDescription>
-              </Styled.JobDescContainer>
-            </>
-          )}
-        </AnimatePresence>
-        <Styled.JobDescToggle onClick={JobDescToggle}>
-          {jobDescDisplay ? (
-            <Styled.CloseWrap>
-              <CloseIcon size={24} />
-            </Styled.CloseWrap>
-          ) : (
-            <Styled.ToggleWrapper
-              onHoverStart={(e) => {
-                setJobDescHover(true);
-              }}
-              onHoverEnd={(e) => {
-                setJobDescHover(false);
-              }}
-            >
-              {jobDescHover ? (
-                <Styled.CloseWrap>
-                  <InfoIcon size={24} />
-                </Styled.CloseWrap>
-              ) : (
-                <Styled.CloseWrap>
-                  <InfoIcon size={24} />
-                </Styled.CloseWrap>
-              )}
-            </Styled.ToggleWrapper>
-          )}
-        </Styled.JobDescToggle>
-      </Styled.ImageHeader>
+      <ProjectHeader
+        image="/front/trimet-front.jpg"
+        colors={[
+          "rgb(8,76,141)",
+          "rgb(209, 68, 30)",
+          "rgb(247, 232, 134)",
+          "rgb(109, 179, 63)",
+          "rgb(211, 233, 255)",
+          "rgba(8,76,141,.95)",
+        ]}
+        position="Web Designer/Developer"
+        description=" UX/I Design, Motion Graphics, React Front-end Development, Video
+        Production, Photography"
+      />
       {/* Styled guide */}
       <Styled.Section first>
         <FadeInWhenVisible>
@@ -144,12 +99,12 @@ export default function TrimetContent({ image }) {
                 I'm involved with most of our digital signage that needs to tap
                 in to our transit tracker API. A great example was our
                 collaboration the{" "}
-                <Styled.TextAndLinksInnerLink
+                <Styled.SectionLink
                   href="https://www.portofportland.com/"
                   passHref
                 >
                   <a target="_blank">Port of Portland</a>
-                </Styled.TextAndLinksInnerLink>
+                </Styled.SectionLink>
                 , where I designed and developed the Red Line arrival screens at
                 PDX.
               </Styled.TextAndLinksInner>
@@ -255,7 +210,7 @@ export default function TrimetContent({ image }) {
       {/* Front-end Developer for TriMet Rearchitecture Project */}
       <Styled.Section>
         <FadeInWhenVisible>
-          <Styled.SectionColumns>
+          <Styled.SectionColumns togetherDesktop>
             <Styled.TextsAndLinksLeft>
               <Styled.BadgeWrap>
                 <Styled.Badge darkModeActive={darkModeActive}>
@@ -293,7 +248,7 @@ export default function TrimetContent({ image }) {
       {/* TriMet Arrivals */}
       <Styled.Section first>
         <FadeInWhenVisible>
-          <Styled.SectionColumns>
+          <Styled.SectionColumns togetherDesktop>
             <Styled.TextsAndLinksRight>
               <Styled.TextAndLinksInner>
                 Enjoy my case-study on designing the ideal Transit Tracker app:
@@ -315,8 +270,8 @@ export default function TrimetContent({ image }) {
         </FadeInWhenVisible>
       </Styled.Section>
       {/*Logo + Next page link */}
-      <ProjectFooterLinks next={"/attensa"} />
-      <Styled.ImageFooter image={"/trimet/trimet-logo.gif"} />
+      <ProjectFooterLinks next={"Hop Fastpass"} nextLink={"/hop-fastpass"} />
+      <Styled.ImageFooter bgColor={"#fff"} image={"/trimet/trimet-logo.gif"} />
     </Styled.ContentWrap>
   );
 }

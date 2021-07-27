@@ -43,7 +43,7 @@ export const MediaWrap = styled(motion.div)`
   position: relative;
   max-width: 800px;
   display: flex;
-  padding: 0 1em;
+  overflow: hidden;
   border-radius: 1em;
   margin: 0 0 1em 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
@@ -52,10 +52,10 @@ export const MediaWrap = styled(motion.div)`
 `;
 export const PortraitMediaWrap = styled(motion.div)`
   position: relative;
-  max-width: 500px;
+  max-width: ${(props) => (props.extraSmall ? "300px" : "500px")};
   display: flex;
-  padding: 0 1em;
   border-radius: 1em;
+  overflow: hidden;
 `;
 export const CarouselMediaWrap = styled(motion.div)`
   position: relative;
@@ -110,10 +110,37 @@ export const Section = styled(motion.div).attrs({
   justify-content: start;
   flex: 1;
   position: relative;
-  margin: ${(props) => (props.first ? "-3em" : 0)} 0 4em 0;
+  margin: ${(props) => (props.first ? "-3em" : 0)} 0
+    ${(props) => (props.noBottomMargin ? "0" : "4em")} 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: ${(props) => (props.first ? "-5em" : 0)} 0 6em 0;
+    margin: ${(props) => (props.first ? "-5em" : 0)} 0
+      ${(props) => (props.noBottomMargin ? "0" : "6em")} 0;
   } ;
+`;
+export const CenteredRowsSection = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: ${(props) => (props.first ? "-3em" : 0)} 0
+    ${(props) => (props.noBottomMargin ? "0" : "4em")} 0;
+  @media (min-width: ${MOBILE_MIN_WIDTH}) {
+    margin: ${(props) => (props.first ? "-5em" : 0)} 0
+      ${(props) => (props.noBottomMargin ? "0" : "6em")} 0;
+  } ;
+`;
+
+export const CenteredRowBgHelper = styled.div`
+  background-color: ${(props) => props.bgColor};
+  border-radius: 1em;
+  display: flex;
+  flex: 1;
+  width: 80%;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const SectionColumns = styled.div`
@@ -122,14 +149,11 @@ export const SectionColumns = styled.div`
   align-items: center;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: ${(props) =>
+      props.togetherDesktop ? "center" : "space-evenly"};
     padding-bottom: 4em;
     margin: 0;
   }
-`;
-
-export const TextAndLinksInnerLink = styled(Link)`
-  display: inherit;
 `;
 
 export const SectionLinkWrap = styled.div`
@@ -162,6 +186,7 @@ export const ContentWrap = styled.div`
   flex: 1;
   flex-direction: column;
 `;
+
 export const TextsAndLinksRight = styled(motion.div).attrs({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
@@ -201,6 +226,20 @@ const jobDescVariants = {
     },
   },
 };
+
+export const SectionTitle = styled.h2`
+  margin: ${(props) => (props.first ? "1em" : "4em 1em 1em 1em")};
+`;
+
+export const TitleConnectorRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+export const Connector = styled.div`
+  border-left: 1px rgba(50, 50, 50, 0.25) solid;
+  margin-right: 4em;
+`;
 
 export const JobDescContainer = styled(motion.div).attrs({
   variants: jobDescVariants,
@@ -305,6 +344,8 @@ export const TextAndLinksInner = styled.span`
 export const BoxRadius = styled.div`
   border-radius: 1em;
   overflow: hidden;
+  border: ${(props) =>
+    props.bordered ? "1px solid rgb(0, 0, 0, 0.2)" : "none"};
 `;
 
 export const CarouselImageWrap = styled(BoxRadius)`
@@ -318,6 +359,24 @@ export const ReactPlayerWrap = styled(BoxRadius)`
 
 export const CarouselItem = styled.div`
   margin: 0 1em;
+`;
+export const TwoByTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export const GridItem = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1em;
+  max-width: 300px;
 `;
 
 export const ImageFooter = styled(motion.div).attrs({
@@ -334,11 +393,36 @@ export const ImageFooter = styled(motion.div).attrs({
   background-position: center center;
   background-size: 75%;
   background-repeat: no-repeat;
-  background-color: #fff;
+  background-color: ${(props) => props.bgColor};
   margin: 0;
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
     background-size: 45%;
   }
+`;
+
+export const Paragraph = styled.p`
+  opacity: 0.5;
+  line-height: 1.5;
+  margin-bottom: ${(props) => (props.last ? "0" : "2em")};
+`;
+export const ParagraphSmall = styled(Paragraph)`
+  font-size: 0.75em;
+  line-height: 0;
+  margin-bottom: 1em;
+`;
+export const ArrivalsParagraphSmall = styled(ParagraphSmall)`
+  margin-top: 2em;
+`;
+
+export const ConnectorText = styled.p`
+  margin: 4em 1em 1em 0;
+`;
+
+export const SmallCaps = styled.span`
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin: 1em 0;
 `;
 
 export const UnorderedList = styled.ul``;

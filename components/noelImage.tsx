@@ -59,17 +59,17 @@ export default function NoelImage() {
   const [imageHovering, setImageHover] = useState(false);
 
   return (
-    <NoelImageWrap
-      onMouseOver={() => {
-        setImageHover(true);
-      }}
-      onMouseLeave={() => {
-        setImageHover(false);
-      }}
-      currentPage={router.pathname}
-      imageHovering={imageHovering}
-    >
-      <Link href={router.pathname == "/" ? "/about" : "/"}>
+    <Link href={router.pathname == "/" ? "/about" : "/"}>
+      <NoelImageWrap
+        onMouseOver={() => {
+          setImageHover(true);
+        }}
+        onMouseLeave={() => {
+          setImageHover(false);
+        }}
+        currentPage={router.pathname}
+        imageHovering={imageHovering}
+      >
         <Image
           src={`/noel-trimet-square.jpg`}
           layout="intrinsic"
@@ -78,7 +78,7 @@ export default function NoelImage() {
           priority={true}
           className="img-rounded"
         />
-      </Link>
-    </NoelImageWrap>
+      </NoelImageWrap>
+    </Link>
   );
 }

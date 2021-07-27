@@ -5,7 +5,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { EASE } from "../utils/constants";
-import Sparkles from "./sparkles";
+import SparkleButton from "./sparkleButton";
 
 const chevronWrapperVariants = {
   initial: { rotate: 0, transition: { ease: EASE } },
@@ -69,7 +69,8 @@ const AboutLi = styled(baseLi)`
   }
 `;
 
-const AboutLink = styled.div`
+const AboutLink = styled.a`
+color:${(props) => props.theme.accent1reverse}
   &:hover {
     font-weight: 300 !important;
   }
@@ -103,8 +104,9 @@ export default function ChevronDropDown({ homeClicked }) {
         <BubbleLinks>
           <BubbleUl>
             <AboutLi
-              onClick={() => {
+              onClick={(e) => {
                 setPageList(false);
+                console.log(e);
               }}
               onHoverStart={(e) => {
                 setAboutHovered(true);
@@ -113,17 +115,9 @@ export default function ChevronDropDown({ homeClicked }) {
                 setAboutHovered(false);
               }}
             >
-              <Link href="/about" passHref>
-                {aboutHovered ? (
-                  <Sparkles>
-                    <span>About</span>
-                  </Sparkles>
-                ) : (
-                  <>
-                    <span>About</span>
-                  </>
-                )}
-              </Link>
+              <SparkleButton noNewTab reverseColor url="/about">
+                About
+              </SparkleButton>
             </AboutLi>
             <BlogLi>Blog</BlogLi>
           </BubbleUl>
