@@ -169,9 +169,7 @@ export default function HomeAbout() {
           {currentPage == "/attensa" && (
             <AttensaContent image={jobs[2].image} />
           )}
-          {currentPage == "/hop-fastpass" && (
-            <HopContent image={jobs[1].image} />
-          )}
+          {currentPage == "/hop-fastpass" && <HopContent />}
           {currentPage == "/cascadiathreads" && (
             <CascadiaContent image={jobs[3].image} />
           )}
