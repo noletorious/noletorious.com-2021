@@ -241,6 +241,13 @@ export const Connector = styled.div`
   margin-right: 4em;
 `;
 
+export const MaxWidth = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : "500px;")};
+`;
+
 export const JobDescContainer = styled(motion.div).attrs({
   variants: jobDescVariants,
   initial: "initial",
@@ -338,14 +345,13 @@ export const CloseWrap = styled.div`
 
 export const TextAndLinksInner = styled.span`
   margin-bottom: 1em;
-  opacity: 0.5;
+  color: #878b8d;
 `;
 
 export const BoxRadius = styled.div`
   border-radius: 1em;
   overflow: hidden;
-  border: ${(props) =>
-    props.bordered ? "1px solid rgb(0, 0, 0, 0.2)" : "none"};
+  border: ${(props) => (props.bordered ? "1px solid #878b8d" : "none")};
 `;
 
 export const CarouselImageWrap = styled(BoxRadius)`
@@ -401,7 +407,8 @@ export const ImageFooter = styled(motion.div).attrs({
 `;
 
 export const Paragraph = styled.p`
-  opacity: 0.5;
+  // opacity: 0.5;
+  color: #878b8d;
   line-height: 1.5;
   margin-bottom: ${(props) => (props.last ? "0" : "2em")};
 `;

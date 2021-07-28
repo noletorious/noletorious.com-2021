@@ -5,8 +5,9 @@ import * as Styled from "../scaffold";
 import FadeInWhenVisible from "../fadeInWhenVisible";
 import CloseIcon from "../icons/close";
 import InfoIcon from "../icons/info";
-
-export default function CascadiaContent({ image }) {
+import ProjectFooterLinks from "../projectFooterLinks";
+import FancyImage from "../fancyImage";
+export default function CascadiaContent({}) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
 
@@ -21,7 +22,7 @@ export default function CascadiaContent({ image }) {
             <>
               <Styled.JobDescContainer
                 color="rgb(34,34,34)"
-                transColor="rgba(34,34,34,.95)"
+                transColor="rgba(0,0,0,.75)"
               >
                 <Styled.ColorBoxWrap>
                   <Styled.ColorBox color="rgb(5,5,5)" transparent />
@@ -32,7 +33,7 @@ export default function CascadiaContent({ image }) {
                 </Styled.ColorBoxWrap>
                 <Styled.JobTitle>Design Lead</Styled.JobTitle>
                 <Styled.JobDescription>
-                  Animation, Apparel Design, Photography
+                  Web Design, Animation, Apparel Design, Photography
                 </Styled.JobDescription>
               </Styled.JobDescContainer>
             </>
@@ -65,6 +66,101 @@ export default function CascadiaContent({ image }) {
           )}
         </Styled.JobDescToggle>
       </Styled.ImageHeader>
+      <Styled.CenteredRowsSection>
+        <Styled.CenteredRowBgHelper>
+          <Styled.MaxWidth>
+            <Styled.Paragraph></Styled.Paragraph>
+            <Styled.SmallCaps>Contributions</Styled.SmallCaps>
+            <Styled.Paragraph last>
+              What we were and aimed to do.
+            </Styled.Paragraph>
+            <Styled.Paragraph>
+              My main contribution was ...and what happened eventually.
+            </Styled.Paragraph>
+          </Styled.MaxWidth>
+        </Styled.CenteredRowBgHelper>
+      </Styled.CenteredRowsSection>
+      <Styled.CenteredRowsSection>
+        <Styled.CenteredRowBgHelper>
+          <Styled.BoxRadius>
+            <FancyImage
+              image={"/attensa/attensa-standup.jpg"}
+              width={1024}
+              height={683}
+            />
+          </Styled.BoxRadius>
+        </Styled.CenteredRowBgHelper>
+      </Styled.CenteredRowsSection>
+      <Styled.CenteredRowsSection>
+        <FadeInWhenVisible>
+          <Styled.CenteredRowBgHelper>
+            <Styled.SmallCaps>The Topic View</Styled.SmallCaps>
+            <Styled.Paragraph></Styled.Paragraph>
+          </Styled.CenteredRowBgHelper>
+          <Styled.MediaWrap>
+            <Styled.BoxRadius bordered>
+              <FancyImage
+                image={"/attensa/attensa-topicView.png"}
+                width={1382}
+                height={785}
+              />
+            </Styled.BoxRadius>
+          </Styled.MediaWrap>
+        </FadeInWhenVisible>
+      </Styled.CenteredRowsSection>
+      <Styled.CenteredRowsSection>
+        <FadeInWhenVisible>
+          <Styled.CenteredRowBgHelper>
+            <Styled.SmallCaps>Login and see whats relevant</Styled.SmallCaps>
+          </Styled.CenteredRowBgHelper>
+          <Styled.Paragraph></Styled.Paragraph>
+          <Styled.TwoByTwo>
+            <Styled.Row>
+              <Styled.GridItem>
+                <Styled.BoxRadius bordered>
+                  <FancyImage
+                    image={"/attensa/attensa-mobLogin.png"}
+                    width={750}
+                    height={1334}
+                  />
+                </Styled.BoxRadius>
+              </Styled.GridItem>
+              <Styled.GridItem>
+                <Styled.BoxRadius bordered>
+                  <FancyImage
+                    image={"/attensa/attensa-mobMyTopics.png"}
+                    width={750}
+                    height={1334}
+                  />
+                </Styled.BoxRadius>
+              </Styled.GridItem>
+            </Styled.Row>
+            <Styled.Row>
+              <Styled.GridItem>
+                <Styled.BoxRadius bordered>
+                  <FancyImage
+                    image={"/attensa/attensa-mobReadView.png"}
+                    width={750}
+                    height={1334}
+                  />
+                </Styled.BoxRadius>
+              </Styled.GridItem>
+              <Styled.GridItem>
+                <Styled.BoxRadius bordered>
+                  <FancyImage
+                    image={"/attensa/attensa-mobTopicView.png"}
+                    width={750}
+                    height={1334}
+                  />
+                </Styled.BoxRadius>
+              </Styled.GridItem>
+            </Styled.Row>
+          </Styled.TwoByTwo>
+        </FadeInWhenVisible>
+      </Styled.CenteredRowsSection>{" "}
+      {/*Logo + Next page link */}
+      <ProjectFooterLinks next={"TriMet"} nextLink={"/trimet"} />
+      <Styled.ImageFooter bgColor={"#000"} image={"/ct/ct-animation.gif"} />
     </Styled.ContentWrap>
   );
 }

@@ -8,7 +8,7 @@ export const jobs = [
   { name: "Attensa", image: "/front/attensa-front.jpg", link: "/attensa" },
   {
     name: "Cascadia Threads",
-    image: "/front/ct-front.png",
+    image: "/front/ct-front.jpg",
     link: "/cascadiathreads",
   },
 ];

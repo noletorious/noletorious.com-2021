@@ -448,7 +448,7 @@ const ArrivalsContent = () => {
                 "https://xd.adobe.com/view/d1271807-eac2-4d9a-6a38-fcca214cbf2f-a716/"
               }
             >
-              Enjoy prototype
+              Enjoy the prototype
             </SparkleButton>
           </SectionContent>
         </FadeInWhenVisible>

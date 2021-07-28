@@ -72,6 +72,22 @@ export default function AttensaContent({ image }) {
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>
+          <Styled.SmallCaps>Contributions</Styled.SmallCaps>
+          <Styled.Paragraph last>
+            Joining the team in 2014, I started by creating what was
+            needed/missing for relaunching the Attensa 2.0 the following year.
+            From infographics, gated case-studies, photography, email templates,
+            user how-to microsite, automated marketing landing pages, and a new
+            Wordpress website.
+          </Styled.Paragraph>
+          <Styled.Paragraph>
+            My main contribution was working with the team on developing the
+            Topic View which both administrators and users interact with.{" "}
+          </Styled.Paragraph>
+        </Styled.CenteredRowBgHelper>
+      </Styled.CenteredRowsSection>
+      <Styled.CenteredRowsSection>
+        <Styled.CenteredRowBgHelper>
           <Styled.BoxRadius>
             <FancyImage
               image={"/attensa/attensa-standup.jpg"}
@@ -83,8 +99,10 @@ export default function AttensaContent({ image }) {
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <FadeInWhenVisible>
-          <Styled.SmallCaps>The Topic View</Styled.SmallCaps>
-          <Styled.Paragraph></Styled.Paragraph>
+          <Styled.CenteredRowBgHelper>
+            <Styled.SmallCaps>The Topic View</Styled.SmallCaps>
+            <Styled.Paragraph></Styled.Paragraph>
+          </Styled.CenteredRowBgHelper>
           <Styled.MediaWrap>
             <Styled.BoxRadius bordered>
               <FancyImage
@@ -98,7 +116,9 @@ export default function AttensaContent({ image }) {
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <FadeInWhenVisible>
-          <Styled.SmallCaps>Login and see whats relevant</Styled.SmallCaps>
+          <Styled.CenteredRowBgHelper>
+            <Styled.SmallCaps>Login and see whats relevant</Styled.SmallCaps>
+          </Styled.CenteredRowBgHelper>
           <Styled.Paragraph></Styled.Paragraph>
           <Styled.TwoByTwo>
             <Styled.Row>
@@ -142,6 +162,21 @@ export default function AttensaContent({ image }) {
               </Styled.GridItem>
             </Styled.Row>
           </Styled.TwoByTwo>
+        </FadeInWhenVisible>
+      </Styled.CenteredRowsSection>{" "}
+      <Styled.CenteredRowsSection>
+        <FadeInWhenVisible>
+          <Styled.CenteredRowBgHelper>
+            <Styled.SmallCaps>Landing pages</Styled.SmallCaps>
+            <Styled.Paragraph></Styled.Paragraph>
+          </Styled.CenteredRowBgHelper>
+          <Styled.MediaWrap>
+            <FancyImage
+              image={"/attensa/attensa-LP.png"}
+              width={1430}
+              height={2121}
+            />
+          </Styled.MediaWrap>
         </FadeInWhenVisible>
       </Styled.CenteredRowsSection>
       <ProjectFooterLinks
