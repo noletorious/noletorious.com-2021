@@ -84,7 +84,7 @@ export default function CascadiaContent({}) {
         <FadeInWhenVisible>
           <Styled.TitleConnectorRow>
             <Styled.ConnectorText>
-              <Styled.SmallCaps>Topics</Styled.SmallCaps>
+              <Styled.SmallCaps>Collaborations</Styled.SmallCaps>
               <Styled.ParagraphSmall>
                 Worked with the best in Portland.
               </Styled.ParagraphSmall>
