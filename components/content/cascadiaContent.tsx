@@ -85,15 +85,17 @@ export default function CascadiaContent({}) {
           <Styled.TitleConnectorRow>
             <Styled.ConnectorText>
               <Styled.SmallCaps>Collaborations</Styled.SmallCaps>
-              <Styled.ParagraphSmall>
+              <Styled.Paragraph last>
                 Worked with the best in Portland.
-              </Styled.ParagraphSmall>
+              </Styled.Paragraph>
               <Styled.SectionLinkWrap noMargin>
                 <Styled.SectionLink
                   href="https://www.instagram.com/oregonscreen/"
                   passHref
                 >
-                  <a target="_blank">👕 @oregonscreen</a>
+                  <a target="_blank" style={{ fontSize: ".7em" }}>
+                    👕 @oregonscreen
+                  </a>
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
               <Styled.SectionLinkWrap noMargin>
@@ -101,7 +103,9 @@ export default function CascadiaContent({}) {
                   href="https://www.instagram.com/blackprints/"
                   passHref
                 >
-                  <a target="_blank">📸 @blackprints</a>
+                  <a target="_blank" style={{ fontSize: ".7em" }}>
+                    📸 @blackprints
+                  </a>
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
             </Styled.ConnectorText>
@@ -166,14 +170,14 @@ export default function CascadiaContent({}) {
           <Styled.CenteredRowBgHelper>
             <Styled.SmallCaps>Webstore</Styled.SmallCaps>
             <Styled.Paragraph></Styled.Paragraph>
+            <Styled.BoxRadius bordered>
+              <FancyImage
+                image={"/ct/ct-userflow.jpg"}
+                width={1382}
+                height={785}
+              />
+            </Styled.BoxRadius>
           </Styled.CenteredRowBgHelper>
-          <Styled.BoxRadius bordered>
-            <FancyImage
-              image={"/ct/ct-userflow.jpg"}
-              width={1382}
-              height={785}
-            />
-          </Styled.BoxRadius>
         </FadeInWhenVisible>
       </Styled.CenteredRowsSection>
       <Styled.TextSection noBottomMargin>

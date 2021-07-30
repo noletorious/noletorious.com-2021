@@ -45,10 +45,7 @@ export const MediaWrap = styled(motion.div)`
   display: flex;
   overflow: hidden;
   border-radius: 1em;
-  margin: 0 0 1em 0;
-  @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    margin: 0;
-  }
+  margin: 0;
 `;
 export const PortraitMediaWrap = styled(motion.div)`
   position: relative;
