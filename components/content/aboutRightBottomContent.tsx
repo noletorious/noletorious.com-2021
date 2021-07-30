@@ -239,7 +239,8 @@ export default function AboutRightBottomContent({ image }) {
               <Divider />
               <SkillHeader>Developement</SkillHeader>
               <SkillList>
-                <SkillItem>Reactjs: Nextjs, Gatsbyjs</SkillItem>
+                <SkillItem>React trained</SkillItem>
+                <SkillItem> Nextjs, Gatsbyjs</SkillItem>
                 <SkillItem>Visual Studio Code</SkillItem>
                 <SkillItem>Browserstack</SkillItem>
                 <SkillItem>Agile/Scrum experienced</SkillItem>
@@ -247,6 +248,7 @@ export default function AboutRightBottomContent({ image }) {
               <Divider />
               <SkillHeader>Learning</SkillHeader>
               <SkillList>
+                <SkillList>Redux</SkillList>
                 <SkillItem>
                   Python: 100 days of Python, Coursera Python Automation
                 </SkillItem>
