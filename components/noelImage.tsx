@@ -71,7 +71,7 @@ export default function NoelImage() {
         imageHovering={imageHovering}
       >
         <Image
-          src={`/noel-trimet-square.jpg`}
+          src={`/noel-square.jpg`}
           layout="intrinsic"
           width={200}
           height={200}

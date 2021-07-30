@@ -250,8 +250,14 @@ export default function TrimetContent({ image }) {
         <FadeInWhenVisible>
           <Styled.SectionColumns togetherDesktop>
             <Styled.TextsAndLinksRight>
+              <Styled.BadgeWrap>
+                <Styled.Badge darkModeActive={darkModeActive}>
+                  Case study
+                </Styled.Badge>
+              </Styled.BadgeWrap>
               <Styled.TextAndLinksInner>
-                Enjoy my case-study on designing the ideal Transit Tracker app:
+                Enjoy my experimental prototype on designing the ideal Transit
+                Tracker app:
               </Styled.TextAndLinksInner>
               <Styled.SectionLinkWrap>
                 <Styled.SectionLink href="/trimet/arrivals" passHref>
