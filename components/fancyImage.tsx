@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FADEINUPFADEEXIT, EASE } from "../utils/constants";
+// import { FADEINUPFADEEXIT, EASE } from "../utils/constants";
 
 const ImageWrap = styled(motion.div).attrs((props) => ({
   // variants: FADEINUPFADEEXIT,

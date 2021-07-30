@@ -157,7 +157,7 @@ export const SectionColumns = styled.div`
 `;
 
 export const SectionLinkWrap = styled.div`
-  margin: 1em 0;
+  margin: ${(props) => (props.noMargin ? "0" : "1em 0")};
 `;
 
 export const SectionLink = styled(Link)`
@@ -381,7 +381,7 @@ export const GridItem = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 1em;
+  margin: ${(props) => (props.noMargin ? "0" : "1em")};
   max-width: 300px;
 `;
 
