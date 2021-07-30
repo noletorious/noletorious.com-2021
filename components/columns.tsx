@@ -170,9 +170,7 @@ export default function HomeAbout() {
             <AttensaContent image={jobs[2].image} />
           )}
           {currentPage == "/hop-fastpass" && <HopContent />}
-          {currentPage == "/cascadiathreads" && (
-            <CascadiaContent image={jobs[3].image} />
-          )}
+          {currentPage == "/cascadiathreads" && <CascadiaContent />}
           {currentPage == "/trimet/arrivals" && <ArrivalsContent />}
         </RightBottomColumn>
       </Content>
