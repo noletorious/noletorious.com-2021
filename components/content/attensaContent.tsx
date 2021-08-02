@@ -28,7 +28,7 @@ export default function AttensaContent({ image }) {
         <FadeInWhenVisible>
           <Styled.CenteredRowsSection noBottomMargin>
             <Styled.Paragraph>
-              Attensa allows companies to enable their curators to provide their
+              Attensa allow companies to enable their curators to provide their
               audience the right information, at the right time.{" "}
             </Styled.Paragraph>
             <Styled.CenteredRowBgHelper bgColor={"rgba(0,0,0,.5)"}>
