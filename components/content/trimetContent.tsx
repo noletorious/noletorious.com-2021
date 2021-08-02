@@ -318,8 +318,8 @@ export default function TrimetContent({ image }) {
               → Front-End UI/Motion Designer
             </Styled.SmallCaps>
             <Styled.Paragraph last>
-              I create so much at TriMet, it's wonderful. A few notable on
-              projects that I haven't included a visual for yet:
+              I create so much at TriMet, it's wonderful. A few noteworthy
+              projects I haven't created a space for yet:
               <Styled.UnorderedList>
                 <Styled.ListItem>
                   Outlook Employee Email Signature Generator
