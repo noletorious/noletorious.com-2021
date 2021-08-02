@@ -12,7 +12,7 @@ const LayoutWrapperInner = styled.div`
   flex: 1 1 auto;
   height: 100%;
   margin: 0 auto;
-  max-width: ${(props) => (props.loading ? "100%" : "1920px")};
+  // max-width: ${(props) => (props.loading ? "100%" : "1920px")};
   color: ${(props) => props.theme.fontColor};
 `;
 

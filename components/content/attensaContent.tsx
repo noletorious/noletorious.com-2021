@@ -9,6 +9,9 @@ export default function AttensaContent({ image }) {
     <Styled.ContentWrap>
       <ProjectHeader
         image="/attensa/attensa-shoulder.jpg"
+        logo="/attensa/attensa-white.png"
+        logoWidth="310"
+        logoHeight="89"
         colors={[
           "rgb(19,19,19)",
           "rgb(255,255,255)",

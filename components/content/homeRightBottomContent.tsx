@@ -41,7 +41,7 @@ const ListWrapper = styled(motion.div).attrs({
   flex-direction: column;
   align-items: center;
   margin: 0 2em;
-  padding: 0.5em 2em;
+  padding: 1em 2em;
 `;
 const projectImageVariants = {
   initial: { opacity: 0, y: 0 },
@@ -56,6 +56,7 @@ const ProjectMotionImage = styled(motion.div).attrs((props) => ({
 }))`
   border-radius: 1em;
   margin: 1em 0;
+  position: relative;
 `;
 const ProjectImageWrap = styled(motion.div).attrs({
   initial: { opacity: 0, boxShadow: "0px 10px 10px -4px rgba(0,0,0,.3)" },
@@ -73,11 +74,12 @@ const ProjectImageWrap = styled(motion.div).attrs({
   },
 })`
   display: flex;
-  width: 200px;
-  height: 200px;
+  flex: 1;
   position: relative;
   border-radius: 1em;
   overflow: hidden;
+  width: 225px;
+  height: 225px;
   @media (min-width: ${XS_MOBILE_MIN_WIDTH}) {
     width: 250px;
     height: 250px;
@@ -87,12 +89,12 @@ const ProjectImageWrap = styled(motion.div).attrs({
     height: 400px;
   }
   @media (min-width: ${MOBILE_MIN_WIDTH}) {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
   }
   @media (min-width: ${DESKTOP_MIN_WIDTH}) {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
   }
   @media (min-width: ${XLDESKTOP_MIN_WIDTH}) {
     width: 550px;

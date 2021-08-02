@@ -8,6 +8,8 @@ import InfoIcon from "../icons/info";
 import ProjectFooterLinks from "../projectFooterLinks";
 import FancyImage from "../fancyImage";
 import ResponsivePlayer from "../responsivePlayer";
+import ProjectHeader from "../projectHeader";
+
 export default function CascadiaContent({}) {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   const [jobDescHover, setJobDescHover] = useState(false);
@@ -17,67 +19,35 @@ export default function CascadiaContent({}) {
   }
   return (
     <Styled.ContentWrap>
-      <Styled.ImageHeader image={"ct/ct-apparelTable.jpg"}>
-        <AnimatePresence>
-          {jobDescDisplay && (
-            <>
-              <Styled.JobDescContainer
-                color="rgb(34,34,34)"
-                transColor="rgba(0,0,0,.75)"
-              >
-                <Styled.ColorBoxWrap>
-                  <Styled.ColorBox color="rgb(5,5,5)" transparent />
-                  <Styled.ColorBox color="rgb(209, 68, 30)" />
-                  <Styled.ColorBox color="rgb(247, 232, 134)" />
-                  <Styled.ColorBox color="rgb(109, 179, 63)" />
-                  <Styled.ColorBox color="rgb(211, 233, 255)" />
-                </Styled.ColorBoxWrap>
-                <Styled.JobTitle>Design Lead</Styled.JobTitle>
-                <Styled.JobDescription>
-                  Web Design, Animation, Apparel Design, Photography
-                </Styled.JobDescription>
-              </Styled.JobDescContainer>
-            </>
-          )}
-        </AnimatePresence>
-        <Styled.JobDescToggle onClick={JobDescToggle}>
-          {jobDescDisplay ? (
-            <Styled.CloseWrap>
-              <CloseIcon size={24} />
-            </Styled.CloseWrap>
-          ) : (
-            <Styled.ToggleWrapper
-              onHoverStart={(e) => {
-                setJobDescHover(true);
-              }}
-              onHoverEnd={(e) => {
-                setJobDescHover(false);
-              }}
-            >
-              {jobDescHover ? (
-                <Styled.CloseWrap>
-                  <InfoIcon size={24} />
-                </Styled.CloseWrap>
-              ) : (
-                <Styled.CloseWrap>
-                  <InfoIcon size={24} />
-                </Styled.CloseWrap>
-              )}
-            </Styled.ToggleWrapper>
-          )}
-        </Styled.JobDescToggle>
-      </Styled.ImageHeader>{" "}
+      <ProjectHeader
+        image={"ct/ct-apparelTable.jpg"}
+        logo="/ct/ct-text-logo.png"
+        logoWidth="200"
+        logoHeight="80"
+        colors={[
+          "rgb(0,0,0)",
+          "rgb(200, 100, 100)",
+          "rgb(247, 150,200)",
+          "rgb(200,200,200)",
+          "rgb(255,255,255)",
+          "rgba(0,0,0,.95)",
+        ]}
+        position="Design Lead"
+        description=" Web Design, Animation, Apparel Design, Photography"
+      />
       {/* Wework image */}
       <Styled.CenteredRowsSection first noBottomMargin>
-        <Styled.CenteredRowBgHelper>
-          <Styled.BoxRadius>
-            <FancyImage
-              image={"/ct/ct-wework.jpg"}
-              width={3627}
-              height={2418}
-            />
-          </Styled.BoxRadius>
-        </Styled.CenteredRowBgHelper>
+        <FadeInWhenVisible>
+          <Styled.CenteredRowBgHelper>
+            <Styled.BoxRadius>
+              <FancyImage
+                image={"/ct/ct-wework.jpg"}
+                width={3627}
+                height={2418}
+              />
+            </Styled.BoxRadius>
+          </Styled.CenteredRowBgHelper>
+        </FadeInWhenVisible>
       </Styled.CenteredRowsSection>
       {/* Connector */}
       <Styled.TextSection noBottomMargin>
@@ -173,8 +143,8 @@ export default function CascadiaContent({}) {
             <Styled.BoxRadius bordered>
               <FancyImage
                 image={"/ct/ct-userflow.jpg"}
-                width={1382}
-                height={785}
+                width={1500}
+                height={1125}
               />
             </Styled.BoxRadius>
           </Styled.CenteredRowBgHelper>
@@ -201,34 +171,36 @@ export default function CascadiaContent({}) {
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.SmallCaps>Animations</Styled.SmallCaps>
-        <Styled.MediaWrap>
-          <Styled.TwoByTwo>
-            <Styled.Row>
-              <Styled.GridItem>
-                <Styled.BoxRadius>
-                  <ResponsivePlayer url="/ct/ct-flicker.webm" />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-              <Styled.GridItem>
-                <Styled.BoxRadius>
-                  <ResponsivePlayer url="/ct/ct-logo-intowords.webm" />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-            </Styled.Row>
-            <Styled.Row>
-              <Styled.GridItem>
-                <Styled.BoxRadius>
-                  <ResponsivePlayer url="/ct/ct-text-rotation.webm" />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-              <Styled.GridItem>
-                <Styled.BoxRadius>
-                  <ResponsivePlayer url="/ct/pizza-rotate.webm" />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-            </Styled.Row>
-          </Styled.TwoByTwo>
-        </Styled.MediaWrap>
+        <FadeInWhenVisible>
+          <Styled.MediaWrap>
+            <Styled.TwoByTwo>
+              <Styled.Row>
+                <Styled.GridItem>
+                  <Styled.BoxRadius>
+                    <ResponsivePlayer url="/ct/ct-flicker.webm" />
+                  </Styled.BoxRadius>
+                </Styled.GridItem>
+                <Styled.GridItem>
+                  <Styled.BoxRadius>
+                    <ResponsivePlayer url="/ct/ct-logo-intowords.webm" />
+                  </Styled.BoxRadius>
+                </Styled.GridItem>
+              </Styled.Row>
+              <Styled.Row>
+                <Styled.GridItem>
+                  <Styled.BoxRadius>
+                    <ResponsivePlayer url="/ct/ct-text-rotation.webm" />
+                  </Styled.BoxRadius>
+                </Styled.GridItem>
+                <Styled.GridItem>
+                  <Styled.BoxRadius>
+                    <ResponsivePlayer url="/ct/pizza-rotate.webm" />
+                  </Styled.BoxRadius>
+                </Styled.GridItem>
+              </Styled.Row>
+            </Styled.TwoByTwo>
+          </Styled.MediaWrap>
+        </FadeInWhenVisible>
         <Styled.Paragraph>
           More on{" "}
           <Styled.SectionLink href="https://dribbble.com/noletorious">

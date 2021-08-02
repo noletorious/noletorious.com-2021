@@ -28,7 +28,7 @@ export const ImageHeader = styled(motion.div).attrs((props) => ({
 }))`
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 80vh;
   border-radius: 0 0 0 1em;
   background-image: url(${(props) => props.image});
   background-position: bottom center;
@@ -96,12 +96,7 @@ export const TextSection = styled(motion.div).attrs({
   } ;
 `;
 
-export const Section = styled(motion.div).attrs({
-  variants: FADEINUPFADEEXIT,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
-})`
+export const Section = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -161,12 +156,7 @@ export const SectionLink = styled(Link)`
   margin-top: 1em;
 `;
 
-export const TextsAndLinksLeft = styled(motion.div).attrs({
-  variants: FADEINUPFADEEXIT,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
-})`
+export const TextsAndLinksLeft = styled(motion.div)`
   line-height: 1.5;
   margin: 0 1em;
   display: flex;
@@ -178,18 +168,18 @@ export const TextsAndLinksLeft = styled(motion.div).attrs({
     order: ${(props) => (props.mobileReverse ? 1 : -1)};
   }
 `;
-export const ContentWrap = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-`;
-
-export const TextsAndLinksRight = styled(motion.div).attrs({
+export const ContentWrap = styled(motion.div).attrs({
   variants: FADEINUPFADEEXIT,
   initial: "initial",
   animate: "animate",
   exit: "exit",
 })`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`;
+
+export const TextsAndLinksRight = styled(motion.div)`
   line-height: 1.5;
   display: inline;
   flex-direction: column;
@@ -261,6 +251,16 @@ export const JobDescContainer = styled(motion.div).attrs({
   flex-direction: column;
   border-radius: 0 0 0 1em;
   position;relative;
+`;
+
+export const JobLogoWrap = styled(motion.div).attrs({
+  variants: FADEINUPFADEEXIT,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+})`
+  max-width: 150px;
+  margin: 1em 0;
 `;
 
 export const JobDescription = styled(motion.div).attrs({
@@ -358,11 +358,22 @@ export const CarouselImageWrap = styled(BoxRadius)`
 export const ReactPlayerWrap = styled(BoxRadius)`
   border-radius: 1em;
   overflow: hidden;
+  & > div {
+    display: flex;
+  }
 `;
 
 export const CarouselItem = styled.div`
-  margin: 0 1em;
+  height: auto;
 `;
+
+export const YoutubeHelperWrap = styled.div`
+  height: 100%;
+  display: grid;
+  border-radius: 1em;
+  overflow: hidden !important;
+`;
+
 export const TwoByTwo = styled.div`
   display: flex;
   flex-direction: column;

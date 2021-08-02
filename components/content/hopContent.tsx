@@ -11,13 +11,16 @@ export default function HopContent({}) {
     <Styled.ContentWrap>
       <ProjectHeader
         image="/hop/hop-tap.jpg"
+        logo="/hop/hop-fastpass-circle.png"
+        logoWidth="150"
+        logoHeight="150"
         colors={[
           "rgb(42, 4, 134)",
           "rgb(254, 203, 56)",
           "rgb(255, 107, 0)",
           "rgb(141, 198, 64)",
           "rgb(114 175 212)",
-          "rgba(42, 4, 134, .95)",
+          "rgba(42, 4, 134, .98)",
         ]}
         position="Web/Motion Designer"
         description="Hand model, video production, motion graphics, 2D animation, interaction design"
@@ -81,16 +84,16 @@ export default function HopContent({}) {
                 transitionTime={1000}
               >
                 <Styled.CarouselItem>
-                  <Styled.CarouselImageWrap>
+                  <Styled.MediaWrap>
                     <img src="/hop/hop-whatsmyfare.jpg" />
                     <p className="carousel-context">Mapping the problem</p>
-                  </Styled.CarouselImageWrap>
+                  </Styled.MediaWrap>
                 </Styled.CarouselItem>
                 <Styled.CarouselItem>
-                  <Styled.CarouselImageWrap>
+                  <Styled.ReactPlayerWrap>
                     <ResponsivePlayer url="/hop/hop-whatsmyfare.mp4" />
-                    <p className="carousel-context">Questionnare solution</p>
-                  </Styled.CarouselImageWrap>
+                  </Styled.ReactPlayerWrap>
+                  <p className="carousel-context">Questionnare solution</p>
                 </Styled.CarouselItem>
               </Carousel>
             </Styled.CarouselMediaWrap>
@@ -99,20 +102,22 @@ export default function HopContent({}) {
       </Styled.Section>
       {/* Working with Apple */}
       <Styled.CenteredRowsSection>
-        <Styled.MediaWrap>
-          <FancyImage image="/hop/hop-vc-tap.jpg" width={1500} height={500} />
-        </Styled.MediaWrap>
-        <Styled.Paragraph>
-          Collaborated directly with Apple's Marketing team promoting{" "}
-          <Styled.SectionLink href="https://trimet.org/applepay/" passHref>
-            <a target="_blank">Virtual Card + ApplePay</a>
-          </Styled.SectionLink>{" "}
-          and{" "}
-          <Styled.SectionLink href="https://youtu.be/44fJcKEdTQs" passHref>
-            <a target="_blank">produced how-to videos</a>
-          </Styled.SectionLink>
-          .
-        </Styled.Paragraph>
+        <FadeInWhenVisible>
+          <Styled.MediaWrap>
+            <FancyImage image="/hop/hop-vc-tap.jpg" width={1500} height={500} />
+          </Styled.MediaWrap>
+          <Styled.Paragraph>
+            Collaborated directly with Apple's Marketing team promoting{" "}
+            <Styled.SectionLink href="https://trimet.org/applepay/" passHref>
+              <a target="_blank">Virtual Card + ApplePay</a>
+            </Styled.SectionLink>{" "}
+            and{" "}
+            <Styled.SectionLink href="https://youtu.be/44fJcKEdTQs" passHref>
+              <a target="_blank">produced how-to videos</a>
+            </Styled.SectionLink>
+            .
+          </Styled.Paragraph>
+        </FadeInWhenVisible>
       </Styled.CenteredRowsSection>
       {/* Fun animations */}{" "}
       <Styled.Section>
@@ -170,15 +175,15 @@ export default function HopContent({}) {
               height={1080}
             />
           </Styled.PortraitMediaWrap>
+          <Styled.Paragraph>
+            Added an extra layer of security by animating the Hopster mascots
+            within app's{" "}
+            <Styled.SectionLink href="https://myhopcard.com/home/pay-with-your-phone">
+              virtual card
+            </Styled.SectionLink>{" "}
+            validator.
+          </Styled.Paragraph>
         </Styled.CenteredRowBgHelper>
-        <Styled.Paragraph>
-          Added an extra layer of security by animating the Hopster mascots
-          within app's{" "}
-          <Styled.SectionLink href="https://myhopcard.com/home/pay-with-your-phone">
-            virtual card
-          </Styled.SectionLink>{" "}
-          validator.
-        </Styled.Paragraph>
       </Styled.CenteredRowsSection>
       {/*Logo + Next page link */}
       <ProjectFooterLinks nextLink={"/attensa"} next={"Attensa"} />

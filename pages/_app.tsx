@@ -8,6 +8,7 @@ import Loader from "../components/loader";
 import "../styles/globals.css";
 import styled from "styled-components";
 import { EASE } from "../utils/constants";
+import GlobalStyle from "../styles/global";
 
 const Cursor = styled(motion.div).attrs((props) => ({
   initial: { scale: 0.8, opacity: 0, x: -25 },
@@ -112,7 +113,8 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout loading={loading.toString()}>
+      <GlobalStyle whiteColor />
+      <Layout loading={loading}>
         <AnimateSharedLayout type="crossfade">
           <motion.div
             ref={boxRef}

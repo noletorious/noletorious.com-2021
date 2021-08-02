@@ -62,6 +62,7 @@ const topBorderVariants = {
   initial: {
     width: "0%",
     height: "15px",
+    background: "orange",
   },
   animate: {
     y: [0, -30],
@@ -84,7 +85,11 @@ const TopBorder = styled(motion.div).attrs({
   left: 0;
 `;
 const rightBorderVariants = {
-  initial: { width: "15px", height: "0%" },
+  initial: {
+    width: "15px",
+    height: "0%",
+    background: "linear-gradient(orange, violet)",
+  },
   animate: {
     x: [0, 30],
     height: "100%",
@@ -99,7 +104,6 @@ const RightBorder = styled(motion.div).attrs({
   animate: "animate",
   exit: "exit",
 })`
-  background-color: ${(props) => props.theme.accent1};
   display: flex;
   flex: 1;
   position: absolute;
@@ -111,6 +115,7 @@ const bottomBorderVariants = {
   initial: {
     width: "0%",
     height: "15px",
+    background: "violet",
   },
   animate: {
     y: [0, 30],
@@ -132,7 +137,11 @@ const BottomBorder = styled(motion.div).attrs({
   right: 0;
 `;
 const leftBorderVariants = {
-  initial: { width: "15px", height: "0%" },
+  initial: {
+    width: "15px",
+    height: "0%",
+    background: "linear-gradient(orange, violet)",
+  },
   animate: {
     x: [0, -30],
     height: "100%",

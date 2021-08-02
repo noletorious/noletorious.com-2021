@@ -1,6 +1,4 @@
-import { useState } from "react";
 import FancyImage from "../fancyImage";
-
 import { Carousel } from "react-responsive-carousel";
 import ResponsivePlayer from "../responsivePlayer";
 import ProjectFooterLinks from "../projectFooterLinks";
@@ -8,6 +6,7 @@ import FadeInWhenVisible from "../fadeInWhenVisible";
 import * as Styled from "../scaffold";
 import { useDarkMode } from "next-dark-mode";
 import ProjectHeader from "../projectHeader";
+import SparkleButton from "../sparkleButton";
 
 export default function TrimetContent({ image }) {
   const { darkModeActive } = useDarkMode();
@@ -16,6 +15,9 @@ export default function TrimetContent({ image }) {
     <Styled.ContentWrap>
       <ProjectHeader
         image="/front/trimet-front.jpg"
+        logo="/trimet/trimet-white.png"
+        logoWidth="600"
+        logoHeight="176"
         colors={[
           "rgb(8,76,141)",
           "rgb(209, 68, 30)",
@@ -120,7 +122,7 @@ export default function TrimetContent({ image }) {
             <Styled.CarouselMediaWrap>
               <Carousel
                 autoPlay
-                interval={4000}
+                interval={40000}
                 infiniteLoop
                 stopOnHover
                 dynamicHeight={true}
@@ -128,31 +130,45 @@ export default function TrimetContent({ image }) {
                 showStatus={false}
                 showArrows={false}
                 transitionTime={1000}
-                centerMode
-                centerSlidePercentage={90}
               >
                 <Styled.CarouselItem>
                   <Styled.CarouselImageWrap>
-                    <img src="/trimet/trimet-pdx-scenarios.jpg" />
+                    <FancyImage
+                      image="/trimet/trimet-pdx-scenarios.jpg"
+                      width={1000}
+                      height={562.67}
+                    />
                   </Styled.CarouselImageWrap>
                   <p className="carousel-context">Scenarios</p>
                 </Styled.CarouselItem>
                 <Styled.CarouselItem>
                   <Styled.CarouselImageWrap>
-                    <img src="/trimet/trimet-pdx-v1.jpg" />
+                    <FancyImage
+                      image="/trimet/trimet-pdx-v1.jpg"
+                      width={1500}
+                      height={845}
+                    />
                   </Styled.CarouselImageWrap>
                   <p className="carousel-context">_v1</p>
                 </Styled.CarouselItem>
                 <Styled.CarouselItem>
                   <Styled.CarouselImageWrap>
-                    <img src="/trimet/trimet-pdx-v2.jpg" />
+                    <FancyImage
+                      image="/trimet/trimet-pdx-v2.jpg"
+                      width={1000}
+                      height={562.67}
+                    />
                   </Styled.CarouselImageWrap>
                   <p className="carousel-context">_v2</p>
                 </Styled.CarouselItem>
                 <Styled.CarouselItem>
                   <Styled.CarouselImageWrap>
                     {" "}
-                    <img src="/trimet/trimet-pdx-v3.jpg" />
+                    <FancyImage
+                      image="/trimet/trimet-pdx-v3.jpg"
+                      width={1500}
+                      height={845}
+                    />
                   </Styled.CarouselImageWrap>
                   <p className="carousel-context">_v3</p>
                 </Styled.CarouselItem>
@@ -182,11 +198,28 @@ export default function TrimetContent({ image }) {
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
             </Styled.TextsAndLinksRight>
-            <Styled.MediaWrap>
-              <Styled.ReactPlayerWrap>
-                <ResponsivePlayer url="/trimet/continue-to-wear-masks.mp4" />
-              </Styled.ReactPlayerWrap>
-            </Styled.MediaWrap>
+            <Styled.CarouselMediaWrap>
+              {" "}
+              <Carousel
+                autoPlay
+                interval={50000}
+                stopOnHover
+                infiniteLoop
+                showThumbs={false}
+                showStatus={false}
+                showArrows={false}
+                transitionTime={1000}
+              >
+                <Styled.CarouselItem>
+                  <Styled.ReactPlayerWrap>
+                    <ResponsivePlayer url="/trimet/continue-to-wear-masks.mp4" />
+                  </Styled.ReactPlayerWrap>
+                </Styled.CarouselItem>
+                <Styled.YoutubeHelperWrap>
+                  <ResponsivePlayer url="https://youtu.be/LmMyqD47kIk" />
+                </Styled.YoutubeHelperWrap>
+              </Carousel>
+            </Styled.CarouselMediaWrap>
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
@@ -275,6 +308,40 @@ export default function TrimetContent({ image }) {
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
+      <Styled.CenteredRowsSection first>
+        <Styled.CenteredRowBgHelper>
+          <Styled.MaxWidth>
+            <Styled.SmallCaps>
+              <span style={{ textDecoration: " line-through", opacity: 0.2 }}>
+                Web Designer
+              </span>{" "}
+              → Front-End UI/Motion Designer
+            </Styled.SmallCaps>
+            <Styled.Paragraph last>
+              I create so much at TriMet, it's wonderful. A few notable on
+              projects that I haven't included a visual for yet:
+              <Styled.UnorderedList>
+                <Styled.ListItem>
+                  Outlook Employee Email Signature Generator
+                </Styled.ListItem>
+                <Styled.ListItem>New TriMet UI Storybook</Styled.ListItem>
+                <Styled.ListItem>
+                  New Onsite Transit Tracker Generator
+                </Styled.ListItem>
+                <Styled.ListItem>
+                  3D bus wrap customiser using Blenderjs
+                </Styled.ListItem>
+              </Styled.UnorderedList>
+            </Styled.Paragraph>
+            <Styled.Paragraph>
+              Interested in my work?
+              <SparkleButton url="mailto:hello@noletorious.com">
+                Feel free to connect
+              </SparkleButton>
+            </Styled.Paragraph>
+          </Styled.MaxWidth>
+        </Styled.CenteredRowBgHelper>
+      </Styled.CenteredRowsSection>
       {/*Logo + Next page link */}
       <ProjectFooterLinks next={"Hop Fastpass"} nextLink={"/hop-fastpass"} />
       <Styled.ImageFooter bgColor={"#fff"} image={"/trimet/trimet-logo.gif"} />

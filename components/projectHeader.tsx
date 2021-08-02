@@ -3,8 +3,17 @@ import * as Styled from "./scaffold";
 import { AnimatePresence } from "framer-motion";
 import CloseIcon from "./icons/close";
 import InfoIcon from "./icons/info";
+import FancyImage from "./fancyImage";
 
-const ProjectHeader = ({ colors, image, position, description }) => {
+const ProjectHeader = ({
+  colors,
+  image,
+  position,
+  logo,
+  logoHeight,
+  logoWidth,
+  description,
+}) => {
   const [jobDescDisplay, setJobDescDisplay] = useState(true);
   function JobDescToggle() {
     setJobDescDisplay(!jobDescDisplay);
@@ -15,6 +24,13 @@ const ProjectHeader = ({ colors, image, position, description }) => {
         {jobDescDisplay && (
           <>
             <Styled.JobDescContainer color={colors[0]} transColor={colors[5]}>
+              <Styled.JobLogoWrap>
+                <FancyImage
+                  image={logo}
+                  width={logoWidth}
+                  height={logoHeight}
+                />
+              </Styled.JobLogoWrap>
               <Styled.ColorBoxWrap>
                 <Styled.ColorBox color={colors[0]} transparent />
                 <Styled.ColorBox color={colors[1]} />

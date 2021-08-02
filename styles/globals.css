@@ -88,32 +88,3 @@ p {
   border-radius: 50%;
   border: solid 1px red;
 }
-
-/* Carousel Overrides */
-
-.carousel.carousel-slider {
-  overflow: visible !important;
-}
-.control-dots {
-  bottom: -2.5em !important;
-}
-.carousel .slide .carousel-context {
-  position: absolute;
-  bottom: -1em;
-  right: 2em;
-  background-color: #222;
-  color: #fff;
-  padding: 0.25em;
-}
-.carousel .slide:hover {
-  cursor: pointer;
-}
-
-.carousel .slide.selected:hover {
-  cursor: auto;
-}
-
-.carousel ul.control-dots .dot.selected {
-  background: var(--lightAccent1);
-  box-shadow: none;
-}

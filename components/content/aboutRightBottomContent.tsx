@@ -130,6 +130,7 @@ const SkillHeader = styled(motion.p)`
 
 const SkillList = styled.ul`
   padding-left: 1.5em;
+  margin-bottom: 3em;
 `;
 const SkillItem = styled.li`
   margin-bottom: 0.5em;
@@ -229,14 +230,12 @@ export default function AboutRightBottomContent({ image }) {
                 <SkillItem>Motion design</SkillItem>
                 <SkillItem>Front-end development</SkillItem>
               </SkillList>
-              <Divider />
               <SkillHeader>Design</SkillHeader>
               <SkillList>
                 <SkillItem>Adobe: AE, AI, XD, PS</SkillItem>
                 <SkillItem>Storybookjs</SkillItem>
                 <SkillItem>Framerjs</SkillItem>
               </SkillList>
-              <Divider />
               <SkillHeader>Developement</SkillHeader>
               <SkillList>
                 <SkillItem>React trained</SkillItem>
@@ -245,13 +244,10 @@ export default function AboutRightBottomContent({ image }) {
                 <SkillItem>Browserstack</SkillItem>
                 <SkillItem>Agile/Scrum experienced</SkillItem>
               </SkillList>
-              <Divider />
               <SkillHeader>Learning</SkillHeader>
               <SkillList>
-                <SkillList>Redux</SkillList>
-                <SkillItem>
-                  Python: 100 days of Python, Coursera Python Automation
-                </SkillItem>
+                <SkillItem>Enrolled in Reacttraining</SkillItem>
+                <SkillItem>Python: 100 days of Python</SkillItem>
                 <SkillItem>Blender and Threejs: Threejs Journey</SkillItem>
               </SkillList>
             </Card>
