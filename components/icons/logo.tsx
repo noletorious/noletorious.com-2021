@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Polygon = styled(motion.polygon).attrs((props) => ({
   points: props.points,
+  fill: props.theme.fontColor,
 }))``;
 
 const LinearGradient = styled(motion.linearGradient).attrs((props) => ({
@@ -16,15 +17,17 @@ const LinearGradient = styled(motion.linearGradient).attrs((props) => ({
 
 const Stop = styled(motion.stop).attrs((props) => ({
   offset: props.offset,
-  stopColor: props.stopColor,
+  stoke: props.theme.accent1,
 }))``;
 
 const Path = styled(motion.path).attrs((props) => ({
   d: props.d,
+  fill: "url(#SVGID_1_)",
 }))``;
 
 const Polyline = styled(motion.polyline).attrs((props) => ({
   points: props.points,
+  fill: props.theme.fontColor,
 }))``;
 export default function Logo({ size, mode }) {
   return (
@@ -40,7 +43,6 @@ export default function Logo({ size, mode }) {
       viewBox="0 0 100 100"
       xmlSpace="preserve"
     >
-      <style type="text/css">{`.st0{fill:url(#SVGID_1_)}`}</style>
       <g>
         <Polygon points="74.5,10.5 62.8,51.2 44.9,10.5 23.4,10.5 0.6,90 24.8,90 36.6,49.2 54.3,90 76,90 98.7,10.5" />
         <LinearGradient
@@ -51,8 +53,8 @@ export default function Logo({ size, mode }) {
           x2="49.65"
           y2="97.0414"
         >
-          <Stop offset="0" stopColor="rgb(224,224,224)" />
-          <Stop offset="0.9979" stopColor="rgb(29,222,99)" />
+          <stop offset="0" stopColor="#FFCC00" />
+          <stop offset="1" stopColor="#FF66CC" />
         </LinearGradient>
         <Path d="M98.7,10.5H74.5L62.8,51.2L44.9,10.5H23.4L0.6,90h24.2l11.8-40.8L54.3,90H76L98.7,10.5L98.7,10.5z" />
       </g>

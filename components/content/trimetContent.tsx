@@ -71,7 +71,7 @@ export default function TrimetContent({ image }) {
               <Styled.TextAndLinksInner>
                 I create Google Earth Fly-throughs of the new routes added to
                 the system so riders can familiarize themselves with the route
-                and landmarks.{" "}
+                and landmarks nearby.{" "}
               </Styled.TextAndLinksInner>
               <Styled.SectionLinkWrap>
                 <Styled.SectionLink
