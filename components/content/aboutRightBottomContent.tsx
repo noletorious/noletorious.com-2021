@@ -239,7 +239,7 @@ export default function AboutRightBottomContent({ image }) {
               <SkillHeader>Developement</SkillHeader>
               <SkillList>
                 <SkillItem>React trained</SkillItem>
-                <SkillItem> Nextjs, Gatsbyjs</SkillItem>
+                <SkillItem>Nextjs, Gatsbyjs</SkillItem>
                 <SkillItem>Visual Studio Code</SkillItem>
                 <SkillItem>Browserstack</SkillItem>
                 <SkillItem>Agile/Scrum experienced</SkillItem>
