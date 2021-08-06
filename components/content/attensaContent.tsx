@@ -75,18 +75,20 @@ export default function AttensaContent({ image }) {
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>
-          <Styled.SmallCaps>Contributions</Styled.SmallCaps>
-          <Styled.Paragraph last>
-            Joining the team in 2014, I started by creating what was
-            needed/missing for relaunching the Attensa 2.0 the following year.
-            From infographics, gated case-studies, photography, email templates,
-            user how-to microsite, automated marketing landing pages, and a new
-            Wordpress website.
-          </Styled.Paragraph>
-          <Styled.Paragraph>
-            My main contribution was working with the team on developing the
-            Topic View which both administrators and users interact with.{" "}
-          </Styled.Paragraph>
+          <Styled.MaxWidth>
+            <Styled.SmallCaps>Contributions</Styled.SmallCaps>
+            <Styled.Paragraph>
+              Joining the team in 2014, I started by creating what was
+              needed/missing for relaunching the Attensa 2.0 the following year.
+              From infographics, gated case-studies, photography, email
+              templates, user how-to microsite, automated marketing landing
+              pages, and a new Wordpress website.
+            </Styled.Paragraph>
+            <Styled.Paragraph last>
+              My main contribution was working with the team on developing the
+              Topic View which both administrators and users interact with.{" "}
+            </Styled.Paragraph>
+          </Styled.MaxWidth>
         </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
@@ -120,7 +122,7 @@ export default function AttensaContent({ image }) {
       <Styled.CenteredRowsSection>
         <FadeInWhenVisible>
           <Styled.CenteredRowBgHelper>
-            <Styled.SmallCaps>Login and see whats relevant</Styled.SmallCaps>
+            <Styled.SmallCaps>Access and relevancy is key</Styled.SmallCaps>
           </Styled.CenteredRowBgHelper>
           <Styled.Paragraph></Styled.Paragraph>
           <Styled.TwoByTwo>

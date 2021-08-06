@@ -43,7 +43,7 @@ const NoelImageWrap = styled(motion.div).attrs((props) => ({
   display: inline-block;
   max-width: 100%;
   max-height: 100%;
-  margin: 0 auto;
+  margin: 1em auto 0;
   overflow: hidden;
   border-radius: 50%;
   background-clip: padding-box;

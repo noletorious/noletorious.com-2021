@@ -84,10 +84,14 @@ export default function HopContent({}) {
                 transitionTime={1000}
               >
                 <Styled.CarouselItem>
-                  <Styled.MediaWrap>
-                    <img src="/hop/hop-whatsmyfare.jpg" />
-                    <p className="carousel-context">Mapping the problem</p>
-                  </Styled.MediaWrap>
+                  <Styled.BoxRadius>
+                    <FancyImage
+                      image="/hop/hop-whatsmyfare.jpg"
+                      width={2000}
+                      height={1106}
+                    />
+                  </Styled.BoxRadius>
+                  <p className="carousel-context">Mapping the problem</p>
                 </Styled.CarouselItem>
                 <Styled.CarouselItem>
                   <Styled.ReactPlayerWrap>

@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps, router }) {
   const { darkModeActive } = useDarkMode();
   const theme = darkModeActive ? darkTheme : lightTheme;
   const boxRef = useRef();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
   const [mouseStyle, setMouseStyle] = useState("");
   const [mouseClick, setMouseClick] = useState(false);

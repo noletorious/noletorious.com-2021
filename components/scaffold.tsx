@@ -45,7 +45,7 @@ export const MediaWrap = styled(motion.div)`
   display: flex;
   overflow: hidden;
   border-radius: 1em;
-  margin: 1em 0 1em;
+  margin: 1em auto;
 `;
 export const PortraitMediaWrap = styled(motion.div)`
   position: relative;
@@ -426,6 +426,8 @@ export const ParagraphSmall = styled(Paragraph)`
   font-size: 0.75em;
   line-height: 0;
   margin-bottom: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
 `;
 export const ArrivalsParagraphSmall = styled(ParagraphSmall)`
   margin-top: 2em;
@@ -439,7 +441,7 @@ export const SmallCaps = styled.span`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.8em;
-  margin: 1em 0;
+  margin: 1rem;
 `;
 
 export const UnorderedList = styled.ul``;
