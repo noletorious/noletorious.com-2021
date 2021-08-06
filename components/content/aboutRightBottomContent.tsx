@@ -226,9 +226,11 @@ export default function AboutRightBottomContent({ image }) {
             <Card>
               <SkillHeader>Muscle memory</SkillHeader>
               <SkillList>
-                <SkillItem>Rapid prototyping</SkillItem>
+                <SkillItem>User-centered design</SkillItem>
                 <SkillItem>Motion design</SkillItem>
                 <SkillItem>Front-end development</SkillItem>
+                <SkillItem>Rapid Prototyping</SkillItem>
+                <SkillItem>Design to code</SkillItem>
               </SkillList>
               <SkillHeader>Design</SkillHeader>
               <SkillList>
