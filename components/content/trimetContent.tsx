@@ -308,7 +308,7 @@ export default function TrimetContent({ image }) {
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
-      <Styled.CenteredRowsSection first>
+      <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>
           <Styled.MaxWidth>
             <Styled.SmallCaps>
@@ -321,6 +321,10 @@ export default function TrimetContent({ image }) {
               I create so much at TriMet, it's wonderful. A few noteworthy
               projects I haven't created a space for yet:
               <Styled.UnorderedList>
+                <Styled.ListItem>
+                  Currently learning how to automate image classification and
+                  keyword tagging using Adobe Bridge and Tensorflow.
+                </Styled.ListItem>
                 <Styled.ListItem>
                   Outlook Employee Email Signature Generator
                 </Styled.ListItem>

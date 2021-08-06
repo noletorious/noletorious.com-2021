@@ -45,7 +45,7 @@ export const MediaWrap = styled(motion.div)`
   display: flex;
   overflow: hidden;
   border-radius: 1em;
-  margin: 0;
+  margin: 1em 0 1em;
 `;
 export const PortraitMediaWrap = styled(motion.div)`
   position: relative;
@@ -415,10 +415,12 @@ export const ImageFooter = styled(motion.div).attrs({
 `;
 
 export const Paragraph = styled.p`
-  // opacity: 0.5;
   color: #878b8d;
   line-height: 1.5;
   margin-bottom: ${(props) => (props.last ? "0" : "2em")};
+  margin-top: 0;
+  margin-right: 1em;
+  margin-left: 1em;
 `;
 export const ParagraphSmall = styled(Paragraph)`
   font-size: 0.75em;
@@ -443,5 +445,6 @@ export const SmallCaps = styled.span`
 export const UnorderedList = styled.ul``;
 export const OrderedList = styled.ol``;
 export const ListItem = styled.li`
-  line-height: 2;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
 `;

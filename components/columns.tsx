@@ -67,6 +67,11 @@ const RightBottomColumn = styled(motion.div)`
   background-color: ${(props) => props.theme.bg1};
   flex-direction: column;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const ContentWrap = styled(motion.div)`
