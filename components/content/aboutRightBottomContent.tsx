@@ -229,7 +229,7 @@ export default function AboutRightBottomContent({ image }) {
                 <SkillItem>User-centered design</SkillItem>
                 <SkillItem>Motion design</SkillItem>
                 <SkillItem>Front-end development</SkillItem>
-                <SkillItem>Rapid Prototyping</SkillItem>
+                <SkillItem>Rapid prototyping</SkillItem>
                 <SkillItem>Design to code</SkillItem>
               </SkillList>
               <SkillHeader>Design</SkillHeader>
