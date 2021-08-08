@@ -32,31 +32,31 @@ export default function TrimetContent({ image }) {
       />
       {/* Styled guide */}
       <Styled.Section first>
-        <FadeInWhenVisible>
-          <Styled.SectionColumns>
-            <Styled.TextsAndLinksLeft>
-              <Styled.TextAndLinksInner>
+        <Styled.SectionColumns>
+          <Styled.TextsAndLinksLeft>
+            <Styled.TextAndLinksInner>
+              <FadeInWhenVisible>
                 In 2019, I formally standardized TriMet's digital assets in
-                order to align proper usage internally and externally.
-              </Styled.TextAndLinksInner>
-              <Styled.SectionLinkWrap>
-                <Styled.SectionLink
-                  href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/"
-                  passHref
-                >
-                  <a target="_blank">TriMet's digital interace elements</a>
-                </Styled.SectionLink>
-              </Styled.SectionLinkWrap>
-            </Styled.TextsAndLinksLeft>
-            <Styled.MediaWrap>
-              <FancyImage
-                image={"/trimet/trimet-styleguide.png"}
-                width={1000}
-                height={563}
-              />
-            </Styled.MediaWrap>
-          </Styled.SectionColumns>
-        </FadeInWhenVisible>
+                order to align proper usage internally and externally
+              </FadeInWhenVisible>
+            </Styled.TextAndLinksInner>
+            <Styled.SectionLinkWrap>
+              <Styled.SectionLink
+                href="https://xd.adobe.com/view/33453830-a9e6-4122-6b2c-1d0cc6704427-4574/"
+                passHref
+              >
+                <a target="_blank">TriMet's digital interace elements</a>
+              </Styled.SectionLink>
+            </Styled.SectionLinkWrap>
+          </Styled.TextsAndLinksLeft>
+          <Styled.MediaWrap>
+            <FancyImage
+              image={"/trimet/trimet-styleguide.png"}
+              width={1000}
+              height={563}
+            />
+          </Styled.MediaWrap>
+        </Styled.SectionColumns>
       </Styled.Section>
       {/* Google Earth Flythrough */}
       <Styled.Section>
@@ -216,7 +216,7 @@ export default function TrimetContent({ image }) {
                   </Styled.ReactPlayerWrap>
                 </Styled.CarouselItem>
                 <Styled.YoutubeHelperWrap>
-                  <ResponsivePlayer url="https://youtu.be/LmMyqD47kIk" />
+                  <ResponsivePlayer url="/trimet/airflow-on-max-compressed.mp4" />
                 </Styled.YoutubeHelperWrap>
               </Carousel>
             </Styled.CarouselMediaWrap>
@@ -242,71 +242,64 @@ export default function TrimetContent({ image }) {
       </Styled.Section> */}
       {/* Front-end Developer for TriMet Rearchitecture Project */}
       <Styled.Section>
-        <FadeInWhenVisible>
-          <Styled.SectionColumns togetherDesktop>
-            <Styled.TextsAndLinksLeft>
-              <Styled.BadgeWrap>
-                <Styled.Badge darkModeActive={darkModeActive}>
-                  High impact
-                </Styled.Badge>
-              </Styled.BadgeWrap>
-              <Styled.TextAndLinksInner>
-                Utilized by millions of users per month, I am currently a UI
-                designer and front-end developer for our TriMet Re-Architecture
-                Project.
-              </Styled.TextAndLinksInner>
-              <Styled.SectionLinkWrap>
-                <Styled.SectionLink href="https://beta.trimet.org" passHref>
-                  <a target="_blank">Check out beta</a>
-                </Styled.SectionLink>
-                {" / "}
-                <Styled.SectionLink
-                  href="https://trimet.org/newplanner"
-                  passHref
-                >
-                  <a target="_blank">Learn about the initiative</a>
-                </Styled.SectionLink>
-              </Styled.SectionLinkWrap>
-            </Styled.TextsAndLinksLeft>
-            <Styled.PortraitMediaWrap>
-              <FancyImage
-                image={"/trimet/tora-home.png"}
-                width={800}
-                height={1157}
-              />
-            </Styled.PortraitMediaWrap>
-          </Styled.SectionColumns>
-        </FadeInWhenVisible>
+        <Styled.SectionColumns togetherDesktop>
+          <Styled.TextsAndLinksLeft>
+            <Styled.BadgeWrap>
+              <Styled.Badge darkModeActive={darkModeActive}>
+                High impact
+              </Styled.Badge>
+            </Styled.BadgeWrap>
+            <Styled.TextAndLinksInner>
+              Utilized by millions of users per month, I am currently a UI
+              designer and front-end developer for our TriMet Re-Architecture
+              Project.
+            </Styled.TextAndLinksInner>
+            <Styled.SectionLinkWrap>
+              <Styled.SectionLink href="https://beta.trimet.org" passHref>
+                <a target="_blank">Check out beta</a>
+              </Styled.SectionLink>
+              {" / "}
+              <Styled.SectionLink href="https://trimet.org/newplanner" passHref>
+                <a target="_blank">Learn about the initiative</a>
+              </Styled.SectionLink>
+            </Styled.SectionLinkWrap>
+          </Styled.TextsAndLinksLeft>
+          <Styled.PortraitMediaWrap>
+            <FancyImage
+              image={"/trimet/tora-home.png"}
+              width={800}
+              height={1157}
+            />
+          </Styled.PortraitMediaWrap>
+        </Styled.SectionColumns>
       </Styled.Section>
       {/* TriMet Arrivals */}
       <Styled.Section first>
-        <FadeInWhenVisible>
-          <Styled.SectionColumns togetherDesktop>
-            <Styled.TextsAndLinksRight>
-              <Styled.BadgeWrap>
-                <Styled.Badge darkModeActive={darkModeActive}>
-                  Case study
-                </Styled.Badge>
-              </Styled.BadgeWrap>
-              <Styled.TextAndLinksInner>
-                Enjoy my experimental prototype on designing the ideal Transit
-                Tracker app:
-              </Styled.TextAndLinksInner>
-              <Styled.SectionLinkWrap>
-                <Styled.SectionLink href="/trimet/arrivals" passHref>
-                  <a>Arrivals</a>
-                </Styled.SectionLink>
-              </Styled.SectionLinkWrap>
-            </Styled.TextsAndLinksRight>
-            <Styled.PortraitMediaWrap>
-              <FancyImage
-                image={"/trimet/arrivals/trimet-arrivals.png"}
-                width={1000}
-                height={1305}
-              />
-            </Styled.PortraitMediaWrap>
-          </Styled.SectionColumns>
-        </FadeInWhenVisible>
+        <Styled.SectionColumns togetherDesktop>
+          <Styled.TextsAndLinksRight>
+            <Styled.BadgeWrap>
+              <Styled.Badge darkModeActive={darkModeActive}>
+                Case study
+              </Styled.Badge>
+            </Styled.BadgeWrap>
+            <Styled.TextAndLinksInner>
+              Enjoy my experimental prototype on designing the ideal Transit
+              Tracker app:
+            </Styled.TextAndLinksInner>
+            <Styled.SectionLinkWrap>
+              <Styled.SectionLink href="/trimet/arrivals" passHref>
+                <a>Arrivals</a>
+              </Styled.SectionLink>
+            </Styled.SectionLinkWrap>
+          </Styled.TextsAndLinksRight>
+          <Styled.PortraitMediaWrap>
+            <FancyImage
+              image={"/trimet/arrivals/trimet-arrivals.png"}
+              width={1000}
+              height={1305}
+            />
+          </Styled.PortraitMediaWrap>
+        </Styled.SectionColumns>
       </Styled.Section>
       <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>

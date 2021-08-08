@@ -37,17 +37,15 @@ export default function CascadiaContent({}) {
       />
       {/* Wework image */}
       <Styled.CenteredRowsSection first noBottomMargin>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper>
-            <Styled.BoxRadius>
-              <FancyImage
-                image={"/ct/ct-wework.jpg"}
-                width={3627}
-                height={2418}
-              />
-            </Styled.BoxRadius>
-          </Styled.CenteredRowBgHelper>
-        </FadeInWhenVisible>
+        <Styled.CenteredRowBgHelper>
+          <Styled.BoxRadius>
+            <FancyImage
+              image={"/ct/ct-wework.jpg"}
+              width={3627}
+              height={2418}
+            />
+          </Styled.BoxRadius>
+        </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       {/* Connector */}
       <Styled.TextSection noBottomMargin>
@@ -84,48 +82,30 @@ export default function CascadiaContent({}) {
         </FadeInWhenVisible>
       </Styled.TextSection>
       <Styled.CenteredRowsSection>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowsSection noBottomMargin>
-            <Styled.CenteredRowBgHelper>
-              <Styled.BoxRadius>
-                <FancyImage
-                  image={"/ct/slide-1.jpg"}
-                  width={1500}
-                  height={845}
-                />
-                <FancyImage
-                  image={"/ct/slide-2.jpg"}
-                  width={1500}
-                  height={845}
-                />
-                <FancyImage
-                  image={"/ct/slide-3.jpg"}
-                  width={1500}
-                  height={845}
-                />
-                <FancyImage
-                  image={"/ct/slide-4.jpg"}
-                  width={1500}
-                  height={845}
-                />
-              </Styled.BoxRadius>
-            </Styled.CenteredRowBgHelper>
-          </Styled.CenteredRowsSection>
-        </FadeInWhenVisible>
+        <Styled.CenteredRowsSection noBottomMargin>
+          <Styled.CenteredRowBgHelper>
+            <Styled.BoxRadius>
+              <FancyImage image={"/ct/slide-1.jpg"} width={1500} height={845} />
+              <FancyImage image={"/ct/slide-2.jpg"} width={1500} height={845} />
+              <FancyImage image={"/ct/slide-3.jpg"} width={1500} height={845} />
+              <FancyImage image={"/ct/slide-4.jpg"} width={1500} height={845} />
+            </Styled.BoxRadius>
+          </Styled.CenteredRowBgHelper>
+        </Styled.CenteredRowsSection>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>
           <Styled.MaxWidth>
             <Styled.Paragraph></Styled.Paragraph>
             <Styled.SmallCaps>Contributions</Styled.SmallCaps>
-            <Styled.Paragraph last>
+            <Styled.Paragraph>
               Cascadia Threads is a personal project that came about in 2015. It
               was a lifestyle brand and our main goal was to create a online
               store along with increasing awareness around climate change. Our
               appeal was to focus on meshing fun, urban, tech styles with a
               sustainable product.
             </Styled.Paragraph>
-            <Styled.Paragraph>
+            <Styled.Paragraph last>
               My main contribution was spanned the full gammut of web design and
               website development. I also coordinated designs to production as
               well as managing relationships with models and photographers. It
@@ -136,19 +116,19 @@ export default function CascadiaContent({}) {
         </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection noBottomMargin>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper>
+        <Styled.CenteredRowBgHelper>
+          <FadeInWhenVisible>
             <Styled.SmallCaps>Webstore</Styled.SmallCaps>
-            <Styled.Paragraph></Styled.Paragraph>
-            <Styled.BoxRadius bordered>
-              <FancyImage
-                image={"/ct/ct-userflow.jpg"}
-                width={1500}
-                height={1125}
-              />
-            </Styled.BoxRadius>
-          </Styled.CenteredRowBgHelper>
-        </FadeInWhenVisible>
+          </FadeInWhenVisible>
+          <Styled.Paragraph></Styled.Paragraph>
+          <Styled.BoxRadius>
+            <FancyImage
+              image={"/ct/ct-userflow.jpg"}
+              width={1500}
+              height={1125}
+            />
+          </Styled.BoxRadius>
+        </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.TextSection noBottomMargin>
         <FadeInWhenVisible>
@@ -161,13 +141,7 @@ export default function CascadiaContent({}) {
         </FadeInWhenVisible>
       </Styled.TextSection>
       <Styled.CenteredRowsSection first>
-        <FadeInWhenVisible>
-          <FancyImage
-            image={"/ct/ct-storelist.png"}
-            width={1382}
-            height={785}
-          />
-        </FadeInWhenVisible>
+        <FancyImage image={"/ct/ct-storelist.png"} width={1382} height={785} />
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.SmallCaps>Animations</Styled.SmallCaps>
@@ -176,26 +150,34 @@ export default function CascadiaContent({}) {
             <Styled.TwoByTwo>
               <Styled.Row>
                 <Styled.GridItem>
-                  <Styled.BoxRadius>
-                    <ResponsivePlayer url="/ct/ct-flicker.webm" />
-                  </Styled.BoxRadius>
+                  <FadeInWhenVisible>
+                    <Styled.BoxRadius>
+                      <ResponsivePlayer url="/ct/ct-flicker.webm" />
+                    </Styled.BoxRadius>
+                  </FadeInWhenVisible>
                 </Styled.GridItem>
                 <Styled.GridItem>
-                  <Styled.BoxRadius>
-                    <ResponsivePlayer url="/ct/ct-logo-intowords.webm" />
-                  </Styled.BoxRadius>
+                  <FadeInWhenVisible>
+                    <Styled.BoxRadius>
+                      <ResponsivePlayer url="/ct/ct-logo-intowords.webm" />
+                    </Styled.BoxRadius>
+                  </FadeInWhenVisible>
                 </Styled.GridItem>
               </Styled.Row>
               <Styled.Row>
                 <Styled.GridItem>
-                  <Styled.BoxRadius>
-                    <ResponsivePlayer url="/ct/ct-text-rotation.webm" />
-                  </Styled.BoxRadius>
+                  <FadeInWhenVisible>
+                    <Styled.BoxRadius>
+                      <ResponsivePlayer url="/ct/ct-text-rotation.webm" />
+                    </Styled.BoxRadius>
+                  </FadeInWhenVisible>
                 </Styled.GridItem>
                 <Styled.GridItem>
-                  <Styled.BoxRadius>
-                    <ResponsivePlayer url="/ct/pizza-rotate.webm" />
-                  </Styled.BoxRadius>
+                  <FadeInWhenVisible>
+                    <Styled.BoxRadius>
+                      <ResponsivePlayer url="/ct/pizza-rotate.webm" />
+                    </Styled.BoxRadius>
+                  </FadeInWhenVisible>
                 </Styled.GridItem>
               </Styled.Row>
             </Styled.TwoByTwo>

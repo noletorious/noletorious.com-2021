@@ -54,41 +54,41 @@ export default function AttensaContent({ image }) {
         </FadeInWhenVisible>
       </Styled.TextSection>
       <Styled.CenteredRowsSection>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper bgColor={"rgba(0,0,0,.5)"}>
-            <Styled.MediaWrap>
-              <FancyImage
-                image={"/attensa/attensa-solOne.png"}
-                width={1920}
-                height={1080}
-              />
-            </Styled.MediaWrap>{" "}
-            <Styled.MediaWrap>
-              <FancyImage
-                image={"/attensa/attensa-solTwo.png"}
-                width={730}
-                height={708}
-              />
-            </Styled.MediaWrap>
-          </Styled.CenteredRowBgHelper>
-        </FadeInWhenVisible>
+        <Styled.CenteredRowBgHelper bgColor={"rgba(0,0,0,.5)"}>
+          <Styled.MediaWrap>
+            <FancyImage
+              image={"/attensa/attensa-solOne.png"}
+              width={1920}
+              height={1080}
+            />
+          </Styled.MediaWrap>{" "}
+          <Styled.MediaWrap>
+            <FancyImage
+              image={"/attensa/attensa-solTwo.png"}
+              width={730}
+              height={708}
+            />
+          </Styled.MediaWrap>
+        </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
         <Styled.CenteredRowBgHelper>
-          <Styled.MaxWidth>
-            <Styled.SmallCaps>Contributions</Styled.SmallCaps>
-            <Styled.Paragraph>
-              Joining the team in 2014, I started by creating what was
-              needed/missing for relaunching the Attensa 2.0 the following year.
-              From infographics, gated case-studies, photography, email
-              templates, user how-to microsite, automated marketing landing
-              pages, and a new Wordpress website.
-            </Styled.Paragraph>
-            <Styled.Paragraph last>
-              My main contribution was working with the team on developing the
-              Topic View which both administrators and users interact with.{" "}
-            </Styled.Paragraph>
-          </Styled.MaxWidth>
+          <FadeInWhenVisible>
+            <Styled.MaxWidth>
+              <Styled.SmallCaps>Contributions</Styled.SmallCaps>
+              <Styled.Paragraph>
+                Joining the team in 2014, I started by creating what was
+                needed/missing for relaunching the Attensa 2.0 the following
+                year. From infographics, gated case-studies, photography, email
+                templates, user how-to microsite, automated marketing landing
+                pages, and a new Wordpress website.
+              </Styled.Paragraph>
+              <Styled.Paragraph last>
+                My main contribution was working with the team on developing the
+                Topic View which both administrators and users interact with.{" "}
+              </Styled.Paragraph>
+            </Styled.MaxWidth>
+          </FadeInWhenVisible>
         </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
@@ -103,86 +103,86 @@ export default function AttensaContent({ image }) {
         </Styled.CenteredRowBgHelper>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper>
-            <Styled.SmallCaps>The Topic View</Styled.SmallCaps>
-            <Styled.Paragraph></Styled.Paragraph>
-          </Styled.CenteredRowBgHelper>
-          <Styled.MediaWrap>
-            <Styled.BoxRadius bordered>
-              <FancyImage
-                image={"/attensa/attensa-topicView.png"}
-                width={1382}
-                height={785}
-              />
-            </Styled.BoxRadius>
-          </Styled.MediaWrap>
-        </FadeInWhenVisible>
+        <Styled.CenteredRowBgHelper>
+          <Styled.SmallCaps>The Topic View</Styled.SmallCaps>
+          <Styled.Paragraph></Styled.Paragraph>
+        </Styled.CenteredRowBgHelper>
+        <Styled.MediaWrap>
+          <FancyImage
+            image={"/attensa/attensa-topicView.png"}
+            width={1382}
+            height={785}
+            bordered
+            boxRadius
+          />
+        </Styled.MediaWrap>
       </Styled.CenteredRowsSection>
       <Styled.CenteredRowsSection>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper>
+        <Styled.CenteredRowBgHelper>
+          <FadeInWhenVisible>
             <Styled.SmallCaps>Access and relevancy is key</Styled.SmallCaps>
-          </Styled.CenteredRowBgHelper>
-          <Styled.Paragraph></Styled.Paragraph>
-          <Styled.TwoByTwo>
-            <Styled.Row>
-              <Styled.GridItem>
-                <Styled.BoxRadius bordered>
-                  <FancyImage
-                    image={"/attensa/attensa-mobLogin.png"}
-                    width={750}
-                    height={1334}
-                  />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-              <Styled.GridItem>
-                <Styled.BoxRadius bordered>
-                  <FancyImage
-                    image={"/attensa/attensa-mobMyTopics.png"}
-                    width={750}
-                    height={1334}
-                  />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-            </Styled.Row>
-            <Styled.Row>
-              <Styled.GridItem>
-                <Styled.BoxRadius bordered>
-                  <FancyImage
-                    image={"/attensa/attensa-mobReadView.png"}
-                    width={750}
-                    height={1334}
-                  />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-              <Styled.GridItem>
-                <Styled.BoxRadius bordered>
-                  <FancyImage
-                    image={"/attensa/attensa-mobTopicView.png"}
-                    width={750}
-                    height={1334}
-                  />
-                </Styled.BoxRadius>
-              </Styled.GridItem>
-            </Styled.Row>
-          </Styled.TwoByTwo>
-        </FadeInWhenVisible>
+          </FadeInWhenVisible>
+        </Styled.CenteredRowBgHelper>
+        <Styled.Paragraph></Styled.Paragraph>
+        <Styled.TwoByTwo>
+          <Styled.Row>
+            <Styled.GridItem>
+              <FancyImage
+                image={"/attensa/attensa-mobLogin.png"}
+                width={750}
+                height={1334}
+                bordered
+                boxRadius
+              />
+            </Styled.GridItem>
+            <Styled.GridItem>
+              <FancyImage
+                image={"/attensa/attensa-mobMyTopics.png"}
+                width={750}
+                height={1334}
+                bordered
+                boxRadius
+              />
+            </Styled.GridItem>
+          </Styled.Row>
+          <Styled.Row>
+            <Styled.GridItem>
+              <FancyImage
+                image={"/attensa/attensa-mobReadView.png"}
+                width={750}
+                height={1334}
+                boxRadius
+                bordered
+              />
+            </Styled.GridItem>
+            <Styled.GridItem>
+              <FancyImage
+                image={"/attensa/attensa-mobTopicView.png"}
+                width={750}
+                height={1334}
+                bordered
+                boxRadius
+              />
+            </Styled.GridItem>
+          </Styled.Row>
+        </Styled.TwoByTwo>
       </Styled.CenteredRowsSection>{" "}
       <Styled.CenteredRowsSection>
-        <FadeInWhenVisible>
-          <Styled.CenteredRowBgHelper>
+        <Styled.CenteredRowBgHelper>
+          <FadeInWhenVisible>
             <Styled.SmallCaps>Landing pages</Styled.SmallCaps>
-            <Styled.Paragraph></Styled.Paragraph>
-          </Styled.CenteredRowBgHelper>
-          <Styled.MediaWrap>
-            <FancyImage
-              image={"/attensa/attensa-LP.png"}
-              width={1430}
-              height={2121}
-            />
-          </Styled.MediaWrap>
-        </FadeInWhenVisible>
+          </FadeInWhenVisible>
+          <Styled.Paragraph></Styled.Paragraph>
+        </Styled.CenteredRowBgHelper>
+        <Styled.MediaWrap>
+          <FancyImage
+            image={"/attensa/attensa-LP.png"}
+            width={1430}
+            height={2121}
+            bordered
+            boxRadius
+          />
+        </Styled.MediaWrap>
       </Styled.CenteredRowsSection>
       <ProjectFooterLinks
         nextLink={"/cascadiathreads"}
