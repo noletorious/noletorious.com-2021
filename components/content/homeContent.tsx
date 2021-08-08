@@ -108,7 +108,7 @@ export default function HomeContent() {
           <NoelImage />
         </ImageWrap>
         <JobTitle2>Designer</JobTitle2>
-        <MainSkills>React / Motion / Prototyping</MainSkills>
+        <MainSkills>User-centered / Motion / Front-end</MainSkills>
       </InnerWrap>
     </Wrapper>
   );

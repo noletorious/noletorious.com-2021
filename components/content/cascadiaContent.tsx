@@ -61,7 +61,7 @@ export default function CascadiaContent({}) {
                   href="https://www.instagram.com/oregonscreen/"
                   passHref
                 >
-                  <a target="_blank" style={{ fontSize: ".7em" }}>
+                  <a target="_blank" style={{ fontSize: ".9em" }}>
                     👕 @oregonscreen
                   </a>
                 </Styled.SectionLink>
@@ -71,11 +71,22 @@ export default function CascadiaContent({}) {
                   href="https://www.instagram.com/blackprints/"
                   passHref
                 >
-                  <a target="_blank" style={{ fontSize: ".7em" }}>
+                  <a target="_blank" style={{ fontSize: ".9em" }}>
                     📸 @blackprints
                   </a>
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
+              <Styled.SectionLinkWrap noMargin>
+                <Styled.SectionLink
+                  href="https://www.instagram.com/wework"
+                  passHref
+                >
+                  <a target="_blank" style={{ fontSize: ".9em" }}>
+                    📸 @wework
+                  </a>
+                </Styled.SectionLink>
+              </Styled.SectionLinkWrap>
+              <Styled.Paragraph></Styled.Paragraph>
             </Styled.ConnectorText>
             <Styled.Connector />
           </Styled.TitleConnectorRow>

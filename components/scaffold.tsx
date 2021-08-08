@@ -43,8 +43,6 @@ export const MediaWrap = styled(motion.div)`
   position: relative;
   max-width: 800px;
   display: flex;
-  overflow: hidden;
-  border-radius: 1em;
   margin: 1em auto;
 `;
 export const PortraitMediaWrap = styled(motion.div)`
