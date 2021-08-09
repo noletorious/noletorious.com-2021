@@ -21,13 +21,7 @@ export default function FancyImage({
   return (
     <FadeInWhenVisible>
       <ImageWrap boxRadius={boxRadius} bordered={bordered}>
-        <Image
-          placeholder="blur"
-          src={image}
-          layout="intrinsic"
-          width={width}
-          height={height}
-        />
+        <Image src={image} layout="intrinsic" width={width} height={height} />
       </ImageWrap>
     </FadeInWhenVisible>
   );
