@@ -41,13 +41,16 @@ export default function HopContent({}) {
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
             </Styled.TextsAndLinksLeft>
-            <Styled.MediaWrap>
-              <FancyImage
-                image={"/hop/myhopcard.com.png"}
-                width={2000}
-                height={1126}
-              />
-            </Styled.MediaWrap>
+            <div>
+              <Styled.MediaWrap>
+                <FancyImage
+                  image={"/hop/myhopcard.com.png"}
+                  width={2000}
+                  height={1126}
+                  boxRadius
+                />
+              </Styled.MediaWrap>
+            </div>
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
@@ -108,7 +111,12 @@ export default function HopContent({}) {
       <Styled.CenteredRowsSection>
         <FadeInWhenVisible>
           <Styled.MediaWrap>
-            <FancyImage image="/hop/hop-vc-tap.jpg" width={1500} height={500} />
+            <FancyImage
+              boxRadius
+              image="/hop/hop-vc-tap.jpg"
+              width={1500}
+              height={500}
+            />
           </Styled.MediaWrap>
           <Styled.Paragraph>
             Collaborated directly with Apple's Marketing team promoting{" "}
@@ -140,9 +148,13 @@ export default function HopContent({}) {
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
             </Styled.TextsAndLinksLeft>
-            <Styled.MediaWrap>
-              <ResponsivePlayer url="/hop/hop-plaidpantry.webm" />
-            </Styled.MediaWrap>
+            <div>
+              <Styled.MediaWrap>
+                <Styled.BoxRadius>
+                  <ResponsivePlayer url="/hop/hop-plaidpantry.webm" />
+                </Styled.BoxRadius>
+              </Styled.MediaWrap>
+            </div>
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
@@ -163,9 +175,13 @@ export default function HopContent({}) {
                 </Styled.SectionLink>
               </Styled.SectionLinkWrap>
             </Styled.TextsAndLinksRight>
-            <Styled.MediaWrap>
-              <ResponsivePlayer url="/hop/hop-30secad.webm" />
-            </Styled.MediaWrap>
+            <div>
+              <Styled.MediaWrap>
+                <Styled.BoxRadius>
+                  <ResponsivePlayer url="/hop/hop-30secad.webm" />
+                </Styled.BoxRadius>
+              </Styled.MediaWrap>
+            </div>
           </Styled.SectionColumns>
         </FadeInWhenVisible>
       </Styled.Section>
