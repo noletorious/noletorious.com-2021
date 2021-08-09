@@ -49,24 +49,28 @@ export default function TrimetContent({ image }) {
               </Styled.SectionLink>
             </Styled.SectionLinkWrap>
           </Styled.TextsAndLinksLeft>
-          <Styled.MediaWrap>
-            <FancyImage
-              image={"/trimet/trimet-styleguide.png"}
-              width={1000}
-              height={563}
-            />
-          </Styled.MediaWrap>
+          <div>
+            <Styled.MediaWrap>
+              <FancyImage
+                image={"/trimet/trimet-styleguide.png"}
+                width={1000}
+                height={563}
+              />
+            </Styled.MediaWrap>
+          </div>
         </Styled.SectionColumns>
       </Styled.Section>
       {/* Google Earth Flythrough */}
       <Styled.Section>
         <FadeInWhenVisible>
           <Styled.SectionColumns>
-            <Styled.MediaWrap>
-              <Styled.ReactPlayerWrap>
-                <ResponsivePlayer url="/trimet/trimet-flythrough.mp4" />
-              </Styled.ReactPlayerWrap>
-            </Styled.MediaWrap>
+            <div>
+              <Styled.MediaWrap>
+                <Styled.ReactPlayerWrap>
+                  <ResponsivePlayer url="/trimet/trimet-flythrough.mp4" />
+                </Styled.ReactPlayerWrap>
+              </Styled.MediaWrap>
+            </div>
             <Styled.TextsAndLinksRight>
               <Styled.TextAndLinksInner>
                 I create Google Earth Fly-throughs of the new routes added to
