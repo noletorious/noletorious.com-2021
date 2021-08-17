@@ -117,11 +117,11 @@ export default function CascadiaContent({}) {
               sustainable product.
             </Styled.Paragraph>
             <Styled.Paragraph last>
-              My main contribution was spanned the full gammut of web design and
+              My main contribution spanned the full gammut of web design and
               website development. I also coordinated designs to production as
               well as managing relationships with models and photographers. It
               was such a fun project but had to end due to the teams
-              professional commitments.
+              professional developments and personal commitments.
             </Styled.Paragraph>
           </Styled.MaxWidth>
         </Styled.CenteredRowBgHelper>
